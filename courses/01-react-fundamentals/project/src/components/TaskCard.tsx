@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react'
+import Button from './Button'
+import Badge from './Badge'
+import StatusIndicator from './StatusIndicator'
 
 interface TaskCardProps {
   taskId?: string | number
@@ -6,7 +9,6 @@ interface TaskCardProps {
   description: string
   priority: string
   completed?: boolean
-
   category?: string
   tags?: string[]
   dueDate?: string
@@ -38,7 +40,7 @@ interface TaskCardProps {
   ) => void
 }
 
-function getDueLabel(
+function getDueStatus(
   dueDate?: string,
   completed = false,
 ) {
@@ -63,23 +65,22 @@ function getDueLabel(
     today.getDate(),
   )
 
-  const difference =
-    Math.round(
-      (due.getTime() -
-        todayOnly.getTime()) /
-        (1000 * 60 * 60 * 24),
-    )
+  const difference = Math.round(
+    (due.getTime() -
+      todayOnly.getTime()) /
+      (1000 * 60 * 60 * 24),
+  )
 
   if (difference < 0) {
-    return 'Overdue'
+    return 'overdue' as const
   }
 
   if (difference === 0) {
-    return 'Due Today'
+    return 'due-today' as const
   }
 
   if (difference <= 3) {
-    return 'Due Soon'
+    return 'due-soon' as const
   }
 
   return null
@@ -108,8 +109,10 @@ export default function TaskCard({
   const [editTitle, setEditTitle] =
     useState(title)
 
-  const [editDescription, setEditDescription] =
-    useState(description)
+  const [
+    editDescription,
+    setEditDescription,
+  ] = useState(description)
 
   const [editPriority, setEditPriority] =
     useState(priority)
@@ -208,22 +211,23 @@ export default function TaskCard({
     onStartEdit?.(-1)
   }
 
-  const dueLabel = getDueLabel(
+  const dueStatus = getDueStatus(
     dueDate,
     completed,
   )
-
-  const overdue =
-    dueLabel === 'Overdue'
 
   return (
     <article
       id="task-card"
       data-completed={
-        completed ? 'true' : 'false'
+        completed
+          ? 'true'
+          : 'false'
       }
       data-overdue={
-        overdue ? 'true' : 'false'
+        dueStatus === 'overdue'
+          ? 'true'
+          : 'false'
       }
     >
       {onToggle && (
@@ -242,7 +246,12 @@ export default function TaskCard({
 
       {isEditing ? (
         <div>
+          <label htmlFor={`edit-title-${taskId}`}>
+            Title
+          </label>
+
           <input
+            id={`edit-title-${taskId}`}
             value={editTitle}
             onChange={(event) => {
               setEditTitle(
@@ -250,27 +259,38 @@ export default function TaskCard({
               )
               setEditError('')
             }}
-            aria-label="Edit title"
           />
 
+          <label
+            htmlFor={`edit-description-${taskId}`}
+          >
+            Description
+          </label>
+
           <textarea
+            id={`edit-description-${taskId}`}
             value={editDescription}
             onChange={(event) =>
               setEditDescription(
                 event.target.value,
               )
             }
-            aria-label="Edit description"
           />
 
+          <label
+            htmlFor={`edit-priority-${taskId}`}
+          >
+            Priority
+          </label>
+
           <select
+            id={`edit-priority-${taskId}`}
             value={editPriority}
             onChange={(event) =>
               setEditPriority(
                 event.target.value,
               )
             }
-            aria-label="Edit priority"
           >
             <option value="Low">
               Low
@@ -283,27 +303,46 @@ export default function TaskCard({
             </option>
           </select>
 
+          <label
+            htmlFor={`edit-category-${taskId}`}
+          >
+            Category
+          </label>
+
           <input
+            id={`edit-category-${taskId}`}
             value={editCategory}
             onChange={(event) =>
               setEditCategory(
                 event.target.value,
               )
             }
-            aria-label="Edit category"
           />
 
+          <label
+            htmlFor={`edit-tags-${taskId}`}
+          >
+            Tags
+          </label>
+
           <input
+            id={`edit-tags-${taskId}`}
             value={editTags}
             onChange={(event) =>
               setEditTags(
                 event.target.value,
               )
             }
-            aria-label="Edit tags"
           />
 
+          <label
+            htmlFor={`edit-due-date-${taskId}`}
+          >
+            Due Date
+          </label>
+
           <input
+            id={`edit-due-date-${taskId}`}
             type="date"
             value={editDueDate}
             onChange={(event) =>
@@ -311,7 +350,6 @@ export default function TaskCard({
                 event.target.value,
               )
             }
-            aria-label="Edit due date"
           />
 
           {editError && (
@@ -323,19 +361,21 @@ export default function TaskCard({
             </div>
           )}
 
-          <button
+          <Button
             type="button"
+            variant="primary"
             onClick={handleSave}
           >
             Save
-          </button>
+          </Button>
 
-          <button
+          <Button
             type="button"
+            variant="secondary"
             onClick={handleCancel}
           >
             Cancel
-          </button>
+          </Button>
         </div>
       ) : (
         <>
@@ -362,29 +402,42 @@ export default function TaskCard({
           </p>
 
           <div>
-            Priority: {priority}
+            Priority:{' '}
+            <Badge variant="priority">
+              {priority}
+            </Badge>
           </div>
 
           <div id="task-category">
-            Category: {category}
+            Category:{' '}
+            <Badge variant="category">
+              {category}
+            </Badge>
           </div>
 
           <div id="task-tags">
             {tags.map((tag) => (
-              <span
+              <Badge
                 key={tag}
-                data-tag={tag}
+                variant="tag"
               >
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
+
+          {completed && (
+            <StatusIndicator
+              status="completed"
+            />
+          )}
 
           {dueDate && (
             <div
               id="task-due-date"
               data-overdue={
-                overdue
+                dueStatus ===
+                'overdue'
                   ? 'true'
                   : 'false'
               }
@@ -394,18 +447,17 @@ export default function TaskCard({
                 `${dueDate}T00:00:00`,
               ).toLocaleDateString()}
 
-              {dueLabel && (
-                <span>
-                  {' '}
-                  {dueLabel}
-                </span>
+              {dueStatus && (
+                <StatusIndicator
+                  status={dueStatus}
+                />
               )}
             </div>
           )}
 
           {onUpdateTask && (
-            <button
-              type="button"
+            <Button
+              variant="secondary"
               onClick={() => {
                 if (
                   taskId !== undefined
@@ -417,18 +469,16 @@ export default function TaskCard({
               }}
             >
               Edit
-            </button>
+            </Button>
           )}
 
           {onDelete && (
-            <button
-              type="button"
-              onClick={
-                handleDelete
-              }
+            <Button
+              variant="danger"
+              onClick={handleDelete}
             >
               Delete
-            </button>
+            </Button>
           )}
         </>
       )}
