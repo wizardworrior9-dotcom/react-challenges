@@ -270,5 +270,28 @@
       "maintainability": 90,
       "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it even more maintainable and efficient."
     }
+  },
+  {
+    "challengeId": "13-due-dates-and-sorting",
+    "challengeName": "Due Dates and Sorting",
+    "aiReview": {
+      "challengeId": "13-due-dates-and-sorting",
+      "timestamp": "2026-08-11T12:50:09.535Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent structure.",
+        "The use of TypeScript and functional components is a good choice for a React application.",
+        "The code includes clear and concise comments, which helps with understanding the functionality."
+      ],
+      "improvements": [
+        "Some of the functions are quite long and complex. Consider breaking them down into smaller, more manageable functions.",
+        "There are some repeated code patterns, such as the `useEffect` hook for loading and saving tasks. Consider extracting a separate function for this logic.",
+        "The `TaskApp` component has a lot of props. Consider using a prop validation library like `prop-types` to ensure that the props are correctly typed and to provide a clear description of each prop."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it even more maintainable and efficient."
+    }
   }
 ]

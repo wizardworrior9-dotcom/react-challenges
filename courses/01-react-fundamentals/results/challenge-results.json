@@ -4578,5 +4578,272 @@
       "maintainability": 90,
       "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it even more maintainable and efficient."
     }
+  },
+  {
+    "challengeId": "13-due-dates-and-sorting",
+    "challengeName": "Due Dates and Sorting",
+    "timestamp": "2026-08-11T12:49:43.739Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 88
+    },
+    "totalScore": 98.2,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Due Dates and Sorting"
+              ],
+              "fullName": " Challenge 13: Due Dates and Sorting TaskCard should render title",
+              "status": "passed",
+              "title": "TaskCard should render title",
+              "duration": 55,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Due Dates and Sorting"
+              ],
+              "fullName": " Challenge 13: Due Dates and Sorting TaskList should render tasks",
+              "status": "passed",
+              "title": "TaskList should render tasks",
+              "duration": 13,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1786452591686,
+          "endTime": 1786452591755,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/01-react-fundamentals/project/tests/challenge-13.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\components\\TaskApp.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\components\\TaskCard.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\components\\TaskForm.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "functionalComponent",
+        "props"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/components/TaskCard.tsx",
+          "patternsFound": [
+            "functionalComponent",
+            "props"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/TaskForm.tsx",
+          "patternsFound": [
+            "functionalComponent",
+            "props"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/TaskApp.tsx",
+          "patternsFound": [
+            "functionalComponent",
+            "props"
+          ],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-13.spec.ts",
+          "file": "challenge-13.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 13: Due Dates and Sorting - E2E",
+              "file": "challenge-13.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should display task list",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1009,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-11T12:50:07.630Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b108b4dbebb7686e0d0c-86864a67f0db9b54973f",
+                  "file": "challenge-13.spec.ts",
+                  "line": 8,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "13-due-dates-and-sorting",
+      "timestamp": "2026-08-11T12:50:09.535Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent structure.",
+        "The use of TypeScript and functional components is a good choice for a React application.",
+        "The code includes clear and concise comments, which helps with understanding the functionality."
+      ],
+      "improvements": [
+        "Some of the functions are quite long and complex. Consider breaking them down into smaller, more manageable functions.",
+        "There are some repeated code patterns, such as the `useEffect` hook for loading and saving tasks. Consider extracting a separate function for this logic.",
+        "The `TaskApp` component has a lot of props. Consider using a prop validation library like `prop-types` to ensure that the props are correctly typed and to provide a clear description of each prop."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it even more maintainable and efficient."
+    },
+    "aiResults": {
+      "challengeId": "13-due-dates-and-sorting",
+      "timestamp": "2026-08-11T12:50:09.535Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent structure.",
+        "The use of TypeScript and functional components is a good choice for a React application.",
+        "The code includes clear and concise comments, which helps with understanding the functionality."
+      ],
+      "improvements": [
+        "Some of the functions are quite long and complex. Consider breaking them down into smaller, more manageable functions.",
+        "There are some repeated code patterns, such as the `useEffect` hook for loading and saving tasks. Consider extracting a separate function for this logic.",
+        "The `TaskApp` component has a lot of props. Consider using a prop validation library like `prop-types` to ensure that the props are correctly typed and to provide a clear description of each prop."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it even more maintainable and efficient."
+    }
   }
 ]
