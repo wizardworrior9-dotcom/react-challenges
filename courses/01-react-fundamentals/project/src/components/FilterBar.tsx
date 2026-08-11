@@ -11,6 +11,9 @@ interface FilterBarProps {
   onFilterChange?: (filter: TaskFilter) => void
   sortOrder?: TaskSort
   onSortChange?: (sortOrder: TaskSort) => void
+  searchText?: string
+  onSearchChange?: (searchText: string) => void
+  onClearSearch?: () => void
 }
 
 export default function FilterBar({
@@ -18,32 +21,59 @@ export default function FilterBar({
   onFilterChange,
   sortOrder = 'recent',
   onSortChange,
+  searchText = '',
+  onSearchChange,
+  onClearSearch,
 }: FilterBarProps) {
   return (
     <div id="filter-bar">
-      <button
-        type="button"
-        data-active={filter === 'all' ? 'true' : 'false'}
-        onClick={() => onFilterChange?.('all')}
-      >
-        All
-      </button>
+      <div>
+        <button
+          type="button"
+          data-active={filter === 'all' ? 'true' : 'false'}
+          onClick={() => onFilterChange?.('all')}
+        >
+          All
+        </button>
 
-      <button
-        type="button"
-        data-active={filter === 'active' ? 'true' : 'false'}
-        onClick={() => onFilterChange?.('active')}
-      >
-        Active
-      </button>
+        <button
+          type="button"
+          data-active={filter === 'active' ? 'true' : 'false'}
+          onClick={() => onFilterChange?.('active')}
+        >
+          Active
+        </button>
 
-      <button
-        type="button"
-        data-active={filter === 'completed' ? 'true' : 'false'}
-        onClick={() => onFilterChange?.('completed')}
-      >
-        Completed
-      </button>
+        <button
+          type="button"
+          data-active={filter === 'completed' ? 'true' : 'false'}
+          onClick={() => onFilterChange?.('completed')}
+        >
+          Completed
+        </button>
+      </div>
+
+      <div>
+        <input
+          id="search-input"
+          type="text"
+          value={searchText}
+          onChange={(event) =>
+            onSearchChange?.(event.target.value)
+          }
+          placeholder="Search tasks..."
+        />
+
+        {searchText && (
+          <button
+            id="clear-search"
+            type="button"
+            onClick={onClearSearch}
+          >
+            Clear search
+          </button>
+        )}
+      </div>
 
       <select
         id="sort-order"
