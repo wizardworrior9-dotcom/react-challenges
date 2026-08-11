@@ -35,6 +35,9 @@ export default function TaskApp({
 }: TaskAppProps) {
   const [filter, setFilter] = useState<TaskFilter>('all')
   const [sortOrder, setSortOrder] = useState<TaskSort>('recent')
+  const [editingId, setEditingId] = useState<
+    string | number | null
+  >(null)
 
   const handleAddTask = (task: Task) => {
     if (setTasks) {
@@ -80,6 +83,11 @@ export default function TaskApp({
       setTasks((previousTasks) =>
         previousTasks.filter((task) => task.id !== id),
       )
+
+      if (editingId === id) {
+        setEditingId(null)
+      }
+
       return
     }
 
@@ -91,7 +99,52 @@ export default function TaskApp({
     }
   }
 
-  // First filter the original task array.
+  const handleUpdateTask = (
+    id: string | number,
+    updates: {
+      title: string
+      description: string
+      priority: string
+    },
+  ) => {
+    const trimmedTitle = updates.title.trim()
+
+    if (!trimmedTitle) {
+      return
+    }
+
+    const updatedTask = {
+      ...updates,
+      title: trimmedTitle,
+      description: updates.description.trim(),
+    }
+
+    if (setTasks) {
+      setTasks((previousTasks) =>
+        previousTasks.map((task) =>
+          task.id === id
+            ? { ...task, ...updatedTask }
+            : task,
+        ),
+      )
+
+      setEditingId(null)
+      return
+    }
+
+    if (dispatch) {
+      dispatch({
+        type: 'UPDATE_TASK',
+        payload: {
+          id,
+          ...updatedTask,
+        },
+      })
+
+      setEditingId(null)
+    }
+  }
+
   const filteredTasks =
     filter === 'active'
       ? tasks.filter((task) => !task.completed)
@@ -99,7 +152,6 @@ export default function TaskApp({
         ? tasks.filter((task) => task.completed)
         : tasks
 
-  // Then sort a copy so the original state is never mutated.
   const sortedTasks = [...filteredTasks].sort((a, b) => {
     switch (sortOrder) {
       case 'priority-high':
@@ -158,6 +210,16 @@ export default function TaskApp({
           countText={countText}
           onToggle={handleToggle}
           onDelete={onDelete ? handleDelete : undefined}
+          onUpdateTask={handleUpdateTask}
+          editingId={editingId}
+          onStartEdit={(id) => {
+            if (id === -1) {
+              setEditingId(null)
+            } else {
+              setEditingId(id)
+            }
+          }}
+          linkToTaskDetail={false}
         />
       )}
     </div>
