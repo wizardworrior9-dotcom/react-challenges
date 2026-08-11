@@ -58,12 +58,12 @@ export default function TaskList({
         {list.map((task) => (
           <TaskCard
             key={task.id}
+            taskId={task.id}
             title={task.title}
             description={task.description}
             priority={task.priority}
             completed={task.completed}
             onToggle={onToggle}
-            taskId={task.id}
           />
         ))}
       </section>

@@ -35,9 +35,31 @@ export default function TaskApp({
     }
   }
 
+  const handleToggle = (id: string | number) => {
+    if (setTasks) {
+      setTasks((previousTasks) =>
+        previousTasks.map((task) =>
+          task.id === id
+            ? { ...task, completed: !task.completed }
+            : task,
+        ),
+      )
+      return
+    }
+
+    if (dispatch) {
+      dispatch({
+        type: 'TOGGLE_TASK',
+        payload: id,
+      })
+    }
+  }
+
+  const completedCount = tasks.filter((task) => task.completed).length
+
   const countText =
     countFormat === 'completed'
-      ? `${tasks.filter((task) => task.completed).length} Completed`
+      ? `${completedCount} of ${tasks.length} completed`
       : `${tasks.length} Tasks`
 
   return (
@@ -47,6 +69,7 @@ export default function TaskApp({
       <TaskList
         tasks={tasks}
         countText={countText}
+        onToggle={handleToggle}
       />
     </div>
   )
