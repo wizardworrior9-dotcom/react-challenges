@@ -12,7 +12,7 @@ export default function TaskCard(_props: TaskCardProps) {
     <article id="task-card">
       <h2>{_props.title}</h2>
       <p>{_props.description}</p>
-      <span>Property: {_props.priority}</span>
+      <span>Priority: {_props.priority}</span>
     </article>
   )
 }

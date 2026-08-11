@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
-import type { Task } from './TaskList'
+import TaskList, { type Task } from './TaskList'
 
 interface TaskAppProps {
   tasks?: Task[]
@@ -13,6 +13,17 @@ interface TaskAppProps {
   linkToTaskDetail?: boolean
 }
 
-export default function TaskApp(_props: TaskAppProps) {
-  return null
+export default function TaskApp({
+  tasks,
+  countFormat,
+}: TaskAppProps) {
+  const currentTasks = tasks ?? []
+  const countText = `${currentTasks.length} Tasks`
+
+  return (
+    <TaskList
+      tasks={currentTasks}
+      countText={countFormat === 'tasks' ? countText : countText}
+    />
+  )
 }
