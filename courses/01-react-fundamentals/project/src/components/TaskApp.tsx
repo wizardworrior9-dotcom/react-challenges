@@ -1,4 +1,10 @@
-import { useRef, useState, type Dispatch, type SetStateAction } from 'react'
+import {
+  useEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from 'react'
 import FilterBar, {
   type TaskFilter,
   type TaskSort,
@@ -17,6 +23,8 @@ interface TaskAppProps {
   onDelete?: (id: string | number) => void
   linkToTaskDetail?: boolean
 }
+
+const STORAGE_KEY = 'task-app-tasks'
 
 const PRIORITY_ORDER: Record<string, number> = {
   High: 0,
@@ -41,6 +49,57 @@ export default function TaskApp({
   >(null)
 
   const searchInputRef = useRef<HTMLInputElement>(null)
+  const hasLoadedStorage = useRef(false)
+
+  /*
+   * Load persisted tasks once when TaskApp mounts.
+   *
+   * If localStorage is missing, invalid, or contains something
+   * other than an array, the existing tasks from App are retained.
+   */
+  useEffect(() => {
+    if (!setTasks) {
+      hasLoadedStorage.current = true
+      return
+    }
+
+    try {
+      const storedTasks = window.localStorage.getItem(STORAGE_KEY)
+
+      if (storedTasks) {
+        const parsedTasks: unknown = JSON.parse(storedTasks)
+
+        if (Array.isArray(parsedTasks)) {
+          setTasks(parsedTasks as Task[])
+        }
+      }
+    } catch {
+      // Invalid localStorage data is ignored.
+    } finally {
+      hasLoadedStorage.current = true
+    }
+  }, [setTasks])
+
+  /*
+   * Save tasks whenever the task array changes.
+   *
+   * The first render is skipped until the load effect has finished,
+   * preventing the initial default tasks from overwriting persisted data.
+   */
+  useEffect(() => {
+    if (!setTasks || !hasLoadedStorage.current) {
+      return
+    }
+
+    try {
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(tasks),
+      )
+    } catch {
+      // Storage failures should not crash the application.
+    }
+  }, [tasks, setTasks])
 
   const handleAddTask = (task: Task) => {
     if (setTasks) {
@@ -48,12 +107,10 @@ export default function TaskApp({
       return
     }
 
-    if (dispatch) {
-      dispatch({
-        type: 'ADD_TASK',
-        payload: task,
-      })
-    }
+    dispatch?.({
+      type: 'ADD_TASK',
+      payload: task,
+    })
   }
 
   const handleToggle = (id: string | number) => {
@@ -68,12 +125,10 @@ export default function TaskApp({
       return
     }
 
-    if (dispatch) {
-      dispatch({
-        type: 'TOGGLE_TASK',
-        payload: id,
-      })
-    }
+    dispatch?.({
+      type: 'TOGGLE_TASK',
+      payload: id,
+    })
   }
 
   const handleDelete = (id: string | number) => {
@@ -94,12 +149,10 @@ export default function TaskApp({
       return
     }
 
-    if (dispatch) {
-      dispatch({
-        type: 'DELETE_TASK',
-        payload: id,
-      })
-    }
+    dispatch?.({
+      type: 'DELETE_TASK',
+      payload: id,
+    })
   }
 
   const handleUpdateTask = (
@@ -110,23 +163,23 @@ export default function TaskApp({
       priority: string
     },
   ) => {
-    const trimmedTitle = updates.title.trim()
+    const title = updates.title.trim()
 
-    if (!trimmedTitle) {
+    if (!title) {
       return
     }
 
-    const updatedTask = {
-      ...updates,
-      title: trimmedTitle,
+    const updatedFields = {
+      title,
       description: updates.description.trim(),
+      priority: updates.priority,
     }
 
     if (setTasks) {
       setTasks((previousTasks) =>
         previousTasks.map((task) =>
           task.id === id
-            ? { ...task, ...updatedTask }
+            ? { ...task, ...updatedFields }
             : task,
         ),
       )
@@ -135,20 +188,21 @@ export default function TaskApp({
       return
     }
 
-    if (dispatch) {
-      dispatch({
-        type: 'UPDATE_TASK',
-        payload: {
-          id,
-          ...updatedTask,
-        },
-      })
+    dispatch?.({
+      type: 'UPDATE_TASK',
+      payload: {
+        id,
+        ...updatedFields,
+      },
+    })
 
-      setEditingId(null)
-    }
+    setEditingId(null)
   }
 
-  // 1. Filter by status.
+  /*
+   * Challenge 06:
+   * Filter by status first.
+   */
   const statusFilteredTasks =
     filter === 'active'
       ? tasks.filter((task) => !task.completed)
@@ -156,22 +210,27 @@ export default function TaskApp({
         ? tasks.filter((task) => task.completed)
         : tasks
 
-  // 2. Search the status-filtered tasks.
+  /*
+   * Challenge 09:
+   * Search after status filtering.
+   */
   const normalizedSearch = searchText.trim().toLowerCase()
 
   const searchedTasks = normalizedSearch
     ? statusFilteredTasks.filter((task) => {
-        const title = task.title.toLowerCase()
-        const description = task.description.toLowerCase()
-
         return (
-          title.includes(normalizedSearch) ||
-          description.includes(normalizedSearch)
+          task.title.toLowerCase().includes(normalizedSearch) ||
+          task.description
+            .toLowerCase()
+            .includes(normalizedSearch)
         )
       })
     : statusFilteredTasks
 
-  // 3. Sort the searched result.
+  /*
+   * Challenge 07:
+   * Sort only after filtering and searching.
+   */
   const sortedTasks = [...searchedTasks].sort((a, b) => {
     switch (sortOrder) {
       case 'priority-high':
@@ -211,6 +270,15 @@ export default function TaskApp({
     })
   }
 
+  const handleStartEdit = (id: string | number) => {
+    if (id === -1) {
+      setEditingId(null)
+      return
+    }
+
+    setEditingId(id)
+  }
+
   return (
     <div>
       {showForm && <TaskForm onAddTask={handleAddTask} />}
@@ -224,6 +292,7 @@ export default function TaskApp({
           searchText={searchText}
           onSearchChange={setSearchText}
           onClearSearch={handleClearSearch}
+          searchInputRef={searchInputRef}
         />
       )}
 
@@ -242,16 +311,10 @@ export default function TaskApp({
           tasks={sortedTasks}
           countText={countText}
           onToggle={handleToggle}
-          onDelete={onDelete ? handleDelete : undefined}
+          onDelete={onDelete ? handleDelete : handleDelete}
           onUpdateTask={handleUpdateTask}
           editingId={editingId}
-          onStartEdit={(id) => {
-            if (id === -1) {
-              setEditingId(null)
-            } else {
-              setEditingId(id)
-            }
-          }}
+          onStartEdit={handleStartEdit}
           linkToTaskDetail={false}
         />
       )}

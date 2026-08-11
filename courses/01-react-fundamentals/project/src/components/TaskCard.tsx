@@ -33,9 +33,8 @@ export default function TaskCard({
   onStartEdit,
 }: TaskCardProps) {
   const isEditing =
-    editingId !== undefined &&
     editingId !== null &&
-    taskId !== undefined &&
+    editingId !== undefined &&
     editingId === taskId
 
   const [editTitle, setEditTitle] = useState(title)
@@ -51,30 +50,6 @@ export default function TaskCard({
       setEditError('')
     }
   }, [isEditing, title, description, priority])
-
-  const handleToggle = () => {
-    if (onToggle && taskId !== undefined) {
-      onToggle(taskId)
-    }
-  }
-
-  const handleDelete = () => {
-    if (onDelete && taskId !== undefined) {
-      if (window.confirm('Are you sure?')) {
-        onDelete(taskId)
-      }
-    }
-  }
-
-  const handleStartEdit = () => {
-    if (onStartEdit && taskId !== undefined) {
-      setEditTitle(title)
-      setEditDescription(description)
-      setEditPriority(priority)
-      setEditError('')
-      onStartEdit(taskId)
-    }
-  }
 
   const handleSave = () => {
     if (!editTitle.trim()) {
@@ -97,8 +72,16 @@ export default function TaskCard({
     setEditPriority(priority)
     setEditError('')
 
-    if (onStartEdit) {
-      onStartEdit(-1)
+    onStartEdit?.(-1)
+  }
+
+  const handleDelete = () => {
+    if (!onDelete || taskId === undefined) {
+      return
+    }
+
+    if (window.confirm('Are you sure?')) {
+      onDelete(taskId)
     }
   }
 
@@ -114,7 +97,11 @@ export default function TaskCard({
         <input
           type="checkbox"
           checked={completed}
-          onChange={handleToggle}
+          onChange={() => {
+            if (taskId !== undefined) {
+              onToggle(taskId)
+            }
+          }}
           aria-label={`Mark ${title} as completed`}
         />
       )}
@@ -127,9 +114,7 @@ export default function TaskCard({
             value={editTitle}
             onChange={(event) => {
               setEditTitle(event.target.value)
-              if (editError) {
-                setEditError('')
-              }
+              setEditError('')
             }}
           />
 
@@ -192,7 +177,7 @@ export default function TaskCard({
           <span>Priority: {priority}</span>
 
           {onUpdateTask && (
-            <button type="button" onClick={handleStartEdit}>
+            <button type="button" onClick={() => onStartEdit?.(taskId!)}>
               Edit
             </button>
           )}
