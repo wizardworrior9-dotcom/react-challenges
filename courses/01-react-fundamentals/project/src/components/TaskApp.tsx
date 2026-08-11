@@ -1,5 +1,8 @@
 import { useState, type Dispatch, type SetStateAction } from 'react'
-import FilterBar, { type TaskFilter } from './FilterBar'
+import FilterBar, {
+  type TaskFilter,
+  type TaskSort,
+} from './FilterBar'
 import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
 
@@ -15,6 +18,12 @@ interface TaskAppProps {
   linkToTaskDetail?: boolean
 }
 
+const PRIORITY_ORDER: Record<string, number> = {
+  High: 0,
+  Medium: 1,
+  Low: 2,
+}
+
 export default function TaskApp({
   tasks = [],
   setTasks,
@@ -25,6 +34,7 @@ export default function TaskApp({
   onDelete,
 }: TaskAppProps) {
   const [filter, setFilter] = useState<TaskFilter>('all')
+  const [sortOrder, setSortOrder] = useState<TaskSort>('recent')
 
   const handleAddTask = (task: Task) => {
     if (setTasks) {
@@ -81,6 +91,7 @@ export default function TaskApp({
     }
   }
 
+  // First filter the original task array.
   const filteredTasks =
     filter === 'active'
       ? tasks.filter((task) => !task.completed)
@@ -88,12 +99,37 @@ export default function TaskApp({
         ? tasks.filter((task) => task.completed)
         : tasks
 
-  const countText =
-    showFilterBar
-      ? `Showing ${filteredTasks.length} of ${tasks.length} tasks`
-      : countFormat === 'completed'
-        ? `${tasks.filter((task) => task.completed).length} of ${tasks.length} completed`
-        : `${tasks.length} Tasks`
+  // Then sort a copy so the original state is never mutated.
+  const sortedTasks = [...filteredTasks].sort((a, b) => {
+    switch (sortOrder) {
+      case 'priority-high':
+        return (
+          (PRIORITY_ORDER[a.priority] ?? 99) -
+          (PRIORITY_ORDER[b.priority] ?? 99)
+        )
+
+      case 'priority-low':
+        return (
+          (PRIORITY_ORDER[b.priority] ?? 99) -
+          (PRIORITY_ORDER[a.priority] ?? 99)
+        )
+
+      case 'alphabetical':
+        return a.title.localeCompare(b.title, undefined, {
+          sensitivity: 'base',
+        })
+
+      case 'recent':
+      default:
+        return 0
+    }
+  })
+
+  const countText = showFilterBar
+    ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
+    : countFormat === 'completed'
+      ? `${tasks.filter((task) => task.completed).length} of ${tasks.length} completed`
+      : `${tasks.length} Tasks`
 
   return (
     <div>
@@ -103,19 +139,22 @@ export default function TaskApp({
         <FilterBar
           filter={filter}
           onFilterChange={setFilter}
+          sortOrder={sortOrder}
+          onSortChange={setSortOrder}
         />
       )}
 
-      {showFilterBar && filteredTasks.length === 0 ? (
+      {showFilterBar && sortedTasks.length === 0 ? (
         <>
           <div id="task-count">{countText}</div>
+
           <div id="filter-empty-message">
             No tasks match this filter
           </div>
         </>
       ) : (
         <TaskList
-          tasks={filteredTasks}
+          tasks={sortedTasks}
           countText={countText}
           onToggle={handleToggle}
           onDelete={onDelete ? handleDelete : undefined}

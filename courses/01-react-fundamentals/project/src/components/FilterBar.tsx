@@ -1,24 +1,30 @@
 export type TaskFilter = 'all' | 'active' | 'completed'
 
+export type TaskSort =
+  | 'recent'
+  | 'priority-high'
+  | 'priority-low'
+  | 'alphabetical'
+
 interface FilterBarProps {
-  filter: TaskFilter
+  filter?: TaskFilter
   onFilterChange?: (filter: TaskFilter) => void
+  sortOrder?: TaskSort
+  onSortChange?: (sortOrder: TaskSort) => void
 }
 
 export default function FilterBar({
-  filter,
+  filter = 'all',
   onFilterChange,
+  sortOrder = 'recent',
+  onSortChange,
 }: FilterBarProps) {
-  const handleFilterChange = (nextFilter: TaskFilter) => {
-    onFilterChange?.(nextFilter)
-  }
-
   return (
     <div id="filter-bar">
       <button
         type="button"
         data-active={filter === 'all' ? 'true' : 'false'}
-        onClick={() => handleFilterChange('all')}
+        onClick={() => onFilterChange?.('all')}
       >
         All
       </button>
@@ -26,7 +32,7 @@ export default function FilterBar({
       <button
         type="button"
         data-active={filter === 'active' ? 'true' : 'false'}
-        onClick={() => handleFilterChange('active')}
+        onClick={() => onFilterChange?.('active')}
       >
         Active
       </button>
@@ -34,10 +40,27 @@ export default function FilterBar({
       <button
         type="button"
         data-active={filter === 'completed' ? 'true' : 'false'}
-        onClick={() => handleFilterChange('completed')}
+        onClick={() => onFilterChange?.('completed')}
       >
         Completed
       </button>
+
+      <select
+        id="sort-order"
+        value={sortOrder}
+        onChange={(event) =>
+          onSortChange?.(event.target.value as TaskSort)
+        }
+      >
+        <option value="recent">Recently Added</option>
+        <option value="priority-high">
+          Priority: High to Low
+        </option>
+        <option value="priority-low">
+          Priority: Low to High
+        </option>
+        <option value="alphabetical">Alphabetical</option>
+      </select>
     </div>
   )
 }
