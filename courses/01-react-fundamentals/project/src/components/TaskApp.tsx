@@ -43,7 +43,19 @@ export default function TaskApp({
 }: TaskAppProps) {
   const [filter, setFilter] = useState<TaskFilter>('all')
   const [sortOrder, setSortOrder] = useState<TaskSort>('recent')
-  const [searchText, setSearchText] = useState('')
+
+  /*
+   * Challenge 09:
+   * rawSearch is updated immediately as the user types.
+   */
+  const [rawSearch, setRawSearch] = useState('')
+
+  /*
+   * Challenge 11:
+   * effectiveSearch is the debounced value used for filtering.
+   */
+  const [effectiveSearch, setEffectiveSearch] = useState('')
+
   const [editingId, setEditingId] = useState<
     string | number | null
   >(null)
@@ -52,10 +64,8 @@ export default function TaskApp({
   const hasLoadedStorage = useRef(false)
 
   /*
-   * Load persisted tasks once when TaskApp mounts.
-   *
-   * If localStorage is missing, invalid, or contains something
-   * other than an array, the existing tasks from App are retained.
+   * Challenge 10:
+   * Load tasks from localStorage when the component mounts.
    */
   useEffect(() => {
     if (!setTasks) {
@@ -64,7 +74,8 @@ export default function TaskApp({
     }
 
     try {
-      const storedTasks = window.localStorage.getItem(STORAGE_KEY)
+      const storedTasks =
+        window.localStorage.getItem(STORAGE_KEY)
 
       if (storedTasks) {
         const parsedTasks: unknown = JSON.parse(storedTasks)
@@ -81,10 +92,8 @@ export default function TaskApp({
   }, [setTasks])
 
   /*
-   * Save tasks whenever the task array changes.
-   *
-   * The first render is skipped until the load effect has finished,
-   * preventing the initial default tasks from overwriting persisted data.
+   * Challenge 10:
+   * Save whenever tasks change.
    */
   useEffect(() => {
     if (!setTasks || !hasLoadedStorage.current) {
@@ -101,9 +110,38 @@ export default function TaskApp({
     }
   }, [tasks, setTasks])
 
+  /*
+   * Challenge 11:
+   * Debounce search by 300ms.
+   *
+   * Every time rawSearch changes:
+   * 1. Start a new timeout.
+   * 2. After 300ms, update effectiveSearch.
+   * 3. Cleanup clears the previous timeout.
+   */
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setEffectiveSearch(rawSearch)
+    }, 300)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [rawSearch])
+
+  /*
+   * Searching is active while the raw input and effective
+   * search value are different.
+   */
+  const isSearching =
+    rawSearch !== effectiveSearch
+
   const handleAddTask = (task: Task) => {
     if (setTasks) {
-      setTasks((previousTasks) => [...previousTasks, task])
+      setTasks((previousTasks) => [
+        ...previousTasks,
+        task,
+      ])
       return
     }
 
@@ -118,7 +156,10 @@ export default function TaskApp({
       setTasks((previousTasks) =>
         previousTasks.map((task) =>
           task.id === id
-            ? { ...task, completed: !task.completed }
+            ? {
+                ...task,
+                completed: !task.completed,
+              }
             : task,
         ),
       )
@@ -139,7 +180,9 @@ export default function TaskApp({
 
     if (setTasks) {
       setTasks((previousTasks) =>
-        previousTasks.filter((task) => task.id !== id),
+        previousTasks.filter(
+          (task) => task.id !== id,
+        ),
       )
 
       if (editingId === id) {
@@ -179,7 +222,10 @@ export default function TaskApp({
       setTasks((previousTasks) =>
         previousTasks.map((task) =>
           task.id === id
-            ? { ...task, ...updatedFields }
+            ? {
+                ...task,
+                ...updatedFields,
+              }
             : task,
         ),
       )
@@ -201,7 +247,7 @@ export default function TaskApp({
 
   /*
    * Challenge 06:
-   * Filter by status first.
+   * First filter by status.
    */
   const statusFilteredTasks =
     filter === 'active'
@@ -211,66 +257,84 @@ export default function TaskApp({
         : tasks
 
   /*
-   * Challenge 09:
-   * Search after status filtering.
+   * Challenge 11:
+   * Search using ONLY effectiveSearch.
+   *
+   * rawSearch is deliberately not used here.
    */
-  const normalizedSearch = searchText.trim().toLowerCase()
+  const normalizedSearch =
+    effectiveSearch.trim().toLowerCase()
 
   const searchedTasks = normalizedSearch
     ? statusFilteredTasks.filter((task) => {
+        const title = task.title.toLowerCase()
+        const description =
+          task.description.toLowerCase()
+
         return (
-          task.title.toLowerCase().includes(normalizedSearch) ||
-          task.description
-            .toLowerCase()
-            .includes(normalizedSearch)
+          title.includes(normalizedSearch) ||
+          description.includes(normalizedSearch)
         )
       })
     : statusFilteredTasks
 
   /*
    * Challenge 07:
-   * Sort only after filtering and searching.
+   * Sort after filtering and searching.
    */
-  const sortedTasks = [...searchedTasks].sort((a, b) => {
-    switch (sortOrder) {
-      case 'priority-high':
-        return (
-          (PRIORITY_ORDER[a.priority] ?? 99) -
-          (PRIORITY_ORDER[b.priority] ?? 99)
-        )
+  const sortedTasks = [...searchedTasks].sort(
+    (a, b) => {
+      switch (sortOrder) {
+        case 'priority-high':
+          return (
+            (PRIORITY_ORDER[a.priority] ?? 99) -
+            (PRIORITY_ORDER[b.priority] ?? 99)
+          )
 
-      case 'priority-low':
-        return (
-          (PRIORITY_ORDER[b.priority] ?? 99) -
-          (PRIORITY_ORDER[a.priority] ?? 99)
-        )
+        case 'priority-low':
+          return (
+            (PRIORITY_ORDER[b.priority] ?? 99) -
+            (PRIORITY_ORDER[a.priority] ?? 99)
+          )
 
-      case 'alphabetical':
-        return a.title.localeCompare(b.title, undefined, {
-          sensitivity: 'base',
-        })
+        case 'alphabetical':
+          return a.title.localeCompare(
+            b.title,
+            undefined,
+            {
+              sensitivity: 'base',
+            },
+          )
 
-      case 'recent':
-      default:
-        return 0
-    }
-  })
+        case 'recent':
+        default:
+          return 0
+      }
+    },
+  )
 
   const countText = showFilterBar
     ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
     : countFormat === 'completed'
-      ? `${tasks.filter((task) => task.completed).length} of ${tasks.length} completed`
+      ? `${
+          tasks.filter(
+            (task) => task.completed,
+          ).length
+        } of ${tasks.length} completed`
       : `${tasks.length} Tasks`
 
   const handleClearSearch = () => {
-    setSearchText('')
+    setRawSearch('')
+    setEffectiveSearch('')
 
     requestAnimationFrame(() => {
       searchInputRef.current?.focus()
     })
   }
 
-  const handleStartEdit = (id: string | number) => {
+  const handleStartEdit = (
+    id: string | number,
+  ) => {
     if (id === -1) {
       setEditingId(null)
       return
@@ -281,28 +345,41 @@ export default function TaskApp({
 
   return (
     <div>
-      {showForm && <TaskForm onAddTask={handleAddTask} />}
-
-      {showFilterBar && (
-        <FilterBar
-          filter={filter}
-          onFilterChange={setFilter}
-          sortOrder={sortOrder}
-          onSortChange={setSortOrder}
-          searchText={searchText}
-          onSearchChange={setSearchText}
-          onClearSearch={handleClearSearch}
-          searchInputRef={searchInputRef}
-        />
+      {showForm && (
+        <TaskForm onAddTask={handleAddTask} />
       )}
 
-      {showFilterBar && sortedTasks.length === 0 ? (
+      {showFilterBar && (
         <>
-          <div id="task-count">{countText}</div>
+          <FilterBar
+            filter={filter}
+            onFilterChange={setFilter}
+            sortOrder={sortOrder}
+            onSortChange={setSortOrder}
+            searchText={rawSearch}
+            onSearchChange={setRawSearch}
+            onClearSearch={handleClearSearch}
+            searchInputRef={searchInputRef}
+          />
+
+          {isSearching && (
+            <div id="searching-indicator">
+              Searching...
+            </div>
+          )}
+        </>
+      )}
+
+      {showFilterBar &&
+      sortedTasks.length === 0 ? (
+        <>
+          <div id="task-count">
+            {countText}
+          </div>
 
           <div id="filter-empty-message">
             {normalizedSearch
-              ? `No tasks found for "${searchText.trim()}"`
+              ? `No tasks found for "${effectiveSearch.trim()}"`
               : 'No tasks match this filter'}
           </div>
         </>
@@ -311,7 +388,7 @@ export default function TaskApp({
           tasks={sortedTasks}
           countText={countText}
           onToggle={handleToggle}
-          onDelete={onDelete ? handleDelete : handleDelete}
+          onDelete={handleDelete}
           onUpdateTask={handleUpdateTask}
           editingId={editingId}
           onStartEdit={handleStartEdit}

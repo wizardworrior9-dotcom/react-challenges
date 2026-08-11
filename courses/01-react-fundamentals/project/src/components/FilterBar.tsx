@@ -1,3 +1,5 @@
+import type { RefObject } from 'react'
+
 export type TaskFilter = 'all' | 'active' | 'completed'
 
 export type TaskSort =
@@ -14,6 +16,7 @@ interface FilterBarProps {
   searchText?: string
   onSearchChange?: (searchText: string) => void
   onClearSearch?: () => void
+  searchInputRef?: RefObject<HTMLInputElement | null>
 }
 
 export default function FilterBar({
@@ -24,6 +27,7 @@ export default function FilterBar({
   searchText = '',
   onSearchChange,
   onClearSearch,
+  searchInputRef,
 }: FilterBarProps) {
   return (
     <div id="filter-bar">
@@ -46,7 +50,9 @@ export default function FilterBar({
 
         <button
           type="button"
-          data-active={filter === 'completed' ? 'true' : 'false'}
+          data-active={
+            filter === 'completed' ? 'true' : 'false'
+          }
           onClick={() => onFilterChange?.('completed')}
         >
           Completed
@@ -55,6 +61,7 @@ export default function FilterBar({
 
       <div>
         <input
+          ref={searchInputRef}
           id="search-input"
           type="text"
           value={searchText}
