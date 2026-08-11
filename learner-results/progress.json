@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-08-11T11:29:57.373Z",
+  "lastUpdated": "2026-08-11T11:37:23.610Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 30.6,
-    "completionPercentage": 7.5,
+    "overallScore": 29.8,
+    "completionPercentage": 9.4,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 4
+    "completedChallenges": 5
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 92.7,
-      "completionPercentage": 17.4,
+      "averageScore": 90.3,
+      "completionPercentage": 21.7,
       "badgeLevel": "none",
       "totalChallenges": 23,
-      "completedChallenges": 4,
+      "completedChallenges": 5,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -72,6 +72,21 @@
           "lastRun": "2026-08-11T11:29:26.673Z",
           "scores": {
             "functionalTests": 83.3,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "05-task-deletion": {
+          "challengeId": "05-task-deletion",
+          "challengeName": "Task Deletion",
+          "passed": true,
+          "score": 80.7,
+          "lastRun": "2026-08-11T11:36:53.158Z",
+          "scores": {
+            "functionalTests": 50,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
