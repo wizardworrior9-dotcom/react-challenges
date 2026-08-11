@@ -1,22 +1,44 @@
 import type { RefObject } from 'react'
 
-export type TaskFilter = 'all' | 'active' | 'completed'
+export type TaskFilter =
+  | 'all'
+  | 'active'
+  | 'completed'
 
 export type TaskSort =
   | 'recent'
   | 'priority-high'
   | 'priority-low'
   | 'alphabetical'
+  | 'due-date'
 
 interface FilterBarProps {
   filter?: TaskFilter
-  onFilterChange?: (filter: TaskFilter) => void
+  onFilterChange?: (
+    filter: TaskFilter,
+  ) => void
+
   sortOrder?: TaskSort
-  onSortChange?: (sortOrder: TaskSort) => void
+  onSortChange?: (
+    sortOrder: TaskSort,
+  ) => void
+
   searchText?: string
-  onSearchChange?: (searchText: string) => void
+  onSearchChange?: (
+    searchText: string,
+  ) => void
+
   onClearSearch?: () => void
-  searchInputRef?: RefObject<HTMLInputElement | null>
+
+  searchInputRef?: RefObject<
+    HTMLInputElement | null
+  >
+
+  categories?: string[]
+  categoryFilter?: string
+  onCategoryChange?: (
+    category: string,
+  ) => void
 }
 
 export default function FilterBar({
@@ -28,22 +50,37 @@ export default function FilterBar({
   onSearchChange,
   onClearSearch,
   searchInputRef,
+  categories = [],
+  categoryFilter = 'all',
+  onCategoryChange,
 }: FilterBarProps) {
   return (
     <div id="filter-bar">
       <div>
         <button
           type="button"
-          data-active={filter === 'all' ? 'true' : 'false'}
-          onClick={() => onFilterChange?.('all')}
+          data-active={
+            filter === 'all'
+              ? 'true'
+              : 'false'
+          }
+          onClick={() =>
+            onFilterChange?.('all')
+          }
         >
           All
         </button>
 
         <button
           type="button"
-          data-active={filter === 'active' ? 'true' : 'false'}
-          onClick={() => onFilterChange?.('active')}
+          data-active={
+            filter === 'active'
+              ? 'true'
+              : 'false'
+          }
+          onClick={() =>
+            onFilterChange?.('active')
+          }
         >
           Active
         </button>
@@ -51,13 +88,40 @@ export default function FilterBar({
         <button
           type="button"
           data-active={
-            filter === 'completed' ? 'true' : 'false'
+            filter === 'completed'
+              ? 'true'
+              : 'false'
           }
-          onClick={() => onFilterChange?.('completed')}
+          onClick={() =>
+            onFilterChange?.('completed')
+          }
         >
           Completed
         </button>
       </div>
+
+      <select
+        id="category-filter"
+        value={categoryFilter}
+        onChange={(event) =>
+          onCategoryChange?.(
+            event.target.value,
+          )
+        }
+      >
+        <option value="all">
+          All categories
+        </option>
+
+        {categories.map((category) => (
+          <option
+            key={category}
+            value={category}
+          >
+            {category}
+          </option>
+        ))}
+      </select>
 
       <div>
         <input
@@ -66,7 +130,9 @@ export default function FilterBar({
           type="text"
           value={searchText}
           onChange={(event) =>
-            onSearchChange?.(event.target.value)
+            onSearchChange?.(
+              event.target.value,
+            )
           }
           placeholder="Search tasks..."
         />
@@ -86,17 +152,30 @@ export default function FilterBar({
         id="sort-order"
         value={sortOrder}
         onChange={(event) =>
-          onSortChange?.(event.target.value as TaskSort)
+          onSortChange?.(
+            event.target.value as TaskSort,
+          )
         }
       >
-        <option value="recent">Recently Added</option>
+        <option value="recent">
+          Recently Added
+        </option>
+
         <option value="priority-high">
           Priority: High to Low
         </option>
+
         <option value="priority-low">
           Priority: Low to High
         </option>
-        <option value="alphabetical">Alphabetical</option>
+
+        <option value="alphabetical">
+          Alphabetical
+        </option>
+
+        <option value="due-date">
+          Due Date (Soonest First)
+        </option>
       </select>
     </div>
   )

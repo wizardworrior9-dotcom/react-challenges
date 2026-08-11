@@ -5,31 +5,121 @@ import {
   type Dispatch,
   type SetStateAction,
 } from 'react'
+
 import FilterBar, {
   type TaskFilter,
   type TaskSort,
 } from './FilterBar'
+
 import TaskForm from './TaskForm'
-import TaskList, { type Task } from './TaskList'
+import TaskList, {
+  type Task,
+} from './TaskList'
+
+import StatsPanel from './StatsPanel'
 
 interface TaskAppProps {
   tasks?: Task[]
-  setTasks?: Dispatch<SetStateAction<Task[]>>
-  dispatch?: (action: { type: string; payload?: unknown }) => void
+
+  setTasks?: Dispatch<
+    SetStateAction<Task[]>
+  >
+
+  dispatch?: (
+    action: {
+      type: string
+      payload?: unknown
+    },
+  ) => void
+
   showForm?: boolean
   countFormat?: string
   showFilterBar?: boolean
   showStatsPanel?: boolean
-  onDelete?: (id: string | number) => void
+
+  onDelete?: (
+    id: string | number,
+  ) => void
+
   linkToTaskDetail?: boolean
 }
 
 const STORAGE_KEY = 'task-app-tasks'
 
-const PRIORITY_ORDER: Record<string, number> = {
+const PRIORITY_ORDER: Record<
+  string,
+  number
+> = {
   High: 0,
   Medium: 1,
   Low: 2,
+}
+
+const DEFAULT_CATEGORIES = [
+  'General',
+  'Work',
+  'Personal',
+]
+
+function normalizeDueDate(
+  value: unknown,
+): string | undefined {
+  if (
+    typeof value !== 'string' ||
+    !value
+  ) {
+    return undefined
+  }
+
+  return /^\d{4}-\d{2}-\d{2}$/.test(value)
+    ? value
+    : undefined
+}
+
+function normalizeTask(
+  task: Partial<Task>,
+  index: number,
+): Task {
+  return {
+    id:
+      task.id ??
+      `restored-${Date.now()}-${index}`,
+
+    title: task.title ?? '',
+
+    description:
+      task.description ?? '',
+
+    priority:
+      task.priority ?? 'Medium',
+
+    completed:
+      task.completed === true,
+
+    category:
+      typeof task.category === 'string' &&
+      task.category.trim()
+        ? task.category.trim()
+        : 'General',
+
+    tags: Array.isArray(task.tags)
+      ? [
+          ...new Set(
+            task.tags
+              .filter(
+                (tag): tag is string =>
+                  typeof tag === 'string',
+              )
+              .map((tag) => tag.trim())
+              .filter(Boolean),
+          ),
+        ]
+      : [],
+
+    dueDate: normalizeDueDate(
+      task.dueDate,
+    ),
+  }
 }
 
 export default function TaskApp({
@@ -39,34 +129,39 @@ export default function TaskApp({
   showForm = false,
   countFormat = 'tasks',
   showFilterBar = false,
+  showStatsPanel = false,
   onDelete,
 }: TaskAppProps) {
-  const [filter, setFilter] = useState<TaskFilter>('all')
-  const [sortOrder, setSortOrder] = useState<TaskSort>('recent')
+  const [filter, setFilter] =
+    useState<TaskFilter>('all')
 
-  /*
-   * Challenge 09:
-   * rawSearch is updated immediately as the user types.
-   */
-  const [rawSearch, setRawSearch] = useState('')
+  const [
+    categoryFilter,
+    setCategoryFilter,
+  ] = useState('all')
 
-  /*
-   * Challenge 11:
-   * effectiveSearch is the debounced value used for filtering.
-   */
-  const [effectiveSearch, setEffectiveSearch] = useState('')
+  const [sortOrder, setSortOrder] =
+    useState<TaskSort>('recent')
 
-  const [editingId, setEditingId] = useState<
-    string | number | null
-  >(null)
+  const [rawSearch, setRawSearch] =
+    useState('')
 
-  const searchInputRef = useRef<HTMLInputElement>(null)
-  const hasLoadedStorage = useRef(false)
+  const [
+    effectiveSearch,
+    setEffectiveSearch,
+  ] = useState('')
 
-  /*
-   * Challenge 10:
-   * Load tasks from localStorage when the component mounts.
-   */
+  const [editingId, setEditingId] =
+    useState<
+      string | number | null
+    >(null)
+
+  const searchInputRef =
+    useRef<HTMLInputElement>(null)
+
+  const hasLoadedStorage =
+    useRef(false)
+
   useEffect(() => {
     if (!setTasks) {
       hasLoadedStorage.current = true
@@ -75,28 +170,38 @@ export default function TaskApp({
 
     try {
       const storedTasks =
-        window.localStorage.getItem(STORAGE_KEY)
+        window.localStorage.getItem(
+          STORAGE_KEY,
+        )
 
       if (storedTasks) {
-        const parsedTasks: unknown = JSON.parse(storedTasks)
+        const parsed: unknown =
+          JSON.parse(storedTasks)
 
-        if (Array.isArray(parsedTasks)) {
-          setTasks(parsedTasks as Task[])
+        if (Array.isArray(parsed)) {
+          setTasks(
+            parsed.map(
+              (task, index) =>
+                normalizeTask(
+                  task as Partial<Task>,
+                  index,
+                ),
+            ),
+          )
         }
       }
     } catch {
-      // Invalid localStorage data is ignored.
+      // Invalid storage is ignored.
     } finally {
       hasLoadedStorage.current = true
     }
   }, [setTasks])
 
-  /*
-   * Challenge 10:
-   * Save whenever tasks change.
-   */
   useEffect(() => {
-    if (!setTasks || !hasLoadedStorage.current) {
+    if (
+      !setTasks ||
+      !hasLoadedStorage.current
+    ) {
       return
     }
 
@@ -106,59 +211,67 @@ export default function TaskApp({
         JSON.stringify(tasks),
       )
     } catch {
-      // Storage failures should not crash the application.
+      // Storage errors are ignored.
     }
   }, [tasks, setTasks])
 
-  /*
-   * Challenge 11:
-   * Debounce search by 300ms.
-   *
-   * Every time rawSearch changes:
-   * 1. Start a new timeout.
-   * 2. After 300ms, update effectiveSearch.
-   * 3. Cleanup clears the previous timeout.
-   */
   useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      setEffectiveSearch(rawSearch)
-    }, 300)
+    const timeoutId =
+      window.setTimeout(() => {
+        setEffectiveSearch(rawSearch)
+      }, 300)
 
     return () => {
       window.clearTimeout(timeoutId)
     }
   }, [rawSearch])
 
-  /*
-   * Searching is active while the raw input and effective
-   * search value are different.
-   */
-  const isSearching =
-    rawSearch !== effectiveSearch
+  const categories = [
+    ...new Set(
+      [
+        ...DEFAULT_CATEGORIES,
+        ...tasks.map(
+          (task) =>
+            task.category || 'General',
+        ),
+      ].filter(Boolean),
+    ),
+  ]
 
-  const handleAddTask = (task: Task) => {
+  const handleAddTask = (
+    task: Task,
+  ) => {
+    const normalizedTask =
+      normalizeTask(
+        task,
+        tasks.length,
+      )
+
     if (setTasks) {
       setTasks((previousTasks) => [
         ...previousTasks,
-        task,
+        normalizedTask,
       ])
       return
     }
 
     dispatch?.({
       type: 'ADD_TASK',
-      payload: task,
+      payload: normalizedTask,
     })
   }
 
-  const handleToggle = (id: string | number) => {
+  const handleToggle = (
+    id: string | number,
+  ) => {
     if (setTasks) {
       setTasks((previousTasks) =>
         previousTasks.map((task) =>
           task.id === id
             ? {
                 ...task,
-                completed: !task.completed,
+                completed:
+                  !task.completed,
               }
             : task,
         ),
@@ -172,7 +285,9 @@ export default function TaskApp({
     })
   }
 
-  const handleDelete = (id: string | number) => {
+  const handleDelete = (
+    id: string | number,
+  ) => {
     if (onDelete) {
       onDelete(id)
       return
@@ -204,6 +319,9 @@ export default function TaskApp({
       title: string
       description: string
       priority: string
+      category?: string
+      tags?: string[]
+      dueDate?: string
     },
   ) => {
     const title = updates.title.trim()
@@ -212,10 +330,18 @@ export default function TaskApp({
       return
     }
 
-    const updatedFields = {
+    const updatedTask = {
       title,
-      description: updates.description.trim(),
+      description:
+        updates.description.trim(),
       priority: updates.priority,
+      category:
+        updates.category?.trim() ||
+        'General',
+      tags: updates.tags ?? [],
+      dueDate: normalizeDueDate(
+        updates.dueDate,
+      ),
     }
 
     if (setTasks) {
@@ -224,7 +350,7 @@ export default function TaskApp({
           task.id === id
             ? {
                 ...task,
-                ...updatedFields,
+                ...updatedTask,
               }
             : task,
         ),
@@ -238,90 +364,119 @@ export default function TaskApp({
       type: 'UPDATE_TASK',
       payload: {
         id,
-        ...updatedFields,
+        ...updatedTask,
       },
     })
 
     setEditingId(null)
   }
 
-  /*
-   * Challenge 06:
-   * First filter by status.
-   */
   const statusFilteredTasks =
     filter === 'active'
-      ? tasks.filter((task) => !task.completed)
+      ? tasks.filter(
+          (task) => !task.completed,
+        )
       : filter === 'completed'
-        ? tasks.filter((task) => task.completed)
+        ? tasks.filter(
+            (task) => task.completed,
+          )
         : tasks
 
-  /*
-   * Challenge 11:
-   * Search using ONLY effectiveSearch.
-   *
-   * rawSearch is deliberately not used here.
-   */
-  const normalizedSearch =
-    effectiveSearch.trim().toLowerCase()
-
-  const searchedTasks = normalizedSearch
-    ? statusFilteredTasks.filter((task) => {
-        const title = task.title.toLowerCase()
-        const description =
-          task.description.toLowerCase()
-
-        return (
-          title.includes(normalizedSearch) ||
-          description.includes(normalizedSearch)
+  const categoryFilteredTasks =
+    categoryFilter === 'all'
+      ? statusFilteredTasks
+      : statusFilteredTasks.filter(
+          (task) =>
+            (task.category ||
+              'General') ===
+            categoryFilter,
         )
-      })
-    : statusFilteredTasks
 
-  /*
-   * Challenge 07:
-   * Sort after filtering and searching.
-   */
-  const sortedTasks = [...searchedTasks].sort(
-    (a, b) => {
-      switch (sortOrder) {
-        case 'priority-high':
-          return (
-            (PRIORITY_ORDER[a.priority] ?? 99) -
-            (PRIORITY_ORDER[b.priority] ?? 99)
-          )
+  const normalizedSearch =
+    effectiveSearch
+      .trim()
+      .toLowerCase()
 
-        case 'priority-low':
-          return (
-            (PRIORITY_ORDER[b.priority] ?? 99) -
-            (PRIORITY_ORDER[a.priority] ?? 99)
-          )
+  const searchedTasks =
+    normalizedSearch
+      ? categoryFilteredTasks.filter(
+          (task) =>
+            task.title
+              .toLowerCase()
+              .includes(normalizedSearch) ||
+            task.description
+              .toLowerCase()
+              .includes(normalizedSearch),
+        )
+      : categoryFilteredTasks
 
-        case 'alphabetical':
-          return a.title.localeCompare(
-            b.title,
-            undefined,
-            {
-              sensitivity: 'base',
-            },
-          )
+  const sortedTasks = [
+    ...searchedTasks,
+  ].sort((a, b) => {
+    switch (sortOrder) {
+      case 'priority-high':
+        return (
+          (PRIORITY_ORDER[a.priority] ??
+            99) -
+          (PRIORITY_ORDER[b.priority] ??
+            99)
+        )
 
-        case 'recent':
-        default:
+      case 'priority-low':
+        return (
+          (PRIORITY_ORDER[b.priority] ??
+            99) -
+          (PRIORITY_ORDER[a.priority] ??
+            99)
+        )
+
+      case 'alphabetical':
+        return a.title.localeCompare(
+          b.title,
+          undefined,
+          {
+            sensitivity: 'base',
+          },
+        )
+
+      case 'due-date':
+        if (!a.dueDate && !b.dueDate) {
           return 0
-      }
-    },
-  )
+        }
 
-  const countText = showFilterBar
-    ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
-    : countFormat === 'completed'
-      ? `${
-          tasks.filter(
-            (task) => task.completed,
-          ).length
-        } of ${tasks.length} completed`
-      : `${tasks.length} Tasks`
+        if (!a.dueDate) {
+          return 1
+        }
+
+        if (!b.dueDate) {
+          return -1
+        }
+
+        return a.dueDate.localeCompare(
+          b.dueDate,
+        )
+
+      case 'recent':
+      default:
+        return 0
+    }
+  })
+
+  const countText =
+    showFilterBar
+      ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
+      : countFormat === 'completed'
+        ? `${
+            tasks.filter(
+              (task) => task.completed,
+            ).length
+          } of ${
+            tasks.length
+          } completed`
+        : `${tasks.length} Tasks`
+
+  const isSearching =
+    rawSearch !== effectiveSearch
 
   const handleClearSearch = () => {
     setRawSearch('')
@@ -346,7 +501,14 @@ export default function TaskApp({
   return (
     <div>
       {showForm && (
-        <TaskForm onAddTask={handleAddTask} />
+        <TaskForm
+          onAddTask={handleAddTask}
+          categories={categories}
+        />
+      )}
+
+      {showStatsPanel && (
+        <StatsPanel tasks={tasks} />
       )}
 
       {showFilterBar && (
@@ -358,8 +520,19 @@ export default function TaskApp({
             onSortChange={setSortOrder}
             searchText={rawSearch}
             onSearchChange={setRawSearch}
-            onClearSearch={handleClearSearch}
-            searchInputRef={searchInputRef}
+            onClearSearch={
+              handleClearSearch
+            }
+            searchInputRef={
+              searchInputRef
+            }
+            categories={categories}
+            categoryFilter={
+              categoryFilter
+            }
+            onCategoryChange={
+              setCategoryFilter
+            }
           />
 
           {isSearching && (
@@ -389,9 +562,13 @@ export default function TaskApp({
           countText={countText}
           onToggle={handleToggle}
           onDelete={handleDelete}
-          onUpdateTask={handleUpdateTask}
+          onUpdateTask={
+            handleUpdateTask
+          }
           editingId={editingId}
-          onStartEdit={handleStartEdit}
+          onStartEdit={
+            handleStartEdit
+          }
           linkToTaskDetail={false}
         />
       )}
