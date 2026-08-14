@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import TaskCard from './TaskCard'
 
 export interface Task {
@@ -71,7 +72,10 @@ export default function TaskList({
   editingId,
   onStartEdit,
 }: TaskListProps) {
-  const list = tasks ?? HARDCODED_TASKS
+  const list = useMemo(
+    () => tasks ?? HARDCODED_TASKS,
+    [tasks],
+  )
 
   return (
     <>

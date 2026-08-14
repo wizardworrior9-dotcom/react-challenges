@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from './Button'
 import Badge from './Badge'
 import StatusIndicator from './StatusIndicator'
@@ -86,7 +86,7 @@ function getDueStatus(
   return null
 }
 
-export default function TaskCard({
+function TaskCard({
   taskId,
   title,
   description,
@@ -485,3 +485,6 @@ export default function TaskCard({
     </article>
   )
 }
+
+export default React.memo(TaskCard)
+

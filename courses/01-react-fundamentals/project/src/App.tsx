@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect, useReducer } from 'react'
+import { useCallback, useEffect, useReducer } from 'react'
 
 import { useTheme } from './contexts/ThemeContext'
 
@@ -104,13 +104,14 @@ function AppContent() {
   const { theme, toggleTheme } =
     useTheme()
 
-  const handleDelete = (
-    id: string | number,
-  ) => {
-    if (window.confirm('Are you sure?')) {
-      dispatch(deleteTask(id))
-    }
-  }
+  const handleDelete = useCallback(
+    (id: string | number) => {
+      if (window.confirm('Are you sure?')) {
+        dispatch(deleteTask(id))
+      }
+    },
+    [dispatch],
+  )
 
   return (
     <BrowserRouter>

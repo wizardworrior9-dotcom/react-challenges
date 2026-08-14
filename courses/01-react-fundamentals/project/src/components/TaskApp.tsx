@@ -1,5 +1,7 @@
 import {
+  useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
   type Dispatch,
@@ -173,241 +175,252 @@ export default function TaskApp({
     }
   }, [rawSearch])
 
-  const categories = [
-    ...new Set(
-      [
-        ...DEFAULT_CATEGORIES,
-        ...tasks.map(
-          (task) =>
-            task.category || 'General',
-        ),
-      ].filter(Boolean),
-    ),
-  ]
+  const categories = useMemo(
+    () => [
+      ...new Set(
+        [
+          ...DEFAULT_CATEGORIES,
+          ...tasks.map(
+            (task) =>
+              task.category || 'General',
+          ),
+        ].filter(Boolean),
+      ),
+    ],
+    [tasks],
+  )
 
-  const handleAddTask = (
-    task: Task,
-  ) => {
-    const normalizedTask =
-      normalizeTask(
-        task,
-        tasks.length,
-      )
+  const handleAddTask = useCallback(
+    (task: Task) => {
+      const normalizedTask =
+        normalizeTask(
+          task,
+          tasks.length,
+        )
 
-    if (setTasks) {
-      setTasks((previousTasks) => [
-        ...previousTasks,
-        normalizedTask,
-      ])
-      return
-    }
-
-    dispatch?.({
-      type: ADD_TASK,
-      payload: normalizedTask,
-    })
-  }
-
-  const handleToggle = (
-    id: string | number,
-  ) => {
-    if (setTasks) {
-      setTasks((previousTasks) =>
-        previousTasks.map((task) =>
-          task.id === id
-            ? {
-                ...task,
-                completed:
-                  !task.completed,
-              }
-            : task,
-        ),
-      )
-      return
-    }
-
-    dispatch?.({
-      type: TOGGLE_TASK,
-      payload: id,
-    })
-  }
-
-  const handleDelete = (
-    id: string | number,
-  ) => {
-    if (onDelete) {
-      onDelete(id)
-      return
-    }
-
-    if (setTasks) {
-      setTasks((previousTasks) =>
-        previousTasks.filter(
-          (task) => task.id !== id,
-        ),
-      )
-
-      if (editingId === id) {
-        setEditingId(null)
+      if (setTasks) {
+        setTasks((previousTasks) => [
+          ...previousTasks,
+          normalizedTask,
+        ])
+        return
       }
 
-      return
-    }
-
-    dispatch?.({
-      type: DELETE_TASK,
-      payload: id,
-    })
-  }
-
-  const handleUpdateTask = (
-    id: string | number,
-    updates: {
-      title: string
-      description: string
-      priority: string
-      category?: string
-      tags?: string[]
-      dueDate?: string
+      dispatch?.({
+        type: ADD_TASK,
+        payload: normalizedTask,
+      })
     },
-  ) => {
-    const title = updates.title.trim()
+    [dispatch, setTasks, tasks.length],
+  )
 
-    if (!title) {
-      return
-    }
+  const handleToggle = useCallback(
+    (id: string | number) => {
+      if (setTasks) {
+        setTasks((previousTasks) =>
+          previousTasks.map((task) =>
+            task.id === id
+              ? {
+                  ...task,
+                  completed:
+                    !task.completed,
+                }
+              : task,
+          ),
+        )
+        return
+      }
 
-    const updatedTask = {
-      title,
-      description:
-        updates.description.trim(),
-      priority: updates.priority,
-      category:
-        updates.category?.trim() ||
-        'General',
-      tags: updates.tags ?? [],
-      dueDate: normalizeDueDate(
-        updates.dueDate,
-      ),
-    }
+      dispatch?.({
+        type: TOGGLE_TASK,
+        payload: id,
+      })
+    },
+    [dispatch, setTasks],
+  )
 
-    if (setTasks) {
-      setTasks((previousTasks) =>
-        previousTasks.map((task) =>
-          task.id === id
-            ? {
-                ...task,
-                ...updatedTask,
-              }
-            : task,
+  const handleDelete = useCallback(
+    (id: string | number) => {
+      if (onDelete) {
+        onDelete(id)
+        return
+      }
+
+      if (setTasks) {
+        setTasks((previousTasks) =>
+          previousTasks.filter(
+            (task) => task.id !== id,
+          ),
+        )
+
+        if (editingId === id) {
+          setEditingId(null)
+        }
+
+        return
+      }
+
+      dispatch?.({
+        type: DELETE_TASK,
+        payload: id,
+      })
+    },
+    [dispatch, setTasks, onDelete, editingId],
+  )
+
+  const handleUpdateTask = useCallback(
+    (
+      id: string | number,
+      updates: {
+        title: string
+        description: string
+        priority: string
+        category?: string
+        tags?: string[]
+        dueDate?: string
+      },
+    ) => {
+      const title = updates.title.trim()
+
+      if (!title) {
+        return
+      }
+
+      const updatedTask = {
+        title,
+        description:
+          updates.description.trim(),
+        priority: updates.priority,
+        category:
+          updates.category?.trim() ||
+          'General',
+        tags: updates.tags ?? [],
+        dueDate: normalizeDueDate(
+          updates.dueDate,
         ),
-      )
+      }
+
+      if (setTasks) {
+        setTasks((previousTasks) =>
+          previousTasks.map((task) =>
+            task.id === id
+              ? {
+                  ...task,
+                  ...updatedTask,
+                }
+              : task,
+          ),
+        )
+
+        setEditingId(null)
+        return
+      }
+
+      dispatch?.({
+        type: UPDATE_TASK,
+        payload: {
+          id,
+          ...updatedTask,
+        },
+      })
 
       setEditingId(null)
-      return
-    }
+    },
+    [dispatch, setTasks],
+  )
 
-    dispatch?.({
-      type: UPDATE_TASK,
-      payload: {
-        id,
-        ...updatedTask,
-      },
-    })
-
-    setEditingId(null)
-  }
-
-  const statusFilteredTasks =
-    filter === 'active'
-      ? tasks.filter(
-          (task) => !task.completed,
-        )
-      : filter === 'completed'
+  const sortedTasks = useMemo(() => {
+    const statusFilteredTasks =
+      filter === 'active'
         ? tasks.filter(
-            (task) => task.completed,
+            (task) => !task.completed,
           )
-        : tasks
+        : filter === 'completed'
+          ? tasks.filter(
+              (task) => task.completed,
+            )
+          : tasks
 
-  const categoryFilteredTasks =
-    categoryFilter === 'all'
-      ? statusFilteredTasks
-      : statusFilteredTasks.filter(
-          (task) =>
-            (task.category ||
-              'General') ===
-            categoryFilter,
-        )
+    const categoryFilteredTasks =
+      categoryFilter === 'all'
+        ? statusFilteredTasks
+        : statusFilteredTasks.filter(
+            (task) =>
+              (task.category ||
+                'General') ===
+              categoryFilter,
+          )
 
-  const normalizedSearch =
-    effectiveSearch
-      .trim()
-      .toLowerCase()
+    const normalizedSearch =
+      effectiveSearch
+        .trim()
+        .toLowerCase()
 
-  const searchedTasks =
-    normalizedSearch
-      ? categoryFilteredTasks.filter(
-          (task) =>
-            task.title
-              .toLowerCase()
-              .includes(normalizedSearch) ||
-            task.description
-              .toLowerCase()
-              .includes(normalizedSearch),
-        )
-      : categoryFilteredTasks
+    const searchedTasks =
+      normalizedSearch
+        ? categoryFilteredTasks.filter(
+            (task) =>
+              task.title
+                .toLowerCase()
+                .includes(normalizedSearch) ||
+              task.description
+                .toLowerCase()
+                .includes(normalizedSearch),
+          )
+        : categoryFilteredTasks
 
-  const sortedTasks = [
-    ...searchedTasks,
-  ].sort((a, b) => {
-    switch (sortOrder) {
-      case 'priority-high':
-        return (
-          (PRIORITY_ORDER[a.priority] ??
-            99) -
-          (PRIORITY_ORDER[b.priority] ??
-            99)
-        )
+    return [
+      ...searchedTasks,
+    ].sort((a, b) => {
+      switch (sortOrder) {
+        case 'priority-high':
+          return (
+            (PRIORITY_ORDER[a.priority] ??
+              99) -
+            (PRIORITY_ORDER[b.priority] ??
+              99)
+          )
 
-      case 'priority-low':
-        return (
-          (PRIORITY_ORDER[b.priority] ??
-            99) -
-          (PRIORITY_ORDER[a.priority] ??
-            99)
-        )
+        case 'priority-low':
+          return (
+            (PRIORITY_ORDER[b.priority] ??
+              99) -
+            (PRIORITY_ORDER[a.priority] ??
+              99)
+          )
 
-      case 'alphabetical':
-        return a.title.localeCompare(
-          b.title,
-          undefined,
-          {
-            sensitivity: 'base',
-          },
-        )
+        case 'alphabetical':
+          return a.title.localeCompare(
+            b.title,
+            undefined,
+            {
+              sensitivity: 'base',
+            },
+          )
 
-      case 'due-date':
-        if (!a.dueDate && !b.dueDate) {
+        case 'due-date':
+          if (!a.dueDate && !b.dueDate) {
+            return 0
+          }
+
+          if (!a.dueDate) {
+            return 1
+          }
+
+          if (!b.dueDate) {
+            return -1
+          }
+
+          return a.dueDate.localeCompare(
+            b.dueDate,
+          )
+
+        case 'recent':
+        default:
           return 0
-        }
-
-        if (!a.dueDate) {
-          return 1
-        }
-
-        if (!b.dueDate) {
-          return -1
-        }
-
-        return a.dueDate.localeCompare(
-          b.dueDate,
-        )
-
-      case 'recent':
-      default:
-        return 0
-    }
-  })
+      }
+    })
+  }, [tasks, filter, categoryFilter, effectiveSearch, sortOrder])
 
   const countText =
     showFilterBar
@@ -425,25 +438,26 @@ export default function TaskApp({
   const isSearching =
     rawSearch !== effectiveSearch
 
-  const handleClearSearch = () => {
+  const handleClearSearch = useCallback(() => {
     setRawSearch('')
     setEffectiveSearch('')
 
     requestAnimationFrame(() => {
       searchInputRef.current?.focus()
     })
-  }
+  }, [])
 
-  const handleStartEdit = (
-    id: string | number,
-  ) => {
-    if (id === -1) {
-      setEditingId(null)
-      return
-    }
+  const handleStartEdit = useCallback(
+    (id: string | number) => {
+      if (id === -1) {
+        setEditingId(null)
+        return
+      }
 
-    setEditingId(id)
-  }
+      setEditingId(id)
+    },
+    [],
+  )
 
   return (
     <div>
