@@ -3,8 +3,6 @@ import { render, screen } from '@testing-library/react';
 import App from '../src/App';
 
 describe('Challenge 10: useEffect - Local Storage Persistence', () => {
-  const originalLocalStorage = global.localStorage;
-
   beforeEach(() => {
     const store: Record<string, string> = {};
     vi.stubGlobal('localStorage', {

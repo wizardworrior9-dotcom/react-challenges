@@ -5,6 +5,10 @@ interface ButtonProps {
   id?: string
 }
 
-export default function Button(_props: ButtonProps) {
-  return null
+export default function Button({ children, onClick, type, id }: ButtonProps) {
+  return (
+    <button type={type} id={id} onClick={onClick}>
+      {children}
+    </button>
+  )
 }

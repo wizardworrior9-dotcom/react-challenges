@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import FilterBar from '../src/components/FilterBar';
 import TaskList from '../src/components/TaskList';

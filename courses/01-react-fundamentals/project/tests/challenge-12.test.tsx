@@ -15,10 +15,7 @@ describe('Challenge 12: Categories and Tags', () => {
   });
 
   it('TaskList should render tasks with extended shape', () => {
-    const tasks = [
-      { id: 1, title: 'A', description: 'D', priority: 'High', completed: false },
-    ];
-    render(<TaskList tasks={tasks} countText="1 Tasks" />);
-    expect(screen.getByText('A')).toBeInTheDocument();
+    render(<TaskList tasks={TASKS_WITH_CATEGORY} countText="1 Tasks" />);
+    expect(screen.getByText('T1')).toBeInTheDocument();
   });
 });

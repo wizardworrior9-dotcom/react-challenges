@@ -4,7 +4,7 @@ import FilterBar from '../src/components/FilterBar';
 
 describe('Challenge 23: useRef - Focus Management', () => {
   it('FilterBar should render search input with id search-input', () => {
-    const { container } = render(
+    render(
       <FilterBar
         searchQuery=""
         onSearchChange={() => {}}
@@ -16,7 +16,7 @@ describe('Challenge 23: useRef - Focus Management', () => {
   });
 
   it('FilterBar should be focusable for search input', () => {
-    const { container } = render(
+    render(
       <FilterBar
         searchQuery=""
         onSearchChange={() => {}}

@@ -5920,5 +5920,352 @@
       "maintainability": 90,
       "overall": "The code is well-structured and maintainable, with a good separation of concerns and efficient use of React hooks. However, there are some areas for improvement, particularly in the ThemeContext and localStorage usage."
     }
+  },
+  {
+    "challengeId": "17-custom-hook-uselocalstorage",
+    "challengeName": "Custom Hook - useLocalStorage",
+    "timestamp": "2026-08-14T12:01:24.930Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 88
+    },
+    "totalScore": 98.2,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 6,
+      "passedTests": 6,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Custom Hook - useLocalStorage"
+              ],
+              "fullName": " Challenge 17: Custom Hook - useLocalStorage App should render without crashing",
+              "status": "passed",
+              "title": "App should render without crashing",
+              "duration": 147,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Custom Hook - useLocalStorage"
+              ],
+              "fullName": " Challenge 17: Custom Hook - useLocalStorage returns initialValue when key is not in localStorage",
+              "status": "passed",
+              "title": "returns initialValue when key is not in localStorage",
+              "duration": 4,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Custom Hook - useLocalStorage"
+              ],
+              "fullName": " Challenge 17: Custom Hook - useLocalStorage updates state and persists to localStorage on setter call",
+              "status": "passed",
+              "title": "updates state and persists to localStorage on setter call",
+              "duration": 4,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Custom Hook - useLocalStorage"
+              ],
+              "fullName": " Challenge 17: Custom Hook - useLocalStorage supports functional updater in setter",
+              "status": "passed",
+              "title": "supports functional updater in setter",
+              "duration": 3,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Custom Hook - useLocalStorage"
+              ],
+              "fullName": " Challenge 17: Custom Hook - useLocalStorage returns initialValue when localStorage contains invalid JSON",
+              "status": "passed",
+              "title": "returns initialValue when localStorage contains invalid JSON",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Custom Hook - useLocalStorage"
+              ],
+              "fullName": " Challenge 17: Custom Hook - useLocalStorage ThemeContext uses useLocalStorage for theme persistence",
+              "status": "passed",
+              "title": "ThemeContext uses useLocalStorage for theme persistence",
+              "duration": 129,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1786708891548,
+          "endTime": 1786708891837,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/01-react-fundamentals/project/tests/challenge-17.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\App.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\contexts\\ThemeContext.tsx",
+          "messages": [],
+          "suppressedMessages": [
+            {
+              "ruleId": "react-refresh/only-export-components",
+              "severity": 1,
+              "message": "Fast refresh only works when a file only exports components. Move your React context(s) to a separate file.",
+              "line": 13,
+              "column": 14,
+              "nodeType": "Identifier",
+              "messageId": "reactContext",
+              "endLine": 13,
+              "endColumn": 26,
+              "suppressions": [
+                {
+                  "kind": "directive",
+                  "justification": ""
+                }
+              ]
+            },
+            {
+              "ruleId": "react-refresh/only-export-components",
+              "severity": 1,
+              "message": "Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.",
+              "line": 31,
+              "column": 17,
+              "nodeType": "Identifier",
+              "messageId": "namedExport",
+              "endLine": 31,
+              "endColumn": 25,
+              "suppressions": [
+                {
+                  "kind": "directive",
+                  "justification": ""
+                }
+              ]
+            }
+          ],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\hooks\\useLocalStorage.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "functionalComponent",
+        "customHook"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/hooks/useLocalStorage.ts",
+          "patternsFound": [],
+          "patternsMissing": [
+            "functionalComponent",
+            "customHook"
+          ]
+        },
+        {
+          "file": "src/App.tsx",
+          "patternsFound": [
+            "functionalComponent",
+            "customHook"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/contexts/ThemeContext.tsx",
+          "patternsFound": [
+            "functionalComponent"
+          ],
+          "patternsMissing": [
+            "customHook"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-17.spec.ts",
+          "file": "challenge-17.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 17: Custom Hook useLocalStorage - E2E",
+              "file": "challenge-17.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should display task list",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 630,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-14T12:01:47.192Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "10801a4643fac957b65b-21592ac323f744497a60",
+                  "file": "challenge-17.spec.ts",
+                  "line": 8,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "17-custom-hook-uselocalstorage",
+      "timestamp": "2026-08-14T12:01:48.694Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The use of a custom hook for state management is a good approach."
+      ],
+      "improvements": [
+        "The `useLocalStorage` hook could be improved by adding more error handling for cases where the initial value is not a valid JSON object.",
+        "The `useTheme` hook could be improved by adding a default value for the `theme` context, to prevent errors when the context is not provided.",
+        "The code could benefit from more comments and documentation to explain the purpose and behavior of each component and hook."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but could benefit from some additional error handling and documentation to make it more robust and maintainable."
+    },
+    "aiResults": {
+      "challengeId": "17-custom-hook-uselocalstorage",
+      "timestamp": "2026-08-14T12:01:48.694Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The use of a custom hook for state management is a good approach."
+      ],
+      "improvements": [
+        "The `useLocalStorage` hook could be improved by adding more error handling for cases where the initial value is not a valid JSON object.",
+        "The `useTheme` hook could be improved by adding a default value for the `theme` context, to prevent errors when the context is not provided.",
+        "The code could benefit from more comments and documentation to explain the purpose and behavior of each component and hook."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but could benefit from some additional error handling and documentation to make it more robust and maintainable."
+    }
   }
 ]

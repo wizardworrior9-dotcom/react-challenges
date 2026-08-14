@@ -6,6 +6,11 @@ interface FormInputProps {
   type?: string
 }
 
-export default function FormInput(_props: FormInputProps) {
-  return null
+export default function FormInput({ id, value, onChange, label, type = 'text' }: FormInputProps) {
+  return (
+    <div>
+      {label && <label htmlFor={id}>{label}</label>}
+      <input id={id} value={value} onChange={onChange} type={type} />
+    </div>
+  )
 }

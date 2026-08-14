@@ -47,7 +47,7 @@ describe('Challenge 04: Task Completion Toggle', () => {
   });
 
   it('TaskList should pass onToggle to TaskCard when tasks provided', async () => {
-    const { container } = render(
+    render(
       <TaskList
         tasks={TASKS}
         onToggle={vi.fn()}

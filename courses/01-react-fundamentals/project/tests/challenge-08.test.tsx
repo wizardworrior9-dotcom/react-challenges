@@ -15,7 +15,6 @@ describe('Challenge 08: Task Editing', () => {
   });
 
   it('TaskList should pass tasks to TaskCard', () => {
-    const onUpdateTask = vi.fn();
     render(
       <TaskList
         tasks={TASKS}

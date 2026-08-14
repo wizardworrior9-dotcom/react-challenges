@@ -44,8 +44,6 @@ interface TaskAppProps {
   linkToTaskDetail?: boolean
 }
 
-const STORAGE_KEY = 'task-app-tasks'
-
 const PRIORITY_ORDER: Record<
   string,
   number
@@ -158,62 +156,6 @@ export default function TaskApp({
 
   const searchInputRef =
     useRef<HTMLInputElement>(null)
-
-  const hasLoadedStorage =
-    useRef(false)
-
-  useEffect(() => {
-    if (!setTasks) {
-      hasLoadedStorage.current = true
-      return
-    }
-
-    try {
-      const storedTasks =
-        window.localStorage.getItem(
-          STORAGE_KEY,
-        )
-
-      if (storedTasks) {
-        const parsed: unknown =
-          JSON.parse(storedTasks)
-
-        if (Array.isArray(parsed)) {
-          setTasks(
-            parsed.map(
-              (task, index) =>
-                normalizeTask(
-                  task as Partial<Task>,
-                  index,
-                ),
-            ),
-          )
-        }
-      }
-    } catch {
-      // Invalid storage is ignored.
-    } finally {
-      hasLoadedStorage.current = true
-    }
-  }, [setTasks])
-
-  useEffect(() => {
-    if (
-      !setTasks ||
-      !hasLoadedStorage.current
-    ) {
-      return
-    }
-
-    try {
-      window.localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(tasks),
-      )
-    } catch {
-      // Storage errors are ignored.
-    }
-  }, [tasks, setTasks])
 
   useEffect(() => {
     const timeoutId =

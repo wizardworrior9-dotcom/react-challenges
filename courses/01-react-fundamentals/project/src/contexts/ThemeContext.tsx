@@ -1,4 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, type ReactNode } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 export type Theme = 'light' | 'dark'
 
@@ -11,11 +13,18 @@ export interface ThemeContextValue {
 export const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const value: ThemeContextValue = {
-    theme: 'light',
-    setTheme: () => {},
-    toggleTheme: () => {},
+  const [theme, setTheme] = useLocalStorage<Theme>('task-app-theme', 'light')
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
+
+  const value: ThemeContextValue = {
+    theme,
+    setTheme,
+    toggleTheme,
+  }
+
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }
 

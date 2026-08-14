@@ -14,8 +14,7 @@ describe('Challenge 13: Due Dates and Sorting', () => {
   });
 
   it('TaskList should render tasks', () => {
-    const tasks = [{ id: 1, title: 'A', description: 'D', priority: 'High', completed: false }];
-    render(<TaskList tasks={tasks} countText="1 Tasks" />);
-    expect(screen.getByText('A')).toBeInTheDocument();
+    render(<TaskList tasks={TASKS_WITH_DUE} countText="1 Tasks" />);
+    expect(screen.getByText('T1')).toBeInTheDocument();
   });
 });
