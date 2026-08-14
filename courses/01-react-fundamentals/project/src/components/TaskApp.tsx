@@ -18,6 +18,14 @@ import TaskList, {
 
 import StatsPanel from './StatsPanel'
 
+import {
+  ADD_TASK,
+  UPDATE_TASK,
+  DELETE_TASK,
+  TOGGLE_TASK,
+  type TaskAction,
+} from '../reducers/taskReducer'
+
 interface TaskAppProps {
   tasks?: Task[]
 
@@ -26,10 +34,7 @@ interface TaskAppProps {
   >
 
   dispatch?: (
-    action: {
-      type: string
-      payload?: unknown
-    },
+    action: TaskAction,
   ) => void
 
   showForm?: boolean
@@ -198,7 +203,7 @@ export default function TaskApp({
     }
 
     dispatch?.({
-      type: 'ADD_TASK',
+      type: ADD_TASK,
       payload: normalizedTask,
     })
   }
@@ -222,7 +227,7 @@ export default function TaskApp({
     }
 
     dispatch?.({
-      type: 'TOGGLE_TASK',
+      type: TOGGLE_TASK,
       payload: id,
     })
   }
@@ -250,7 +255,7 @@ export default function TaskApp({
     }
 
     dispatch?.({
-      type: 'DELETE_TASK',
+      type: DELETE_TASK,
       payload: id,
     })
   }
@@ -303,7 +308,7 @@ export default function TaskApp({
     }
 
     dispatch?.({
-      type: 'UPDATE_TASK',
+      type: UPDATE_TASK,
       payload: {
         id,
         ...updatedTask,

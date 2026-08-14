@@ -385,5 +385,28 @@
       "maintainability": 90,
       "overall": "The code is well-structured and follows good practices, but could benefit from some additional error handling and documentation to make it more robust and maintainable."
     }
+  },
+  {
+    "challengeId": "18-usereducer-complex-state",
+    "challengeName": "useReducer - Complex State Management",
+    "aiReview": {
+      "challengeId": "18-usereducer-complex-state",
+      "timestamp": "2026-08-14T12:10:39.653Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The use of TypeScript and functional components is a good practice.",
+        "The code is well-organized, and the use of separate files for reducers and components is a good approach.",
+        "The use of action creators and a reducer function makes the code more predictable and easier to test."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive. For example, `taskReducer` could be renamed to `tasksReducer`.",
+        "The `normalizeTask` function is quite complex and could be broken down into smaller functions for better readability.",
+        "The `handleUpdateTask` function could be simplified by removing the unnecessary checks and using a more concise syntax."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices. However, there are some areas for improvement to make it even more maintainable and readable."
+    }
   }
 ]
