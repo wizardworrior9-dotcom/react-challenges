@@ -4,6 +4,7 @@ export { default as TaskList } from './TaskList'
 export { default as TaskForm } from './TaskForm'
 export { default as FilterBar } from './FilterBar'
 export { default as StatsPanel } from './StatsPanel'
+export { default as ErrorBoundary } from './ErrorBoundary'
 
 export { default as Button } from './Button'
 export { default as Badge } from './Badge'

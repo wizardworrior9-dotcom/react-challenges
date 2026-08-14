@@ -19,6 +19,7 @@ import TaskList, {
 } from './TaskList'
 
 import StatsPanel from './StatsPanel'
+import ErrorBoundary from './ErrorBoundary'
 
 import {
   ADD_TASK,
@@ -504,35 +505,37 @@ export default function TaskApp({
         </>
       )}
 
-      {showFilterBar &&
-      sortedTasks.length === 0 ? (
-        <>
-          <div id="task-count">
-            {countText}
-          </div>
+      <ErrorBoundary>
+        {showFilterBar &&
+        sortedTasks.length === 0 ? (
+          <>
+            <div id="task-count">
+              {countText}
+            </div>
 
-          <div id="filter-empty-message">
-            {normalizedSearch
-              ? `No tasks found for "${effectiveSearch.trim()}"`
-              : 'No tasks match this filter'}
-          </div>
-        </>
-      ) : (
-        <TaskList
-          tasks={sortedTasks}
-          countText={countText}
-          onToggle={handleToggle}
-          onDelete={handleDelete}
-          onUpdateTask={
-            handleUpdateTask
-          }
-          editingId={editingId}
-          onStartEdit={
-            handleStartEdit
-          }
-          linkToTaskDetail={false}
-        />
-      )}
+            <div id="filter-empty-message">
+              {normalizedSearch
+                ? `No tasks found for "${effectiveSearch.trim()}"`
+                : 'No tasks match this filter'}
+            </div>
+          </>
+        ) : (
+          <TaskList
+            tasks={sortedTasks}
+            countText={countText}
+            onToggle={handleToggle}
+            onDelete={handleDelete}
+            onUpdateTask={
+              handleUpdateTask
+            }
+            editingId={editingId}
+            onStartEdit={
+              handleStartEdit
+            }
+            linkToTaskDetail={false}
+          />
+        )}
+      </ErrorBoundary>
     </div>
   )
 }
