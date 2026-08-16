@@ -71,6 +71,7 @@ export default function TaskList({
   onUpdateTask,
   editingId,
   onStartEdit,
+  linkToTaskDetail,
 }: TaskListProps) {
   const list = useMemo(
     () => tasks ?? HARDCODED_TASKS,
@@ -80,7 +81,9 @@ export default function TaskList({
   return (
     <>
       {countText && (
-        <div id="task-count">{countText}</div>
+        <div id="task-count">
+          {countText}
+        </div>
       )}
 
       <section id="task-list">
@@ -100,6 +103,7 @@ export default function TaskList({
             onUpdateTask={onUpdateTask}
             editingId={editingId}
             onStartEdit={onStartEdit}
+            linkToTaskDetail={linkToTaskDetail}
           />
         ))}
       </section>

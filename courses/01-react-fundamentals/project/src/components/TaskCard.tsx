@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Button from './Button'
 import Badge from './Badge'
 import StatusIndicator from './StatusIndicator'
@@ -38,6 +39,8 @@ interface TaskCardProps {
   onStartEdit?: (
     id: string | number,
   ) => void
+
+  linkToTaskDetail?: boolean
 }
 
 function getDueStatus(
@@ -100,6 +103,7 @@ function TaskCard({
   onUpdateTask,
   editingId,
   onStartEdit,
+  linkToTaskDetail = false,
 }: TaskCardProps) {
   const isEditing =
     editingId !== null &&
@@ -387,7 +391,15 @@ function TaskCard({
                   : 'none',
             }}
           >
-            {title}
+            {linkToTaskDetail && taskId !== undefined ? (
+              <Link
+                to={`/challenge/21-react-router/task/${taskId}`}
+              >
+                {title}
+              </Link>
+            ) : (
+              title
+            )}
           </h2>
 
           <p
@@ -487,4 +499,3 @@ function TaskCard({
 }
 
 export default React.memo(TaskCard)
-

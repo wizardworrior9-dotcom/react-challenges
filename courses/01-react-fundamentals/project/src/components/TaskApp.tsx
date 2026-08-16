@@ -137,6 +137,7 @@ export default function TaskApp({
   showFilterBar = false,
   showStatsPanel = false,
   onDelete,
+  linkToTaskDetail = false,
 }: TaskAppProps) {
   const [filter, setFilter] =
     useState<TaskFilter>('all')
@@ -532,7 +533,7 @@ export default function TaskApp({
             onStartEdit={
               handleStartEdit
             }
-            linkToTaskDetail={false}
+            linkToTaskDetail={linkToTaskDetail}
           />
         )}
       </ErrorBoundary>
