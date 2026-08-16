@@ -1,4 +1,5 @@
-import type { RefObject } from 'react'
+import { useEffect, useRef } from 'react'
+import type { MutableRefObject, RefObject } from 'react'
 
 export type TaskFilter =
   | 'all'
@@ -24,6 +25,7 @@ interface FilterBarProps {
   ) => void
 
   searchText?: string
+  searchQuery?: string
   onSearchChange?: (
     searchText: string,
   ) => void
@@ -46,14 +48,23 @@ export default function FilterBar({
   onFilterChange,
   sortOrder = 'recent',
   onSortChange,
-  searchText = '',
+  searchText,
+  searchQuery,
   onSearchChange,
   onClearSearch,
-  searchInputRef,
+  searchInputRef: externalSearchInputRef,
   categories = [],
   categoryFilter = 'all',
   onCategoryChange,
 }: FilterBarProps) {
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    searchInputRef.current?.focus()
+  }, [])
+
+  const queryValue = searchText ?? searchQuery ?? ''
+
   return (
     <div id="filter-bar">
       <div>
@@ -125,10 +136,17 @@ export default function FilterBar({
 
       <div>
         <input
-          ref={searchInputRef}
+          ref={(node) => {
+            const currentRef = searchInputRef as MutableRefObject<HTMLInputElement | null>
+            currentRef.current = node
+            if (externalSearchInputRef) {
+              const extRef = externalSearchInputRef as MutableRefObject<HTMLInputElement | null>
+              extRef.current = node
+            }
+          }}
           id="search-input"
           type="text"
-          value={searchText}
+          value={queryValue}
           onChange={(event) =>
             onSearchChange?.(
               event.target.value,
@@ -137,7 +155,7 @@ export default function FilterBar({
           placeholder="Search tasks..."
         />
 
-        {searchText && (
+        {queryValue && (
           <button
             id="clear-search"
             type="button"
