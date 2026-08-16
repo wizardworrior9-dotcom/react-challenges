@@ -460,7 +460,7 @@
     "challengeName": "React Router - Routing and Navigation",
     "aiReview": {
       "challengeId": "21-react-router",
-      "timestamp": "2026-08-16T15:50:09.662Z",
+      "timestamp": "2026-08-16T15:55:34.991Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -469,6 +469,29 @@
       "maintainability": 0,
       "overall": "",
       "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz8cnp9veq3s6ej6qfb9gpmn` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6627, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    }
+  },
+  {
+    "challengeId": "22-data-fetching",
+    "challengeName": "Data Fetching - Loading and Error State",
+    "aiReview": {
+      "challengeId": "22-data-fetching",
+      "timestamp": "2026-08-16T16:00:35.133Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and easy to follow, with clear separation of concerns between the FetchDemoView component and the useEffect hook.",
+        "The use of TypeScript and functional components is a good practice, making the code more maintainable and scalable.",
+        "The code includes proper error handling and cleanup in the useEffect hook, which is essential for preventing memory leaks and React warnings."
+      ],
+      "improvements": [
+        "Consider adding more descriptive variable names, such as 'fetchingData' instead of 'loading', to improve code readability.",
+        "The error handling in the useEffect hook could be improved by providing more specific error messages, rather than just 'Failed to fetch' or 'Failed to fetch data'.",
+        "The code could benefit from additional comments or documentation to explain the purpose of the FetchDemoView component and the useEffect hook."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured, maintainable, and follows good practices. However, there are some minor improvements that can be made to enhance readability and error handling."
     }
   }
 ]

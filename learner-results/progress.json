@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-08-16T15:50:10.402Z",
+  "lastUpdated": "2026-08-16T16:00:38.365Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 30.5,
-    "completionPercentage": 39.6,
+    "overallScore": 30.6,
+    "completionPercentage": 41.5,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 21
+    "completedChallenges": 22
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 92.4,
-      "completionPercentage": 91.3,
+      "averageScore": 92.7,
+      "completionPercentage": 95.7,
       "badgeLevel": "silver",
       "totalChallenges": 23,
-      "completedChallenges": 21,
+      "completedChallenges": 22,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -324,7 +324,7 @@
           "challengeName": "React Router - Routing and Navigation",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-16T15:49:44.823Z",
+          "lastRun": "2026-08-16T15:55:11.754Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -332,6 +332,21 @@
             "bestPractices": 100,
             "e2eTests": 100,
             "aiReview": 0
+          }
+        },
+        "22-data-fetching": {
+          "challengeId": "22-data-fetching",
+          "challengeName": "Data Fetching - Loading and Error State",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-16T16:00:11.062Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
           }
         }
       }
