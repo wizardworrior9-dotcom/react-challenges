@@ -1,19 +1,19 @@
 {
-  "lastUpdated": "2026-08-21T07:10:31.066Z",
+  "lastUpdated": "2026-08-21T07:51:25.099Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 58.7,
-    "completionPercentage": 52.8,
+    "overallScore": 58.5,
+    "completionPercentage": 54.7,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 28
+    "completedChallenges": 29
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 93,
+      "averageScore": 92.4,
       "completionPercentage": 100,
       "badgeLevel": "gold",
       "totalChallenges": 23,
@@ -98,15 +98,15 @@
           "challengeId": "06-task-filtering",
           "challengeName": "Task Filtering",
           "passed": true,
-          "score": 98.2,
-          "lastRun": "2026-08-16T16:19:02.469Z",
+          "score": 85,
+          "lastRun": "2026-08-21T07:38:56.448Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 88
+            "aiReview": 0
           }
         },
         "07-priority-based-sorting": {
@@ -370,10 +370,10 @@
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
       "averageScore": 85,
-      "completionPercentage": 38.5,
+      "completionPercentage": 46.2,
       "badgeLevel": "none",
       "totalChallenges": 13,
-      "completedChallenges": 5,
+      "completedChallenges": 6,
       "challenges": {
         "01-store-setup": {
           "challengeId": "01-store-setup",
@@ -440,7 +440,22 @@
           "challengeName": "Async Logic with createAsyncThunk",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-21T07:09:59.863Z",
+          "lastRun": "2026-08-21T07:11:29.865Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
+        "06-rtk-query-setup": {
+          "challengeId": "06-rtk-query-setup",
+          "challengeName": "RTK Query Setup and API Slice",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-21T07:50:56.293Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,

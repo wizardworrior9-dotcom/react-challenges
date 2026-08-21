@@ -2117,16 +2117,16 @@
   {
     "challengeId": "06-task-filtering",
     "challengeName": "Task Filtering",
-    "timestamp": "2026-08-16T16:19:02.469Z",
+    "timestamp": "2026-08-21T07:38:56.448Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
-      "aiReview": 88
+      "aiReview": 0
     },
-    "totalScore": 98.2,
+    "totalScore": 85,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -2147,7 +2147,7 @@
               "fullName": " Challenge 06: Task Filtering FilterBar should render All, Active, Completed buttons",
               "status": "passed",
               "title": "FilterBar should render All, Active, Completed buttons",
-              "duration": 341,
+              "duration": 306,
               "failureMessages": []
             },
             {
@@ -2158,7 +2158,7 @@
               "fullName": " Challenge 06: Task Filtering FilterBar should have id=\"filter-bar\"",
               "status": "passed",
               "title": "FilterBar should have id=\"filter-bar\"",
-              "duration": 11,
+              "duration": 13,
               "failureMessages": []
             },
             {
@@ -2169,7 +2169,7 @@
               "fullName": " Challenge 06: Task Filtering FilterBar should highlight active filter",
               "status": "passed",
               "title": "FilterBar should highlight active filter",
-              "duration": 88,
+              "duration": 75,
               "failureMessages": []
             },
             {
@@ -2180,7 +2180,7 @@
               "fullName": " Challenge 06: Task Filtering FilterBar should call onFilterChange when button clicked",
               "status": "passed",
               "title": "FilterBar should call onFilterChange when button clicked",
-              "duration": 127,
+              "duration": 110,
               "failureMessages": []
             },
             {
@@ -2191,12 +2191,12 @@
               "fullName": " Challenge 06: Task Filtering TaskList with filtered tasks should show only matching tasks",
               "status": "passed",
               "title": "TaskList with filtered tasks should show only matching tasks",
-              "duration": 30,
+              "duration": 23,
               "failureMessages": []
             }
           ],
-          "startTime": 1786897149354,
-          "endTime": 1786897149951,
+          "startTime": 1787297990511,
+          "endTime": 1787297991038,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/01-react-fundamentals/project/tests/challenge-06.test.tsx"
@@ -2351,12 +2351,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 581,
+                          "duration": 786,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-16T16:19:25.703Z",
+                          "startTime": "2026-08-21T07:40:43.354Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2385,12 +2385,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 523,
+                          "duration": 581,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-16T16:19:26.516Z",
+                          "startTime": "2026-08-21T07:40:44.416Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2419,12 +2419,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 498,
+                          "duration": 552,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-16T16:19:27.071Z",
+                          "startTime": "2026-08-21T07:40:45.032Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2453,12 +2453,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 558,
+                          "duration": 636,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-16T16:19:27.603Z",
+                          "startTime": "2026-08-21T07:40:45.623Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2480,41 +2480,27 @@
     },
     "aiReviewResults": {
       "challengeId": "06-task-filtering",
-      "timestamp": "2026-08-16T16:19:28.891Z",
-      "score": 88,
+      "timestamp": "2026-08-21T07:40:46.973Z",
+      "score": 0,
       "feedback": [],
-      "strengths": [
-        "The code is well-organized and follows a consistent structure.",
-        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
-        "The application of the SOLID principles is evident in the code, making it more scalable and easier to extend."
-      ],
-      "improvements": [
-        "Some of the function names could be more descriptive, making it easier to understand their purpose.",
-        "The use of comments could be improved to provide more context and explanations for complex code sections.",
-        "The code could benefit from more separation of concerns, making it easier to modify and extend individual components without affecting the rest of the application."
-      ],
-      "readability": 85,
-      "maintainability": 90,
-      "overall": "The code is well-structured and maintainable, with a good balance between readability and performance. However, there are some areas for improvement, such as more descriptive function names and comments, as well as a more modular design."
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     },
     "aiResults": {
       "challengeId": "06-task-filtering",
-      "timestamp": "2026-08-16T16:19:28.891Z",
-      "score": 88,
+      "timestamp": "2026-08-21T07:40:46.973Z",
+      "score": 0,
       "feedback": [],
-      "strengths": [
-        "The code is well-organized and follows a consistent structure.",
-        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
-        "The application of the SOLID principles is evident in the code, making it more scalable and easier to extend."
-      ],
-      "improvements": [
-        "Some of the function names could be more descriptive, making it easier to understand their purpose.",
-        "The use of comments could be improved to provide more context and explanations for complex code sections.",
-        "The code could benefit from more separation of concerns, making it easier to modify and extend individual components without affecting the rest of the application."
-      ],
-      "readability": 85,
-      "maintainability": 90,
-      "overall": "The code is well-structured and maintainable, with a good balance between readability and performance. However, there are some areas for improvement, such as more descriptive function names and comments, as well as a more modular design."
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
   },
   {

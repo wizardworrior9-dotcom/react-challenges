@@ -68,7 +68,23 @@
     "challengeName": "Async Logic with createAsyncThunk",
     "aiReview": {
       "challengeId": "05-async-thunks",
-      "timestamp": "2026-08-21T07:10:30.466Z",
+      "timestamp": "2026-08-21T07:11:56.983Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "06-rtk-query-setup",
+    "challengeName": "RTK Query Setup and API Slice",
+    "aiReview": {
+      "challengeId": "06-rtk-query-setup",
+      "timestamp": "2026-08-21T07:51:23.068Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

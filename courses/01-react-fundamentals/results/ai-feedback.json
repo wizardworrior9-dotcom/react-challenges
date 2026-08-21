@@ -101,29 +101,6 @@
     }
   },
   {
-    "challengeId": "06-task-filtering",
-    "challengeName": "Task Filtering",
-    "aiReview": {
-      "challengeId": "06-task-filtering",
-      "timestamp": "2026-08-16T16:19:28.891Z",
-      "score": 88,
-      "feedback": [],
-      "strengths": [
-        "The code is well-organized and follows a consistent structure.",
-        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
-        "The application of the SOLID principles is evident in the code, making it more scalable and easier to extend."
-      ],
-      "improvements": [
-        "Some of the function names could be more descriptive, making it easier to understand their purpose.",
-        "The use of comments could be improved to provide more context and explanations for complex code sections.",
-        "The code could benefit from more separation of concerns, making it easier to modify and extend individual components without affecting the rest of the application."
-      ],
-      "readability": 85,
-      "maintainability": 90,
-      "overall": "The code is well-structured and maintainable, with a good balance between readability and performance. However, there are some areas for improvement, such as more descriptive function names and comments, as well as a more modular design."
-    }
-  },
-  {
     "challengeId": "07-priority-based-sorting",
     "challengeName": "Priority-Based Sorting",
     "aiReview": {
@@ -466,6 +443,22 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and effective in managing state and side effects, but could benefit from some improvements in readability and maintainability."
+    }
+  },
+  {
+    "challengeId": "06-task-filtering",
+    "challengeName": "Task Filtering",
+    "aiReview": {
+      "challengeId": "06-task-filtering",
+      "timestamp": "2026-08-21T07:40:46.973Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
   }
 ]
