@@ -13,7 +13,10 @@ export const apiSlice = createApi({
         const data = await mockApi.getUsers()
         return { data }
       },
-      providesTags: ['User'],
+      providesTags: (result) =>
+        result
+          ? [...result.map(({ id }) => ({ type: 'User' as const, id })), { type: 'User', id: 'LIST' }]
+          : [{ type: 'User', id: 'LIST' }],
     }),
 
     getUserById: builder.query<User, number>({
@@ -29,7 +32,7 @@ export const apiSlice = createApi({
         const data = await mockApi.createUser(user)
         return { data }
       },
-      invalidatesTags: ['User'],
+      invalidatesTags: [{ type: 'User', id: 'LIST' }],
     }),
 
     updateUser: builder.mutation<User, { id: number; updates: Partial<User> }>({
@@ -58,7 +61,7 @@ export const apiSlice = createApi({
         await mockApi.deleteUser(id)
         return { data: undefined }
       },
-      invalidatesTags: ['User'],
+      invalidatesTags: [{ type: 'User', id: 'LIST' }],
     }),
 
     // Posts
@@ -67,7 +70,10 @@ export const apiSlice = createApi({
         const data = await mockApi.getPosts()
         return { data }
       },
-      providesTags: ['Post'],
+      providesTags: (result) =>
+        result
+          ? [...result.map(({ id }) => ({ type: 'Post' as const, id })), { type: 'Post', id: 'LIST' }]
+          : [{ type: 'Post', id: 'LIST' }],
     }),
 
     getPostById: builder.query<Post, number>({
@@ -83,7 +89,7 @@ export const apiSlice = createApi({
         const data = await mockApi.createPost(post)
         return { data }
       },
-      invalidatesTags: ['Post'],
+      invalidatesTags: [{ type: 'Post', id: 'LIST' }],
     }),
 
     updatePost: builder.mutation<Post, { id: number; updates: Partial<Post> }>({
@@ -99,7 +105,7 @@ export const apiSlice = createApi({
         await mockApi.deletePost(id)
         return { data: undefined }
       },
-      invalidatesTags: ['Post'],
+      invalidatesTags: [{ type: 'Post', id: 'LIST' }],
     }),
   }),
 })

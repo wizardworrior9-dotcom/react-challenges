@@ -1936,5 +1936,230 @@
       "overall": "",
       "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
+  },
+  {
+    "challengeId": "08-caching-refetch",
+    "challengeName": "Caching and Cache Tags",
+    "timestamp": "2026-08-21T08:14:52.674Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 08: Caching and Cache Tags"
+              ],
+              "fullName": " Challenge 08: Caching and Cache Tags API slice has providesTags on query endpoint",
+              "status": "passed",
+              "title": "API slice has providesTags on query endpoint",
+              "duration": 3,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 08: Caching and Cache Tags"
+              ],
+              "fullName": " Challenge 08: Caching and Cache Tags API slice has invalidatesTags on mutation or tagTypes",
+              "status": "passed",
+              "title": "API slice has invalidatesTags on mutation or tagTypes",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787300100903,
+          "endTime": 1787300100907,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-08.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-08.spec.ts",
+          "file": "challenge-08.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 08: Caching and Cache Tags - E2E",
+              "file": "challenge-08.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 08 page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 621,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-21T08:15:21.262Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "cc4b1dfc0eb6cfe77aae-a520006593dc32b158d9",
+                  "file": "challenge-08.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should have posts list or content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 487,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-21T08:15:22.132Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "cc4b1dfc0eb6cfe77aae-f2f94d63d4b9c539a5e4",
+                  "file": "challenge-08.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-21T08:15:23.289Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-21T08:15:23.289Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
   }
 ]
