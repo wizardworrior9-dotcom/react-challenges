@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-21T06:57:18.926Z",
+  "lastUpdated": "2026-08-21T07:05:38.401Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 58.7,
-    "completionPercentage": 49.1,
+    "completionPercentage": 50.9,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 26
+    "completedChallenges": 27
   },
   "courses": {
     "01-react-fundamentals": {
@@ -370,10 +370,10 @@
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
       "averageScore": 85,
-      "completionPercentage": 23.1,
+      "completionPercentage": 30.8,
       "badgeLevel": "none",
       "totalChallenges": 13,
-      "completedChallenges": 3,
+      "completedChallenges": 4,
       "challenges": {
         "01-store-setup": {
           "challengeId": "01-store-setup",
@@ -410,7 +410,22 @@
           "challengeName": "Reading and Dispatching in Components",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-21T06:56:48.998Z",
+          "lastRun": "2026-08-21T07:00:44.045Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
+        "04-multiple-slices": {
+          "challengeId": "04-multiple-slices",
+          "challengeName": "Multiple Slices in the Store",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-21T07:05:09.233Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
