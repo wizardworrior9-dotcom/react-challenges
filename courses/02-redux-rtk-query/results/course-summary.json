@@ -1,11 +1,11 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-08-21T07:05:38.234Z",
+  "lastUpdated": "2026-08-21T07:10:30.896Z",
   "totalChallenges": 13,
-  "completedChallenges": 4,
+  "completedChallenges": 5,
   "averageScore": 85,
-  "completionPercentage": 30.8,
+  "completionPercentage": 38.5,
   "badgeLevel": "none",
   "challengeResults": [
     {
@@ -31,13 +31,20 @@
       "challengeName": "Multiple Slices in the Store",
       "score": 85,
       "passed": true
+    },
+    {
+      "challengeId": "05-async-thunks",
+      "challengeName": "Async Logic with createAsyncThunk",
+      "score": 85,
+      "passed": true
     }
   ],
   "skillStrengths": [
     "Store Setup with configureStore",
     "First Slice with createSlice",
     "Reading and Dispatching in Components",
-    "Multiple Slices in the Store"
+    "Multiple Slices in the Store",
+    "Async Logic with createAsyncThunk"
   ],
   "improvementAreas": []
 }

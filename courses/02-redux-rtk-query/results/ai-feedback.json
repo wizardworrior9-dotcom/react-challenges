@@ -52,7 +52,23 @@
     "challengeName": "Multiple Slices in the Store",
     "aiReview": {
       "challengeId": "04-multiple-slices",
-      "timestamp": "2026-08-21T07:05:37.716Z",
+      "timestamp": "2026-08-21T07:07:08.938Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "05-async-thunks",
+    "challengeName": "Async Logic with createAsyncThunk",
+    "aiReview": {
+      "challengeId": "05-async-thunks",
+      "timestamp": "2026-08-21T07:10:30.466Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
