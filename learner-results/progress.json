@@ -1,19 +1,19 @@
 {
-  "lastUpdated": "2026-08-16T16:08:50.978Z",
+  "lastUpdated": "2026-08-21T06:44:47.768Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 30.7,
-    "completionPercentage": 43.4,
+    "overallScore": 58.7,
+    "completionPercentage": 45.3,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 23
+    "completedChallenges": 24
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 92.9,
+      "averageScore": 93,
       "completionPercentage": 100,
       "badgeLevel": "gold",
       "totalChallenges": 23,
@@ -23,23 +23,8 @@
           "challengeId": "01-static-task-display",
           "challengeName": "Static Task Display",
           "passed": true,
-          "score": 81.855,
-          "lastRun": "2026-08-05T07:22:33.407Z",
-          "scores": {
-            "functionalTests": 83.3,
-            "codeQuality": 50,
-            "architecture": 100,
-            "bestPractices": 100,
-            "e2eTests": 80,
-            "aiReview": 88
-          }
-        },
-        "02-dynamic-task-rendering": {
-          "challengeId": "02-dynamic-task-rendering",
-          "challengeName": "Dynamic Task Rendering",
-          "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-11T11:05:30.620Z",
+          "lastRun": "2026-08-16T16:16:47.344Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -49,12 +34,27 @@
             "aiReview": 88
           }
         },
+        "02-dynamic-task-rendering": {
+          "challengeId": "02-dynamic-task-rendering",
+          "challengeName": "Dynamic Task Rendering",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-16T16:17:16.134Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
         "03-adding-new-tasks": {
           "challengeId": "03-adding-new-tasks",
           "challengeName": "Adding New Tasks",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-11T11:19:57.081Z",
+          "lastRun": "2026-08-16T16:17:42.525Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -68,30 +68,30 @@
           "challengeId": "04-task-completion-toggle",
           "challengeName": "Task Completion Toggle",
           "passed": true,
-          "score": 92.355,
-          "lastRun": "2026-08-11T11:29:26.673Z",
+          "score": 97.45,
+          "lastRun": "2026-08-16T16:18:10.333Z",
           "scores": {
-            "functionalTests": 83.3,
+            "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 88
+            "aiReview": 83
           }
         },
         "05-task-deletion": {
           "challengeId": "05-task-deletion",
           "challengeName": "Task Deletion",
           "passed": true,
-          "score": 80.7,
-          "lastRun": "2026-08-11T11:36:53.158Z",
+          "score": 85,
+          "lastRun": "2026-08-16T16:18:37.767Z",
           "scores": {
-            "functionalTests": 50,
+            "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 88
+            "aiReview": 0
           }
         },
         "06-task-filtering": {
@@ -99,7 +99,7 @@
           "challengeName": "Task Filtering",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-11T11:44:44.911Z",
+          "lastRun": "2026-08-16T16:19:02.469Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -113,30 +113,30 @@
           "challengeId": "07-priority-based-sorting",
           "challengeName": "Priority-Based Sorting",
           "passed": true,
-          "score": 92.5,
-          "lastRun": "2026-08-11T11:55:49.895Z",
+          "score": 85,
+          "lastRun": "2026-08-16T16:19:30.698Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 50
+            "aiReview": 0
           }
         },
         "08-task-editing": {
           "challengeId": "08-task-editing",
           "challengeName": "Task Editing",
           "passed": true,
-          "score": 97.45,
-          "lastRun": "2026-08-11T12:02:22.755Z",
+          "score": 85,
+          "lastRun": "2026-08-16T16:19:54.553Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 83
+            "aiReview": 0
           }
         },
         "09-search-functionality": {
@@ -144,7 +144,7 @@
           "challengeName": "Search Functionality",
           "passed": true,
           "score": 90.7,
-          "lastRun": "2026-08-11T12:07:53.933Z",
+          "lastRun": "2026-08-16T16:20:18.870Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -158,12 +158,12 @@
           "challengeId": "10-useeffect-local-storage",
           "challengeName": "useEffect - Local Storage Persistence",
           "passed": true,
-          "score": 93.2,
-          "lastRun": "2026-08-11T12:15:23.935Z",
+          "score": 98.2,
+          "lastRun": "2026-08-16T16:20:50.632Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
-            "architecture": 50,
+            "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
             "aiReview": 88
@@ -173,55 +173,70 @@
           "challengeId": "11-useeffect-debounced-search",
           "challengeName": "useEffect - Debounced Search",
           "passed": true,
-          "score": 98.2,
-          "lastRun": "2026-08-11T12:25:28.518Z",
+          "score": 85,
+          "lastRun": "2026-08-16T16:21:15.351Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 88
+            "aiReview": 0
           }
         },
         "12-categories-and-tags": {
           "challengeId": "12-categories-and-tags",
           "challengeName": "Categories and Tags",
           "passed": true,
-          "score": 98.2,
-          "lastRun": "2026-08-11T12:33:49.518Z",
+          "score": 92.5,
+          "lastRun": "2026-08-16T16:21:38.784Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 88
+            "aiReview": 50
           }
         },
         "13-due-dates-and-sorting": {
           "challengeId": "13-due-dates-and-sorting",
           "challengeName": "Due Dates and Sorting",
           "passed": true,
-          "score": 98.2,
-          "lastRun": "2026-08-11T12:49:43.739Z",
+          "score": 85,
+          "lastRun": "2026-08-16T16:22:04.093Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 88
+            "aiReview": 0
           }
         },
         "14-task-statistics-dashboard": {
           "challengeId": "14-task-statistics-dashboard",
           "challengeName": "Task Statistics Dashboard",
           "passed": true,
-          "score": 86.545,
-          "lastRun": "2026-08-11T13:23:47.317Z",
+          "score": 97.45,
+          "lastRun": "2026-08-16T16:22:27.122Z",
           "scores": {
-            "functionalTests": 66.7,
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 83
+          }
+        },
+        "15-component-organization": {
+          "challengeId": "15-component-organization",
+          "challengeName": "Component Organization with Props",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-16T16:22:52.203Z",
+          "scores": {
+            "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
@@ -229,33 +244,18 @@
             "aiReview": 88
           }
         },
-        "15-component-organization": {
-          "challengeId": "15-component-organization",
-          "challengeName": "Component Organization with Props",
-          "passed": true,
-          "score": 91.45,
-          "lastRun": "2026-08-11T13:33:31.416Z",
-          "scores": {
-            "functionalTests": 100,
-            "codeQuality": 60,
-            "architecture": 100,
-            "bestPractices": 100,
-            "e2eTests": 100,
-            "aiReview": 83
-          }
-        },
         "16-context-api-theme": {
           "challengeId": "16-context-api-theme",
           "challengeName": "Context API - Theme Management",
           "passed": true,
-          "score": 82.60000000000001,
-          "lastRun": "2026-08-11T13:45:10.519Z",
+          "score": 98.2,
+          "lastRun": "2026-08-16T16:23:15.120Z",
           "scores": {
             "functionalTests": 100,
-            "codeQuality": 96,
+            "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
-            "e2eTests": 0,
+            "e2eTests": 100,
             "aiReview": 88
           }
         },
@@ -264,7 +264,7 @@
           "challengeName": "Custom Hook - useLocalStorage",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-14T12:01:24.930Z",
+          "lastRun": "2026-08-16T16:23:39.600Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -279,7 +279,7 @@
           "challengeName": "useReducer - Complex State Management",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-14T12:10:15.723Z",
+          "lastRun": "2026-08-16T16:24:04.106Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -293,8 +293,23 @@
           "challengeId": "19-performance-optimization",
           "challengeName": "Performance Optimization",
           "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-16T16:24:28.579Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
+        "20-error-boundaries": {
+          "challengeId": "20-error-boundaries",
+          "challengeName": "Error Boundaries and Error Handling",
+          "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-14T12:32:22.250Z",
+          "lastRun": "2026-08-16T16:27:12.980Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -304,27 +319,12 @@
             "aiReview": 88
           }
         },
-        "20-error-boundaries": {
-          "challengeId": "20-error-boundaries",
-          "challengeName": "Error Boundaries and Error Handling",
-          "passed": true,
-          "score": 83.2,
-          "lastRun": "2026-08-14T12:40:36.838Z",
-          "scores": {
-            "functionalTests": 100,
-            "codeQuality": 100,
-            "architecture": 100,
-            "bestPractices": 100,
-            "e2eTests": 0,
-            "aiReview": 88
-          }
-        },
         "21-react-router": {
           "challengeId": "21-react-router",
           "challengeName": "React Router - Routing and Navigation",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-16T15:55:11.754Z",
+          "lastRun": "2026-08-16T16:25:23.821Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -339,7 +339,7 @@
           "challengeName": "Data Fetching - Loading and Error State",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-16T16:00:11.062Z",
+          "lastRun": "2026-08-16T16:25:48.968Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -354,7 +354,7 @@
           "challengeName": "useRef - Focus Management",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-16T16:08:25.647Z",
+          "lastRun": "2026-08-16T16:26:16.412Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -369,12 +369,28 @@
     "02-redux-rtk-query": {
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
-      "averageScore": 0,
-      "completionPercentage": 0,
+      "averageScore": 85,
+      "completionPercentage": 7.7,
       "badgeLevel": "none",
       "totalChallenges": 13,
-      "completedChallenges": 0,
-      "challenges": {}
+      "completedChallenges": 1,
+      "challenges": {
+        "01-store-setup": {
+          "challengeId": "01-store-setup",
+          "challengeName": "Store Setup with configureStore",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-21T06:44:18.616Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        }
+      }
     },
     "03-nextjs-app-router": {
       "courseId": "03-nextjs-app-router",

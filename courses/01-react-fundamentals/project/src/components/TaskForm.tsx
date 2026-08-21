@@ -88,6 +88,7 @@ export default function TaskForm({
 
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="task-title">Title</label>
       <input
         id="task-title"
         type="text"

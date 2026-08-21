@@ -515,7 +515,7 @@ export default function TaskApp({
             </div>
 
             <div id="filter-empty-message">
-              {normalizedSearch
+              {effectiveSearch.trim()
                 ? `No tasks found for "${effectiveSearch.trim()}"`
                 : 'No tasks match this filter'}
             </div>

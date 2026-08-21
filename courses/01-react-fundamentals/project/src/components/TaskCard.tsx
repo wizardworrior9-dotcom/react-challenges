@@ -5,6 +5,7 @@ import Badge from './Badge'
 import StatusIndicator from './StatusIndicator'
 
 interface TaskCardProps {
+  id?: string | number
   taskId?: string | number
   title: string
   description: string
@@ -90,6 +91,7 @@ function getDueStatus(
 }
 
 function TaskCard({
+  id,
   taskId,
   title,
   description,
@@ -105,10 +107,12 @@ function TaskCard({
   onStartEdit,
   linkToTaskDetail = false,
 }: TaskCardProps) {
+  const currentId = id ?? taskId
+
   const isEditing =
     editingId !== null &&
     editingId !== undefined &&
-    editingId === taskId
+    editingId === currentId
 
   const [editTitle, setEditTitle] =
     useState(title)
@@ -161,7 +165,7 @@ function TaskCard({
 
     if (
       onUpdateTask &&
-      taskId !== undefined
+      currentId !== undefined
     ) {
       const parsedTags = [
         ...new Set(
@@ -174,7 +178,7 @@ function TaskCard({
         ),
       ]
 
-      onUpdateTask(taskId, {
+      onUpdateTask(currentId, {
         title: editTitle.trim(),
         description:
           editDescription.trim(),
@@ -190,17 +194,14 @@ function TaskCard({
   }
 
   const handleDelete = () => {
-    if (
-      !onDelete ||
-      taskId === undefined
-    ) {
+    if (!onDelete) {
       return
     }
 
     if (
       window.confirm('Are you sure?')
     ) {
-      onDelete(taskId)
+      onDelete(currentId ?? '')
     }
   }
 
@@ -239,23 +240,19 @@ function TaskCard({
           type="checkbox"
           checked={completed}
           onChange={() => {
-            if (
-              taskId !== undefined
-            ) {
-              onToggle(taskId)
-            }
+            onToggle(currentId ?? '')
           }}
         />
       )}
 
       {isEditing ? (
         <div>
-          <label htmlFor={`edit-title-${taskId}`}>
+          <label htmlFor={`edit-title-${currentId}`}>
             Title
           </label>
 
           <input
-            id={`edit-title-${taskId}`}
+            id={`edit-title-${currentId}`}
             value={editTitle}
             onChange={(event) => {
               setEditTitle(
@@ -266,13 +263,13 @@ function TaskCard({
           />
 
           <label
-            htmlFor={`edit-description-${taskId}`}
+            htmlFor={`edit-description-${currentId}`}
           >
             Description
           </label>
 
           <textarea
-            id={`edit-description-${taskId}`}
+            id={`edit-description-${currentId}`}
             value={editDescription}
             onChange={(event) =>
               setEditDescription(
@@ -282,13 +279,13 @@ function TaskCard({
           />
 
           <label
-            htmlFor={`edit-priority-${taskId}`}
+            htmlFor={`edit-priority-${currentId}`}
           >
             Priority
           </label>
 
           <select
-            id={`edit-priority-${taskId}`}
+            id={`edit-priority-${currentId}`}
             value={editPriority}
             onChange={(event) =>
               setEditPriority(
@@ -308,13 +305,13 @@ function TaskCard({
           </select>
 
           <label
-            htmlFor={`edit-category-${taskId}`}
+            htmlFor={`edit-category-${currentId}`}
           >
             Category
           </label>
 
           <input
-            id={`edit-category-${taskId}`}
+            id={`edit-category-${currentId}`}
             value={editCategory}
             onChange={(event) =>
               setEditCategory(
@@ -324,13 +321,13 @@ function TaskCard({
           />
 
           <label
-            htmlFor={`edit-tags-${taskId}`}
+            htmlFor={`edit-tags-${currentId}`}
           >
             Tags
           </label>
 
           <input
-            id={`edit-tags-${taskId}`}
+            id={`edit-tags-${currentId}`}
             value={editTags}
             onChange={(event) =>
               setEditTags(
@@ -340,13 +337,13 @@ function TaskCard({
           />
 
           <label
-            htmlFor={`edit-due-date-${taskId}`}
+            htmlFor={`edit-due-date-${currentId}`}
           >
             Due Date
           </label>
 
           <input
-            id={`edit-due-date-${taskId}`}
+            id={`edit-due-date-${currentId}`}
             type="date"
             value={editDueDate}
             onChange={(event) =>
@@ -391,9 +388,9 @@ function TaskCard({
                   : 'none',
             }}
           >
-            {linkToTaskDetail && taskId !== undefined ? (
+            {linkToTaskDetail && currentId !== undefined ? (
               <Link
-                to={`/challenge/21-react-router/task/${taskId}`}
+                to={`/challenge/21-react-router/task/${currentId}`}
               >
                 {title}
               </Link>
@@ -414,16 +411,14 @@ function TaskCard({
           </p>
 
           <div>
-            Priority:{' '}
             <Badge variant="priority">
-              {priority}
+              Priority: {priority}
             </Badge>
           </div>
 
           <div id="task-category">
-            Category:{' '}
             <Badge variant="category">
-              {category}
+              Category: {category}
             </Badge>
           </div>
 
@@ -472,10 +467,10 @@ function TaskCard({
               variant="secondary"
               onClick={() => {
                 if (
-                  taskId !== undefined
+                  currentId !== undefined
                 ) {
                   onStartEdit?.(
-                    taskId,
+                    currentId,
                   )
                 }
               }}

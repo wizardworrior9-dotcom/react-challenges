@@ -8,6 +8,6 @@ test.describe('Challenge 20: Error Boundaries - E2E', () => {
   test('should display task list or main content', async ({ page }) => {
     const taskList = page.locator('#task-list');
     const main = page.locator('main');
-    await expect(taskList.or(main)).toBeVisible();
+    await expect(taskList.or(main).first()).toBeVisible();
   });
 });

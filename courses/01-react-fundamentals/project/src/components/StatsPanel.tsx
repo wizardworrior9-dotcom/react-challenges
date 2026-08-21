@@ -116,27 +116,15 @@ export default function StatsPanel({
     <section id="stats-panel">
       <h2>Task Statistics</h2>
 
-      <div>
-        <strong>Total Tasks</strong>
-        <span>{stats.total}</span>
-      </div>
+      <div>Total: {stats.total}</div>
 
       <div>
-        <strong>Completed</strong>
-        <span>
-          {stats.completed} ({stats.percentage}%)
-        </span>
+        Completed: {stats.completed} ({stats.percentage}%)
       </div>
 
-      <div>
-        <strong>Active</strong>
-        <span>{stats.active}</span>
-      </div>
+      <div>Active: {stats.active}</div>
 
-      <div>
-        <strong>Overdue</strong>
-        <span>{stats.overdue}</span>
-      </div>
+      <div>Overdue: {stats.overdue}</div>
 
       <div
         role="progressbar"

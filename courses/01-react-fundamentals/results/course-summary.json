@@ -1,23 +1,23 @@
 {
   "courseId": "01-react-fundamentals",
   "courseName": "React Fundamentals",
-  "lastUpdated": "2026-08-16T16:08:50.822Z",
+  "lastUpdated": "2026-08-16T16:27:38.856Z",
   "totalChallenges": 23,
   "completedChallenges": 23,
-  "averageScore": 92.9,
+  "averageScore": 93,
   "completionPercentage": 100,
   "badgeLevel": "gold",
   "challengeResults": [
     {
       "challengeId": "01-static-task-display",
       "challengeName": "Static Task Display",
-      "score": 81.855,
+      "score": 98.2,
       "passed": true
     },
     {
       "challengeId": "02-dynamic-task-rendering",
       "challengeName": "Dynamic Task Rendering",
-      "score": 98.2,
+      "score": 85,
       "passed": true
     },
     {
@@ -29,13 +29,13 @@
     {
       "challengeId": "04-task-completion-toggle",
       "challengeName": "Task Completion Toggle",
-      "score": 92.355,
+      "score": 97.45,
       "passed": true
     },
     {
       "challengeId": "05-task-deletion",
       "challengeName": "Task Deletion",
-      "score": 80.7,
+      "score": 85,
       "passed": true
     },
     {
@@ -47,13 +47,13 @@
     {
       "challengeId": "07-priority-based-sorting",
       "challengeName": "Priority-Based Sorting",
-      "score": 92.5,
+      "score": 85,
       "passed": true
     },
     {
       "challengeId": "08-task-editing",
       "challengeName": "Task Editing",
-      "score": 97.45,
+      "score": 85,
       "passed": true
     },
     {
@@ -65,43 +65,43 @@
     {
       "challengeId": "10-useeffect-local-storage",
       "challengeName": "useEffect - Local Storage Persistence",
-      "score": 93.2,
+      "score": 98.2,
       "passed": true
     },
     {
       "challengeId": "11-useeffect-debounced-search",
       "challengeName": "useEffect - Debounced Search",
-      "score": 98.2,
+      "score": 85,
       "passed": true
     },
     {
       "challengeId": "12-categories-and-tags",
       "challengeName": "Categories and Tags",
-      "score": 98.2,
+      "score": 92.5,
       "passed": true
     },
     {
       "challengeId": "13-due-dates-and-sorting",
       "challengeName": "Due Dates and Sorting",
-      "score": 98.2,
+      "score": 85,
       "passed": true
     },
     {
       "challengeId": "14-task-statistics-dashboard",
       "challengeName": "Task Statistics Dashboard",
-      "score": 86.545,
+      "score": 97.45,
       "passed": true
     },
     {
       "challengeId": "15-component-organization",
       "challengeName": "Component Organization with Props",
-      "score": 91.45,
+      "score": 98.2,
       "passed": true
     },
     {
       "challengeId": "16-context-api-theme",
       "challengeName": "Context API - Theme Management",
-      "score": 82.60000000000001,
+      "score": 98.2,
       "passed": true
     },
     {
@@ -119,13 +119,13 @@
     {
       "challengeId": "19-performance-optimization",
       "challengeName": "Performance Optimization",
-      "score": 98.2,
+      "score": 85,
       "passed": true
     },
     {
       "challengeId": "20-error-boundaries",
       "challengeName": "Error Boundaries and Error Handling",
-      "score": 83.2,
+      "score": 98.2,
       "passed": true
     },
     {
