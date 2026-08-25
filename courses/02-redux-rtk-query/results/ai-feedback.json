@@ -180,7 +180,23 @@
     "challengeName": "Error and Loading UX",
     "aiReview": {
       "challengeId": "12-error-loading-ux",
-      "timestamp": "2026-08-25T07:41:50.088Z",
+      "timestamp": "2026-08-25T07:44:56.707Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "13-query-parameters",
+    "challengeName": "Query with Parameters and Detail View",
+    "aiReview": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-25T07:48:16.844Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

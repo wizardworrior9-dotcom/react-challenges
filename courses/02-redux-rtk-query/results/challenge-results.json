@@ -2925,16 +2925,16 @@
   {
     "challengeId": "12-error-loading-ux",
     "challengeName": "Error and Loading UX",
-    "timestamp": "2026-08-25T07:39:19.974Z",
+    "timestamp": "2026-08-25T07:44:29.158Z",
     "scores": {
       "functionalTests": 100,
-      "codeQuality": 80,
+      "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
       "aiReview": 0
     },
-    "totalScore": 82,
+    "totalScore": 85,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -2955,7 +2955,7 @@
               "fullName": " Challenge 12: Error and Loading UX ErrorDisplay exists with error-display and retry-btn data-testids",
               "status": "passed",
               "title": "ErrorDisplay exists with error-display and retry-btn data-testids",
-              "duration": 3,
+              "duration": 4,
               "failureMessages": []
             },
             {
@@ -2981,8 +2981,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787643621847,
-          "endTime": 1787643621853,
+          "startTime": 1787643876583,
+          "endTime": 1787643876589,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-12.test.tsx"
@@ -2990,93 +2990,21 @@
       ]
     },
     "lintResults": {
-      "score": 80,
-      "passed": false,
-      "totalIssues": 2,
-      "errors": 2,
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
       "warnings": 0,
       "details": [
         {
           "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\ErrorDisplay.tsx",
-          "messages": [
-            {
-              "ruleId": "@typescript-eslint/no-explicit-any",
-              "severity": 2,
-              "message": "Unexpected any. Specify a different type.",
-              "line": 2,
-              "column": 11,
-              "nodeType": "TSAnyKeyword",
-              "messageId": "unexpectedAny",
-              "endLine": 2,
-              "endColumn": 14,
-              "suggestions": [
-                {
-                  "messageId": "suggestUnknown",
-                  "fix": {
-                    "range": [
-                      40,
-                      43
-                    ],
-                    "text": "unknown"
-                  },
-                  "desc": "Use `unknown` instead, this will force you to explicitly, and safely assert the type is correct."
-                },
-                {
-                  "messageId": "suggestNever",
-                  "fix": {
-                    "range": [
-                      40,
-                      43
-                    ],
-                    "text": "never"
-                  },
-                  "desc": "Use `never` instead, this is useful when instantiating generic type parameters that you don't need to know the type of."
-                }
-              ]
-            },
-            {
-              "ruleId": "@typescript-eslint/no-explicit-any",
-              "severity": 2,
-              "message": "Unexpected any. Specify a different type.",
-              "line": 8,
-              "column": 81,
-              "nodeType": "TSAnyKeyword",
-              "messageId": "unexpectedAny",
-              "endLine": 8,
-              "endColumn": 84,
-              "suggestions": [
-                {
-                  "messageId": "suggestUnknown",
-                  "fix": {
-                    "range": [
-                      282,
-                      285
-                    ],
-                    "text": "unknown"
-                  },
-                  "desc": "Use `unknown` instead, this will force you to explicitly, and safely assert the type is correct."
-                },
-                {
-                  "messageId": "suggestNever",
-                  "fix": {
-                    "range": [
-                      282,
-                      285
-                    ],
-                    "text": "never"
-                  },
-                  "desc": "Use `never` instead, this is useful when instantiating generic type parameters that you don't need to know the type of."
-                }
-              ]
-            }
-          ],
+          "messages": [],
           "suppressedMessages": [],
-          "errorCount": 2,
+          "errorCount": 0,
           "fatalErrorCount": 0,
           "warningCount": 0,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "interface ErrorDisplayProps {\n  error?: any\n  message?: string\n  onRetry?: () => void\n}\n\nexport default function ErrorDisplay({ error, message = 'Something went wrong.', onRetry }: ErrorDisplayProps) {\n  const displayMessage = error ? (typeof error === 'string' ? error : (error as any).message || 'An error occurred') : message;\n\n  return (\n    <div id=\"error-display\" data-testid=\"error-display\">\n      <p>{displayMessage}</p>\n      {onRetry && (\n        <button id=\"retry-btn\" data-testid=\"retry-btn\" type=\"button\" onClick={onRetry}>\n          Retry\n        </button>\n      )}\n    </div>\n  )\n}\n",
           "usedDeprecatedRules": [
             {
               "ruleId": "no-extra-semi",
@@ -3175,12 +3103,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 8383,
+                          "duration": 610,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-25T07:41:40.218Z",
+                          "startTime": "2026-08-25T07:44:54.651Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -3209,12 +3137,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 493,
+                          "duration": 507,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-25T07:41:49.003Z",
+                          "startTime": "2026-08-25T07:44:55.515Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -3236,7 +3164,7 @@
     },
     "aiReviewResults": {
       "challengeId": "12-error-loading-ux",
-      "timestamp": "2026-08-25T07:41:50.088Z",
+      "timestamp": "2026-08-25T07:44:56.707Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -3248,7 +3176,268 @@
     },
     "aiResults": {
       "challengeId": "12-error-loading-ux",
-      "timestamp": "2026-08-25T07:41:50.088Z",
+      "timestamp": "2026-08-25T07:44:56.707Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "13-query-parameters",
+    "challengeName": "Query with Parameters and Detail View",
+    "timestamp": "2026-08-25T07:47:48.882Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Query with Parameters and Detail View"
+              ],
+              "fullName": " Challenge 13: Query with Parameters and Detail View API slice has getPostById query endpoint",
+              "status": "passed",
+              "title": "API slice has getPostById query endpoint",
+              "duration": 3,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Query with Parameters and Detail View"
+              ],
+              "fullName": " Challenge 13: Query with Parameters and Detail View PostDetail uses useGetPostByIdQuery or generated query hook",
+              "status": "passed",
+              "title": "PostDetail uses useGetPostByIdQuery or generated query hook",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Query with Parameters and Detail View"
+              ],
+              "fullName": " Challenge 13: Query with Parameters and Detail View PostDetail has post-detail data-testid",
+              "status": "passed",
+              "title": "PostDetail has post-detail data-testid",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787644076621,
+          "endTime": 1787644076626,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-13.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\PostDetail.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/PostDetail.tsx",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-13.spec.ts",
+          "file": "challenge-13.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 13: Query with Parameters - E2E",
+              "file": "challenge-13.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 13 page with content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 615,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-25T07:48:14.857Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b108b4dbebb7686e0d0c-62f94784cfb44da7d5be",
+                  "file": "challenge-13.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should show post detail area",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 475,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-25T07:48:15.729Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b108b4dbebb7686e0d0c-8dc240493b76fcf57221",
+                  "file": "challenge-13.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-25T07:48:16.844Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-25T07:48:16.844Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

@@ -44,7 +44,7 @@ function App() {
             <Route path="/challenge/10-optimistic-updates" element={<div id="challenge-10" style={{ padding: '2rem' }}><h2>Challenge 10: Optimistic Updates</h2><p>Implement optimistic update in API slice per README.</p></div>} />
             <Route path="/challenge/11-api-local-state" element={<div style={{ padding: '2rem' }}><h2>Challenge 11: API and Local State</h2><PostsWithFilters /></div>} />
             <Route path="/challenge/12-error-loading-ux" element={<div style={{ padding: '2rem' }}><h2>Challenge 12: Error and Loading UX</h2><UsersList /></div>} />
-            <Route path="/challenge/13-query-parameters" element={<div id="challenge-13" style={{ padding: '2rem' }}><h2>Challenge 13: Query with Parameters</h2><PostDetail /></div>} />
+            <Route path="/challenge/13-query-parameters" element={<div id="challenge-13" style={{ padding: '2rem' }}><h2>Challenge 13: Query with Parameters</h2><PostDetail postId={1} /></div>} />
             <Route path="/challenge/13-query-parameters/:postId" element={<div id="challenge-13" style={{ padding: '2rem' }}><h2>Challenge 13: Query with Parameters</h2><PostDetail /></div>} />
           </Routes>
         </main>
