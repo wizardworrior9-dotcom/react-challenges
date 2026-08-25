@@ -90,6 +90,18 @@ export const apiSlice = createApi({
         return { data }
       },
       invalidatesTags: [{ type: 'Post', id: 'LIST' }],
+      async onQueryStarted(post, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          apiSlice.util.updateQueryData('getPosts', undefined, (draft) => {
+            draft.push({ ...post, id: Date.now() })
+          }),
+        )
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
     }),
 
     updatePost: builder.mutation<Post, { id: number; updates: Partial<Post> }>({
