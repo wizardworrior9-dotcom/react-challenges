@@ -2426,7 +2426,7 @@
   {
     "challengeId": "10-optimistic-updates",
     "challengeName": "Optimistic Updates",
-    "timestamp": "2026-08-25T07:20:44.696Z",
+    "timestamp": "2026-08-25T07:29:33.386Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -2456,7 +2456,7 @@
               "fullName": " Challenge 10: Optimistic Updates API slice mutation has onQueryStarted",
               "status": "passed",
               "title": "API slice mutation has onQueryStarted",
-              "duration": 4,
+              "duration": 2,
               "failureMessages": []
             },
             {
@@ -2467,7 +2467,7 @@
               "fullName": " Challenge 10: Optimistic Updates optimistic update uses queryFulfilled or updateQueryData",
               "status": "passed",
               "title": "optimistic update uses queryFulfilled or updateQueryData",
-              "duration": 1,
+              "duration": 0,
               "failureMessages": []
             },
             {
@@ -2482,8 +2482,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787642451906,
-          "endTime": 1787642451912,
+          "startTime": 1787642980740,
+          "endTime": 1787642980744,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-10.test.tsx"
@@ -2575,12 +2575,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 571,
+                          "duration": 597,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-25T07:21:09.771Z",
+                          "startTime": "2026-08-25T07:29:58.340Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2602,7 +2602,7 @@
     },
     "aiReviewResults": {
       "challengeId": "10-optimistic-updates",
-      "timestamp": "2026-08-25T07:21:11.181Z",
+      "timestamp": "2026-08-25T07:29:59.781Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -2614,7 +2614,7 @@
     },
     "aiResults": {
       "challengeId": "10-optimistic-updates",
-      "timestamp": "2026-08-25T07:21:11.181Z",
+      "timestamp": "2026-08-25T07:29:59.781Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -2628,7 +2628,7 @@
   {
     "challengeId": "11-api-local-state",
     "challengeName": "API and Local State Together",
-    "timestamp": "2026-08-25T07:25:45.274Z",
+    "timestamp": "2026-08-25T07:28:06.738Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -2684,8 +2684,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787642753059,
-          "endTime": 1787642753065,
+          "startTime": 1787642893992,
+          "endTime": 1787642893997,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-11.test.tsx"
@@ -2838,12 +2838,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1012,
+                          "duration": 647,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-25T07:26:11.374Z",
+                          "startTime": "2026-08-25T07:28:32.137Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2872,12 +2872,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 514,
+                          "duration": 487,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-25T07:26:12.625Z",
+                          "startTime": "2026-08-25T07:28:33.029Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2899,7 +2899,7 @@
     },
     "aiReviewResults": {
       "challengeId": "11-api-local-state",
-      "timestamp": "2026-08-25T07:26:13.814Z",
+      "timestamp": "2026-08-25T07:28:34.187Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -2911,7 +2911,344 @@
     },
     "aiResults": {
       "challengeId": "11-api-local-state",
-      "timestamp": "2026-08-25T07:26:13.814Z",
+      "timestamp": "2026-08-25T07:28:34.187Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "12-error-loading-ux",
+    "challengeName": "Error and Loading UX",
+    "timestamp": "2026-08-25T07:39:19.974Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 80,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 82,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 12: Error and Loading UX"
+              ],
+              "fullName": " Challenge 12: Error and Loading UX ErrorDisplay exists with error-display and retry-btn data-testids",
+              "status": "passed",
+              "title": "ErrorDisplay exists with error-display and retry-btn data-testids",
+              "duration": 3,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 12: Error and Loading UX"
+              ],
+              "fullName": " Challenge 12: Error and Loading UX UsersList or main list uses refetch",
+              "status": "passed",
+              "title": "UsersList or main list uses refetch",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 12: Error and Loading UX"
+              ],
+              "fullName": " Challenge 12: Error and Loading UX loading or error state has visible indicator",
+              "status": "passed",
+              "title": "loading or error state has visible indicator",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787643621847,
+          "endTime": 1787643621853,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-12.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 80,
+      "passed": false,
+      "totalIssues": 2,
+      "errors": 2,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\ErrorDisplay.tsx",
+          "messages": [
+            {
+              "ruleId": "@typescript-eslint/no-explicit-any",
+              "severity": 2,
+              "message": "Unexpected any. Specify a different type.",
+              "line": 2,
+              "column": 11,
+              "nodeType": "TSAnyKeyword",
+              "messageId": "unexpectedAny",
+              "endLine": 2,
+              "endColumn": 14,
+              "suggestions": [
+                {
+                  "messageId": "suggestUnknown",
+                  "fix": {
+                    "range": [
+                      40,
+                      43
+                    ],
+                    "text": "unknown"
+                  },
+                  "desc": "Use `unknown` instead, this will force you to explicitly, and safely assert the type is correct."
+                },
+                {
+                  "messageId": "suggestNever",
+                  "fix": {
+                    "range": [
+                      40,
+                      43
+                    ],
+                    "text": "never"
+                  },
+                  "desc": "Use `never` instead, this is useful when instantiating generic type parameters that you don't need to know the type of."
+                }
+              ]
+            },
+            {
+              "ruleId": "@typescript-eslint/no-explicit-any",
+              "severity": 2,
+              "message": "Unexpected any. Specify a different type.",
+              "line": 8,
+              "column": 81,
+              "nodeType": "TSAnyKeyword",
+              "messageId": "unexpectedAny",
+              "endLine": 8,
+              "endColumn": 84,
+              "suggestions": [
+                {
+                  "messageId": "suggestUnknown",
+                  "fix": {
+                    "range": [
+                      282,
+                      285
+                    ],
+                    "text": "unknown"
+                  },
+                  "desc": "Use `unknown` instead, this will force you to explicitly, and safely assert the type is correct."
+                },
+                {
+                  "messageId": "suggestNever",
+                  "fix": {
+                    "range": [
+                      282,
+                      285
+                    ],
+                    "text": "never"
+                  },
+                  "desc": "Use `never` instead, this is useful when instantiating generic type parameters that you don't need to know the type of."
+                }
+              ]
+            }
+          ],
+          "suppressedMessages": [],
+          "errorCount": 2,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "source": "interface ErrorDisplayProps {\n  error?: any\n  message?: string\n  onRetry?: () => void\n}\n\nexport default function ErrorDisplay({ error, message = 'Something went wrong.', onRetry }: ErrorDisplayProps) {\n  const displayMessage = error ? (typeof error === 'string' ? error : (error as any).message || 'An error occurred') : message;\n\n  return (\n    <div id=\"error-display\" data-testid=\"error-display\">\n      <p>{displayMessage}</p>\n      {onRetry && (\n        <button id=\"retry-btn\" data-testid=\"retry-btn\" type=\"button\" onClick={onRetry}>\n          Retry\n        </button>\n      )}\n    </div>\n  )\n}\n",
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\UsersList.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "useQueryHook"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/components/UsersList.tsx",
+          "patternsFound": [
+            "useQueryHook"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/ErrorDisplay.tsx",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-12.spec.ts",
+          "file": "challenge-12.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 12: Error and Loading UX - E2E",
+              "file": "challenge-12.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 12 page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 8383,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-25T07:41:40.218Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f77a26b762255a776dfc-79ffb81e877800e3fec0",
+                  "file": "challenge-12.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should show users list area",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 493,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-25T07:41:49.003Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f77a26b762255a776dfc-e4bccb413d7d0fea7ad3",
+                  "file": "challenge-12.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-25T07:41:50.088Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-25T07:41:50.088Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

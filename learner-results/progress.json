@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-25T07:26:14.660Z",
+  "lastUpdated": "2026-08-25T07:41:50.815Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 58.5,
-    "completionPercentage": 64.2,
+    "completionPercentage": 66,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 34
+    "completedChallenges": 35
   },
   "courses": {
     "01-react-fundamentals": {
@@ -369,11 +369,11 @@
     "02-redux-rtk-query": {
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
-      "averageScore": 85,
-      "completionPercentage": 84.6,
+      "averageScore": 84.8,
+      "completionPercentage": 92.3,
       "badgeLevel": "silver",
       "totalChallenges": 13,
-      "completedChallenges": 11,
+      "completedChallenges": 12,
       "challenges": {
         "01-store-setup": {
           "challengeId": "01-store-setup",
@@ -515,7 +515,7 @@
           "challengeName": "Optimistic Updates",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-25T07:20:44.696Z",
+          "lastRun": "2026-08-25T07:29:33.386Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -530,10 +530,25 @@
           "challengeName": "API and Local State Together",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-25T07:25:45.274Z",
+          "lastRun": "2026-08-25T07:28:06.738Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
+        "12-error-loading-ux": {
+          "challengeId": "12-error-loading-ux",
+          "challengeName": "Error and Loading UX",
+          "passed": true,
+          "score": 82,
+          "lastRun": "2026-08-25T07:39:19.974Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 80,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,

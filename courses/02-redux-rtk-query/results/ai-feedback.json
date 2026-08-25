@@ -144,11 +144,11 @@
     }
   },
   {
-    "challengeId": "10-optimistic-updates",
-    "challengeName": "Optimistic Updates",
+    "challengeId": "11-api-local-state",
+    "challengeName": "API and Local State Together",
     "aiReview": {
-      "challengeId": "10-optimistic-updates",
-      "timestamp": "2026-08-25T07:21:11.181Z",
+      "challengeId": "11-api-local-state",
+      "timestamp": "2026-08-25T07:28:34.187Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -160,11 +160,27 @@
     }
   },
   {
-    "challengeId": "11-api-local-state",
-    "challengeName": "API and Local State Together",
+    "challengeId": "10-optimistic-updates",
+    "challengeName": "Optimistic Updates",
     "aiReview": {
-      "challengeId": "11-api-local-state",
-      "timestamp": "2026-08-25T07:26:13.814Z",
+      "challengeId": "10-optimistic-updates",
+      "timestamp": "2026-08-25T07:29:59.781Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "12-error-loading-ux",
+    "challengeName": "Error and Loading UX",
+    "aiReview": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-25T07:41:50.088Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

@@ -17,7 +17,7 @@ export default function UsersList() {
     return (
       <div id="users-list" data-testid="users-list">
         <div id="users-error" data-testid="users-error">
-          <ErrorDisplay message={typeof error === 'string' ? error : 'Failed to load users.'} onRetry={refetch} />
+          <ErrorDisplay error={error} onRetry={refetch} />
         </div>
       </div>
     )
