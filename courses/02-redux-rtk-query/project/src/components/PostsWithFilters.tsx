@@ -14,8 +14,8 @@ export default function PostsWithFilters() {
     )
 
   return (
-    <div id="posts-with-filters">
-      <div id="filter-controls">
+    <div id="posts-with-filters" data-testid="posts-with-filters">
+      <div id="filter-controls" data-testid="filter-controls">
         <input
           type="text"
           placeholder="Search posts..."
