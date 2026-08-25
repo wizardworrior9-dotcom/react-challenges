@@ -122,3 +122,5 @@ export const {
   useUpdatePostMutation,
   useDeletePostMutation,
 } = apiSlice
+
+export const useAddPostMutation = useCreatePostMutation

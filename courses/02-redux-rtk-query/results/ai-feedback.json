@@ -116,7 +116,23 @@
     "challengeName": "Caching and Cache Tags",
     "aiReview": {
       "challengeId": "08-caching-refetch",
-      "timestamp": "2026-08-21T08:15:23.289Z",
+      "timestamp": "2026-08-21T08:16:50.213Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "09-mutations",
+    "challengeName": "Mutations with useMutation",
+    "aiReview": {
+      "challengeId": "09-mutations",
+      "timestamp": "2026-08-25T07:09:30.114Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
