@@ -1,12 +1,12 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-08-27T12:18:27.339Z",
+  "lastUpdated": "2026-08-27T12:25:18.160Z",
   "totalChallenges": 17,
-  "completedChallenges": 12,
-  "averageScore": 81.5,
-  "completionPercentage": 70.6,
-  "badgeLevel": "bronze",
+  "completedChallenges": 13,
+  "averageScore": 85,
+  "completionPercentage": 76.5,
+  "badgeLevel": "silver",
   "challengeResults": [
     {
       "challengeId": "01-app-router-pages-layout",
@@ -83,8 +83,8 @@
     {
       "challengeId": "13-images-and-fonts",
       "challengeName": "Images and Fonts",
-      "score": 40,
-      "passed": false
+      "score": 85,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -99,9 +99,8 @@
     "Server Actions and Revalidation",
     "Caching and Revalidating",
     "Error Handling",
-    "Metadata and SEO"
-  ],
-  "improvementAreas": [
+    "Metadata and SEO",
     "Images and Fonts"
-  ]
+  ],
+  "improvementAreas": []
 }

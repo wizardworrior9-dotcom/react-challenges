@@ -159,15 +159,28 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (/export\s+(async\s+)?function\s+generateMetadata|export\s+const\s+generateMetadata/.test(content)) {
           foundPatterns.add('generateMetadata');
         }
+        // Check for next/image and next/font
+        if (/from\s+['"]next\/image['"]/.test(content)) {
+          foundPatterns.add('nextImage');
+        }
+        if (/from\s+['"]next\/font(\/google|\/local)?['"]/.test(content)) {
+          foundPatterns.add('nextFont');
+        }
       },
 
-      // Check for Link and Suspense component imports
+      // Check for Link, Suspense, Image, Font component imports
       ImportDeclaration(path) {
         if (path.node.source.value === 'next/link') {
           foundPatterns.add('Link');
         }
         if (path.node.source.value === 'next/navigation') {
           foundPatterns.add('navigation');
+        }
+        if (path.node.source.value === 'next/image') {
+          foundPatterns.add('nextImage');
+        }
+        if (typeof path.node.source.value === 'string' && path.node.source.value.startsWith('next/font')) {
+          foundPatterns.add('nextFont');
         }
         if (path.node.source.value === 'react') {
           path.node.specifiers?.forEach(spec => {
