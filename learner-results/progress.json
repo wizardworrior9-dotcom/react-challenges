@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-27T11:36:26.081Z",
+  "lastUpdated": "2026-08-27T11:41:39.351Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 87.4,
-    "completionPercentage": 77.4,
+    "completionPercentage": 79.2,
     "badgeLevel": "silver",
     "totalChallenges": 53,
-    "completedChallenges": 41
+    "completedChallenges": 42
   },
   "courses": {
     "01-react-fundamentals": {
@@ -576,10 +576,10 @@
       "courseId": "03-nextjs-app-router",
       "courseName": "Next.js App Router",
       "averageScore": 85,
-      "completionPercentage": 29.4,
+      "completionPercentage": 35.3,
       "badgeLevel": "none",
       "totalChallenges": 17,
-      "completedChallenges": 5,
+      "completedChallenges": 6,
       "challenges": {
         "01-app-router-pages-layout": {
           "challengeId": "01-app-router-pages-layout",
@@ -646,7 +646,22 @@
           "challengeName": "Loading and Streaming",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-27T11:35:56.690Z",
+          "lastRun": "2026-08-27T11:37:46.632Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
+        "06-dynamic-routes": {
+          "challengeId": "06-dynamic-routes",
+          "challengeName": "Dynamic Routes",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-27T11:41:07.754Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,

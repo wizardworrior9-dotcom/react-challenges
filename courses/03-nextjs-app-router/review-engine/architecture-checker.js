@@ -116,6 +116,9 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (normalizedName.includes('loading.tsx') || normalizedName.includes('loading.js')) {
           foundPatterns.add('loadingTsx');
         }
+        if (normalizedName.includes('[') && normalizedName.includes(']')) {
+          foundPatterns.add('dynamicSegment');
+        }
       },
 
       // Check for Link and Suspense component imports
@@ -132,6 +135,18 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
               foundPatterns.add('Suspense');
             }
           });
+        }
+      },
+
+      Identifier(path) {
+        if (path.node.name === 'params') {
+          foundPatterns.add('params');
+        }
+      },
+
+      MemberExpression(path) {
+        if (path.node.object?.name === 'params') {
+          foundPatterns.add('params');
         }
       },
 

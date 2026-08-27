@@ -50,9 +50,14 @@ async function PostsList(): Promise<React.JSX.Element> {
           }}
         >
           <h2 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: '#111' }}>
-            {post.id}. {post.title}
+            <Link href={`/posts/${post.id}`} style={{ color: '#0070f3', textDecoration: 'none' }}>
+              {post.id}. {post.title}
+            </Link>
           </h2>
-          <p style={{ color: '#555', lineHeight: '1.6' }}>{post.body}</p>
+          <p style={{ color: '#555', lineHeight: '1.6', marginBottom: '1rem' }}>{post.body}</p>
+          <Link href={`/posts/${post.id}`} style={{ fontSize: '0.9rem', color: '#0070f3', textDecoration: 'underline' }}>
+            View Details →
+          </Link>
         </article>
       ))}
     </div>
