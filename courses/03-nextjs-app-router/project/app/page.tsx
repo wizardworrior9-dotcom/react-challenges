@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ChallengeList from './components/ChallengeList'
+import Counter from './components/Counter'
 
 export default function Home(): React.JSX.Element {
   return (
@@ -17,6 +18,11 @@ export default function Home(): React.JSX.Element {
           </Link>
         </nav>
       </header>
+
+      <section style={{ marginBottom: '2rem' }}>
+        <Counter />
+      </section>
+
       <ChallengeList />
     </main>
   )

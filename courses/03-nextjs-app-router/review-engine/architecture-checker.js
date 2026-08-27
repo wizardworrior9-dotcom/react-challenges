@@ -153,8 +153,14 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         });
       },
 
-      // Check for API route (route.ts)
+      // Check for API route (route.ts) and hooks
       CallExpression(path) {
+        const calleeName = path.node.callee.name;
+        if (calleeName === 'useState') foundPatterns.add('useState');
+        if (calleeName === 'useEffect') foundPatterns.add('useEffect');
+        if (calleeName === 'useReducer') foundPatterns.add('useReducer');
+        if (calleeName === 'useCallback') foundPatterns.add('useCallback');
+        if (calleeName === 'useMemo') foundPatterns.add('useMemo');
         if (path.node.callee.name === 'NextResponse') {
           foundPatterns.add('apiRoute');
         }

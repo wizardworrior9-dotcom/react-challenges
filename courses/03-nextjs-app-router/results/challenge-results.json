@@ -334,5 +334,282 @@
       "overall": "",
       "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
+  },
+  {
+    "challengeId": "02-server-and-client-components",
+    "challengeName": "Server and Client Components",
+    "timestamp": "2026-08-27T11:17:57.549Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 02: Server and Client Components"
+              ],
+              "fullName": " Challenge 02: Server and Client Components should have at least one Client Component with use client",
+              "status": "passed",
+              "title": "should have at least one Client Component with use client",
+              "duration": 3,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 02: Server and Client Components"
+              ],
+              "fullName": " Challenge 02: Server and Client Components should have Client Component that uses state or event handlers",
+              "status": "passed",
+              "title": "should have Client Component that uses state or event handlers",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 02: Server and Client Components"
+              ],
+              "fullName": " Challenge 02: Server and Client Components should have App Router structure",
+              "status": "passed",
+              "title": "should have App Router structure",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787829481958,
+          "endTime": 1787829481964,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-02.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\components\\Counter.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\layout.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "useClient",
+        "serverComponent",
+        "useState"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "app/page.tsx",
+          "patternsFound": [
+            "serverComponent"
+          ],
+          "patternsMissing": [
+            "useClient",
+            "useState"
+          ]
+        },
+        {
+          "file": "app/components/Counter.tsx",
+          "patternsFound": [
+            "useClient",
+            "useState"
+          ],
+          "patternsMissing": [
+            "serverComponent"
+          ]
+        },
+        {
+          "file": "app/layout.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "useClient",
+            "serverComponent",
+            "useState"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-02.spec.ts",
+          "file": "challenge-02.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 02: Server and Client Components - E2E",
+              "file": "challenge-02.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should display home page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1003,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T11:18:21.932Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "42dc79384a61c0717494-913d124fcf0db785346d",
+                  "file": "challenge-02.spec.ts",
+                  "line": 12,
+                  "column": 7
+                },
+                {
+                  "title": "should have interactive element (button or link)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 906,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T11:18:23.185Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "42dc79384a61c0717494-9726b28217a56c91520e",
+                  "file": "challenge-02.spec.ts",
+                  "line": 16,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "02-server-and-client-components",
+      "timestamp": "2026-08-27T11:18:24.694Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "02-server-and-client-components",
+      "timestamp": "2026-08-27T11:18:24.694Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
   }
 ]
