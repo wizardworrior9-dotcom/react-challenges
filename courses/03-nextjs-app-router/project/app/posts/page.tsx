@@ -1,6 +1,8 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 interface Post {
   id: number
   title: string

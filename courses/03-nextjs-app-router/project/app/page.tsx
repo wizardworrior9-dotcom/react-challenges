@@ -2,6 +2,8 @@ import Link from 'next/link'
 import ChallengeList from './components/ChallengeList'
 import Counter from './components/Counter'
 
+export const dynamic = 'force-static'
+
 export default function Home(): React.JSX.Element {
   return (
     <main>

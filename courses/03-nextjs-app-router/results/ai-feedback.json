@@ -84,7 +84,23 @@
     "challengeName": "Dynamic Routes",
     "aiReview": {
       "challengeId": "06-dynamic-routes",
-      "timestamp": "2026-08-27T11:41:38.732Z",
+      "timestamp": "2026-08-27T11:43:25.576Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "07-static-and-dynamic-rendering",
+    "challengeName": "Static and Dynamic Rendering",
+    "aiReview": {
+      "challengeId": "07-static-and-dynamic-rendering",
+      "timestamp": "2026-08-27T11:46:39.311Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

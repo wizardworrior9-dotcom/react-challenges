@@ -208,8 +208,14 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
               if (d.id?.name === 'metadata') foundPatterns.add('metadata');
               if (d.id?.name === 'dynamic') {
                 foundPatterns.add('dynamicExport');
-                if (d.init?.value === 'force-dynamic') foundPatterns.add('forceDynamic');
-                if (d.init?.value === 'force-static') foundPatterns.add('forceStaticOrDynamic');
+                if (d.init?.value === 'force-dynamic') {
+                  foundPatterns.add('forceDynamic');
+                  foundPatterns.add('forceStaticOrDynamic');
+                }
+                if (d.init?.value === 'force-static') {
+                  foundPatterns.add('forceStatic');
+                  foundPatterns.add('forceStaticOrDynamic');
+                }
               }
             });
           }
