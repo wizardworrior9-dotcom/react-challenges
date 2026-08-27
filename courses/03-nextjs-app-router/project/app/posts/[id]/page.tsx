@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 interface Post {
   id: number
@@ -16,6 +17,24 @@ interface PageProps {
 
 export async function generateStaticParams(): Promise<Array<{ id: string }>> {
   return [{ id: '1' }, { id: '2' }, { id: '3' }]
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const post = await getPost(params.id)
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested post could not be found.',
+    }
+  }
+  return {
+    title: post.title,
+    description: post.body.slice(0, 160),
+    openGraph: {
+      title: post.title,
+      description: post.body.slice(0, 160),
+    },
+  }
 }
 
 async function getPost(id: string): Promise<Post | null> {

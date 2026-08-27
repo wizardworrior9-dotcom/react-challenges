@@ -155,6 +155,10 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (/notFound\s*\(\)/.test(content)) {
           foundPatterns.add('notFound');
         }
+        // Check for generateMetadata export
+        if (/export\s+(async\s+)?function\s+generateMetadata|export\s+const\s+generateMetadata/.test(content)) {
+          foundPatterns.add('generateMetadata');
+        }
       },
 
       // Check for Link and Suspense component imports

@@ -1,8 +1,16 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import AddPostForm from '../components/AddPostForm'
 
 export const dynamic = 'force-dynamic'
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Posts & Updates',
+    description: 'Explore the latest articles and community posts.',
+  }
+}
 
 interface Post {
   id: number
