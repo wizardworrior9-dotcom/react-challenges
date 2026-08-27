@@ -176,11 +176,11 @@
     }
   },
   {
-    "challengeId": "12-metadata-and-seo",
-    "challengeName": "Metadata and SEO",
+    "challengeId": "11-error-handling",
+    "challengeName": "Error Handling",
     "aiReview": {
-      "challengeId": "12-metadata-and-seo",
-      "timestamp": "2026-08-27T12:12:02.517Z",
+      "challengeId": "11-error-handling",
+      "timestamp": "2026-08-27T12:15:33.107Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -192,11 +192,11 @@
     }
   },
   {
-    "challengeId": "11-error-handling",
-    "challengeName": "Error Handling",
+    "challengeId": "12-metadata-and-seo",
+    "challengeName": "Metadata and SEO",
     "aiReview": {
-      "challengeId": "11-error-handling",
-      "timestamp": "2026-08-27T12:13:35.101Z",
+      "challengeId": "12-metadata-and-seo",
+      "timestamp": "2026-08-27T12:17:26.508Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
