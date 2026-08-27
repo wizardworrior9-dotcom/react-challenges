@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
+import StoreProvider from './providers/StoreProvider'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const customFont = localFont({
+  src: './fonts/GeistVF.woff',
+  fallback: ['system-ui', 'sans-serif'],
+  variable: '--font-custom',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +30,9 @@ export default function RootLayout({
 }): React.JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={customFont.className}>
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
   )
 }

@@ -212,7 +212,23 @@
     "challengeName": "Search and Pagination",
     "aiReview": {
       "challengeId": "14-search-and-pagination",
-      "timestamp": "2026-08-27T12:29:32.122Z",
+      "timestamp": "2026-08-27T12:30:25.103Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "15-redux-toolkit-with-nextjs",
+    "challengeName": "Redux Toolkit with Next.js",
+    "aiReview": {
+      "challengeId": "15-redux-toolkit-with-nextjs",
+      "timestamp": "2026-08-27T12:47:25.080Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

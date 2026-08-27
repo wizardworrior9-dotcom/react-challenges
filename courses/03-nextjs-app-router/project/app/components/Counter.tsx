@@ -1,21 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState, AppDispatch } from '../store/store'
+import { increment, decrement, reset } from '../store/counterSlice'
 
 export default function Counter(): React.JSX.Element {
-  const [count, setCount] = useState<number>(0)
-
-  const increment = (): void => {
-    setCount((prev) => prev + 1)
-  }
-
-  const decrement = (): void => {
-    setCount((prev) => prev - 1)
-  }
-
-  const reset = (): void => {
-    setCount(0)
-  }
+  const count = useSelector((state: RootState) => state.counter?.value ?? 0)
+  const dispatch = useDispatch<AppDispatch>()
 
   return (
     <div
@@ -31,7 +22,7 @@ export default function Counter(): React.JSX.Element {
       }}
     >
       <h2 style={{ fontSize: '1.25rem', marginBottom: '0.75rem' }}>
-        Interactive Counter (Client Component)
+        Interactive Counter (Redux Toolkit State)
       </h2>
       <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#0070f3', margin: '0.5rem 0' }}>
         {count}
@@ -39,7 +30,7 @@ export default function Counter(): React.JSX.Element {
       <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1rem' }}>
         <button
           type="button"
-          onClick={decrement}
+          onClick={() => dispatch(decrement())}
           style={{
             padding: '0.5rem 1rem',
             fontSize: '1rem',
@@ -53,7 +44,7 @@ export default function Counter(): React.JSX.Element {
         </button>
         <button
           type="button"
-          onClick={reset}
+          onClick={() => dispatch(reset())}
           style={{
             padding: '0.5rem 1rem',
             fontSize: '1rem',
@@ -67,7 +58,7 @@ export default function Counter(): React.JSX.Element {
         </button>
         <button
           type="button"
-          onClick={increment}
+          onClick={() => dispatch(increment())}
           style={{
             padding: '0.5rem 1rem',
             fontSize: '1rem',

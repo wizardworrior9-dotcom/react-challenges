@@ -173,9 +173,22 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (/page|pagination|\?page=/.test(content)) {
           foundPatterns.add('pagination');
         }
+        // Check for Redux Toolkit patterns
+        if (/configureStore/.test(content)) {
+          foundPatterns.add('configureStore');
+        }
+        if (/<Provider|Provider\s+store|Provider/.test(content)) {
+          foundPatterns.add('Provider');
+        }
+        if (/useSelector/.test(content)) {
+          foundPatterns.add('useSelector');
+        }
+        if (/useDispatch/.test(content)) {
+          foundPatterns.add('useDispatch');
+        }
       },
 
-      // Check for Link, Suspense, Image, Font component imports
+      // Check for Link, Suspense, Image, Font, Redux component imports
       ImportDeclaration(path) {
         if (path.node.source.value === 'next/link') {
           foundPatterns.add('Link');
@@ -188,6 +201,16 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         }
         if (typeof path.node.source.value === 'string' && path.node.source.value.startsWith('next/font')) {
           foundPatterns.add('nextFont');
+        }
+        if (path.node.source.value === '@reduxjs/toolkit') {
+          foundPatterns.add('configureStore');
+        }
+        if (path.node.source.value === 'react-redux') {
+          path.node.specifiers?.forEach(spec => {
+            if (spec.imported?.name === 'Provider') foundPatterns.add('Provider');
+            if (spec.imported?.name === 'useSelector') foundPatterns.add('useSelector');
+            if (spec.imported?.name === 'useDispatch') foundPatterns.add('useDispatch');
+          });
         }
         if (path.node.source.value === 'react') {
           path.node.specifiers?.forEach(spec => {
