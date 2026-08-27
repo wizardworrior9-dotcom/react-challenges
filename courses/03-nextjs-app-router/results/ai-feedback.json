@@ -52,7 +52,23 @@
     "challengeName": "API Route Handlers",
     "aiReview": {
       "challengeId": "04-api-route-handlers",
-      "timestamp": "2026-08-27T11:28:25.469Z",
+      "timestamp": "2026-08-27T11:30:25.389Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "05-loading-and-streaming",
+    "challengeName": "Loading and Streaming",
+    "aiReview": {
+      "challengeId": "05-loading-and-streaming",
+      "timestamp": "2026-08-27T11:33:04.550Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

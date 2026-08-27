@@ -113,15 +113,25 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (normalizedName.includes('page.tsx')) {
           foundPatterns.add('fileBasedRouting');
         }
+        if (normalizedName.includes('loading.tsx') || normalizedName.includes('loading.js')) {
+          foundPatterns.add('loadingTsx');
+        }
       },
 
-      // Check for Link component
+      // Check for Link and Suspense component imports
       ImportDeclaration(path) {
         if (path.node.source.value === 'next/link') {
           foundPatterns.add('Link');
         }
         if (path.node.source.value === 'next/navigation') {
           foundPatterns.add('navigation');
+        }
+        if (path.node.source.value === 'react') {
+          path.node.specifiers?.forEach(spec => {
+            if (spec.imported?.name === 'Suspense') {
+              foundPatterns.add('Suspense');
+            }
+          });
         }
       },
 
@@ -238,10 +248,14 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         }
       },
 
-      // Check for form handling
+      // Check for form handling and Suspense
       JSXElement(path) {
-        if (path.node.openingElement.name.name === 'form') {
+        const elementName = path.node.openingElement.name?.name;
+        if (elementName === 'form') {
           foundPatterns.add('formHandling');
+        }
+        if (elementName === 'Suspense') {
+          foundPatterns.add('Suspense');
         }
       }
     });

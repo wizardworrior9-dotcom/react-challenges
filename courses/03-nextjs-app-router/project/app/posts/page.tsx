@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Link from 'next/link'
 
 interface Post {
@@ -28,9 +29,37 @@ async function getPosts(): Promise<Post[]> {
   }
 }
 
-export default async function PostsPage(): Promise<React.JSX.Element> {
+async function PostsList(): Promise<React.JSX.Element> {
   const posts = await getPosts()
 
+  if (posts.length === 0) {
+    return <p>No posts available at this time.</p>
+  }
+
+  return (
+    <div style={{ display: 'grid', gap: '1.25rem' }}>
+      {posts.map((post) => (
+        <article
+          key={post.id}
+          style={{
+            background: '#ffffff',
+            border: '1px solid #eaeaea',
+            borderRadius: '8px',
+            padding: '1.5rem',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.04)',
+          }}
+        >
+          <h2 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: '#111' }}>
+            {post.id}. {post.title}
+          </h2>
+          <p style={{ color: '#555', lineHeight: '1.6' }}>{post.body}</p>
+        </article>
+      ))}
+    </div>
+  )
+}
+
+export default async function PostsPage(): Promise<React.JSX.Element> {
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>
       <header style={{ marginBottom: '2rem' }}>
@@ -41,33 +70,19 @@ export default async function PostsPage(): Promise<React.JSX.Element> {
         </nav>
         <h1>Posts (Server Component Data Fetching)</h1>
         <p style={{ color: '#666', marginTop: '0.5rem' }}>
-          Fetched on the server using <code>await fetch()</code> inside an async Server Component.
+          Fetched on the server using <code>await fetch()</code> inside an async Server Component with streaming Suspense.
         </p>
       </header>
 
-      {posts.length === 0 ? (
-        <p>No posts available at this time.</p>
-      ) : (
-        <div style={{ display: 'grid', gap: '1.25rem' }}>
-          {posts.map((post) => (
-            <article
-              key={post.id}
-              style={{
-                background: '#ffffff',
-                border: '1px solid #eaeaea',
-                borderRadius: '8px',
-                padding: '1.5rem',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.04)',
-              }}
-            >
-              <h2 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: '#111' }}>
-                {post.id}. {post.title}
-              </h2>
-              <p style={{ color: '#555', lineHeight: '1.6' }}>{post.body}</p>
-            </article>
-          ))}
-        </div>
-      )}
+      <Suspense
+        fallback={
+          <div style={{ padding: '1rem', color: '#666' }}>
+            <p>Loading posts...</p>
+          </div>
+        }
+      >
+        <PostsList />
+      </Suspense>
     </main>
   )
 }

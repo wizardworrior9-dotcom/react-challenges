@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-27T11:28:26.063Z",
+  "lastUpdated": "2026-08-27T11:33:05.170Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 87.4,
-    "completionPercentage": 75.5,
+    "completionPercentage": 77.4,
     "badgeLevel": "silver",
     "totalChallenges": 53,
-    "completedChallenges": 40
+    "completedChallenges": 41
   },
   "courses": {
     "01-react-fundamentals": {
@@ -576,10 +576,10 @@
       "courseId": "03-nextjs-app-router",
       "courseName": "Next.js App Router",
       "averageScore": 85,
-      "completionPercentage": 23.5,
+      "completionPercentage": 29.4,
       "badgeLevel": "none",
       "totalChallenges": 17,
-      "completedChallenges": 4,
+      "completedChallenges": 5,
       "challenges": {
         "01-app-router-pages-layout": {
           "challengeId": "01-app-router-pages-layout",
@@ -631,7 +631,22 @@
           "challengeName": "API Route Handlers",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-27T11:27:54.155Z",
+          "lastRun": "2026-08-27T11:29:56.690Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
+        "05-loading-and-streaming": {
+          "challengeId": "05-loading-and-streaming",
+          "challengeName": "Loading and Streaming",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-27T11:32:34.506Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
