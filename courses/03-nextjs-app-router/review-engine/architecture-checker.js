@@ -137,6 +137,14 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (/['"]\s*use server\s*['"]/.test(content)) {
           foundPatterns.add('useServer');
         }
+        // Check for fetch with next.revalidate or cache option (fetchCache pattern)
+        if (/next:\s*\{[^}]*revalidate|cache:\s*['"]force-cache['"]|cache:\s*['"]no-store['"]/.test(content)) {
+          foundPatterns.add('fetchCache');
+        }
+        // Check for revalidate (export const revalidate or next:{revalidate})
+        if (/revalidatePath\s*\(|revalidateTag\s*\(|next:\s*\{[^}]*revalidate|export\s+const\s+revalidate\s*=/.test(content)) {
+          foundPatterns.add('revalidate');
+        }
       },
 
       // Check for Link and Suspense component imports

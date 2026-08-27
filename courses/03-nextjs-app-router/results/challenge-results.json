@@ -1863,7 +1863,7 @@
   {
     "challengeId": "09-server-actions-and-revalidation",
     "challengeName": "Server Actions and Revalidation",
-    "timestamp": "2026-08-27T11:52:27.233Z",
+    "timestamp": "2026-08-27T11:53:59.448Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -1904,12 +1904,12 @@
               "fullName": " Challenge 09: Server Actions and Revalidation should call revalidatePath or revalidateTag",
               "status": "passed",
               "title": "should call revalidatePath or revalidateTag",
-              "duration": 2,
+              "duration": 1,
               "failureMessages": []
             }
           ],
-          "startTime": 1787831552153,
-          "endTime": 1787831552158,
+          "startTime": 1787831643947,
+          "endTime": 1787831643951,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-09.test.tsx"
@@ -2040,12 +2040,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 4375,
+                          "duration": 4605,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:52:55.893Z",
+                          "startTime": "2026-08-27T11:54:25.187Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2067,7 +2067,7 @@
     },
     "aiReviewResults": {
       "challengeId": "09-server-actions-and-revalidation",
-      "timestamp": "2026-08-27T11:53:01.084Z",
+      "timestamp": "2026-08-27T11:54:30.622Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -2079,7 +2079,205 @@
     },
     "aiResults": {
       "challengeId": "09-server-actions-and-revalidation",
-      "timestamp": "2026-08-27T11:53:01.084Z",
+      "timestamp": "2026-08-27T11:54:30.622Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "10-caching-and-revalidating",
+    "challengeName": "Caching and Revalidating",
+    "timestamp": "2026-08-27T11:54:43.296Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 10: Caching and Revalidating"
+              ],
+              "fullName": " Challenge 10: Caching and Revalidating should have fetch with cache options or revalidate",
+              "status": "passed",
+              "title": "should have fetch with cache options or revalidate",
+              "duration": 3,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787831688269,
+          "endTime": 1787831688272,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-10.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\actions.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "fetchCache",
+        "revalidate"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [
+            "fetchCache"
+          ],
+          "patternsMissing": [
+            "revalidate"
+          ]
+        },
+        {
+          "file": "app/actions.ts",
+          "patternsFound": [
+            "revalidate"
+          ],
+          "patternsMissing": [
+            "fetchCache"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-10.spec.ts",
+          "file": "challenge-10.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 10: Caching and Revalidating - E2E",
+              "file": "challenge-10.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load posts page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4737,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T11:55:10.366Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b6a150d93e258235d20-c14a17c89c6252f46f58",
+                  "file": "challenge-10.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-27T11:55:15.982Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-27T11:55:15.982Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

@@ -132,7 +132,23 @@
     "challengeName": "Server Actions and Revalidation",
     "aiReview": {
       "challengeId": "09-server-actions-and-revalidation",
-      "timestamp": "2026-08-27T11:53:01.084Z",
+      "timestamp": "2026-08-27T11:54:30.622Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "10-caching-and-revalidating",
+    "challengeName": "Caching and Revalidating",
+    "aiReview": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-27T11:55:15.982Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
