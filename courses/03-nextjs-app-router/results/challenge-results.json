@@ -2291,7 +2291,7 @@
   {
     "challengeId": "11-error-handling",
     "challengeName": "Error Handling",
-    "timestamp": "2026-08-27T11:57:19.087Z",
+    "timestamp": "2026-08-27T12:13:02.430Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -2332,12 +2332,12 @@
               "fullName": " Challenge 11: Error Handling should use notFound in dynamic post page",
               "status": "passed",
               "title": "should use notFound in dynamic post page",
-              "duration": 2,
+              "duration": 1,
               "failureMessages": []
             }
           ],
-          "startTime": 1787831843915,
-          "endTime": 1787831843919,
+          "startTime": 1787832787866,
+          "endTime": 1787832787869,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-11.test.tsx"
@@ -2466,12 +2466,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1052,
+                          "duration": 1057,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:57:46.684Z",
+                          "startTime": "2026-08-27T12:13:29.785Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2500,12 +2500,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 2771,
+                          "duration": 3280,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:57:47.972Z",
+                          "startTime": "2026-08-27T12:13:31.124Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2527,7 +2527,7 @@
     },
     "aiReviewResults": {
       "challengeId": "11-error-handling",
-      "timestamp": "2026-08-27T11:57:51.408Z",
+      "timestamp": "2026-08-27T12:13:35.101Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -2539,7 +2539,7 @@
     },
     "aiResults": {
       "challengeId": "11-error-handling",
-      "timestamp": "2026-08-27T11:57:51.408Z",
+      "timestamp": "2026-08-27T12:13:35.101Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

@@ -160,22 +160,6 @@
     }
   },
   {
-    "challengeId": "11-error-handling",
-    "challengeName": "Error Handling",
-    "aiReview": {
-      "challengeId": "11-error-handling",
-      "timestamp": "2026-08-27T11:57:51.408Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
-    }
-  },
-  {
     "challengeId": "13-images-and-fonts",
     "challengeName": "Images and Fonts",
     "aiReview": {
@@ -197,6 +181,22 @@
     "aiReview": {
       "challengeId": "12-metadata-and-seo",
       "timestamp": "2026-08-27T12:12:02.517Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "11-error-handling",
+    "challengeName": "Error Handling",
+    "aiReview": {
+      "challengeId": "11-error-handling",
+      "timestamp": "2026-08-27T12:13:35.101Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
