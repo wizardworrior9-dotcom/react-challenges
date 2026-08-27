@@ -221,7 +221,7 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
           foundPatterns.add('ResponseJson');
         }
         if (path.node.callee.object && 
-            path.node.callee.object.name === 'Response' &&
+            (path.node.callee.object.name === 'Response' || path.node.callee.object.name === 'NextResponse') &&
             path.node.callee.property &&
             path.node.callee.property.name === 'json') {
           foundPatterns.add('apiRoute');

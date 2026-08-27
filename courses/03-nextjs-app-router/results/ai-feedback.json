@@ -36,7 +36,23 @@
     "challengeName": "Data Fetching in Server Components",
     "aiReview": {
       "challengeId": "03-data-fetching-server",
-      "timestamp": "2026-08-27T11:24:02.579Z",
+      "timestamp": "2026-08-27T11:26:20.437Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "04-api-route-handlers",
+    "challengeName": "API Route Handlers",
+    "aiReview": {
+      "challengeId": "04-api-route-handlers",
+      "timestamp": "2026-08-27T11:28:25.469Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

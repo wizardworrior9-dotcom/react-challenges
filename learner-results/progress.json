@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-27T11:24:03.153Z",
+  "lastUpdated": "2026-08-27T11:28:26.063Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 87.4,
-    "completionPercentage": 73.6,
-    "badgeLevel": "bronze",
+    "completionPercentage": 75.5,
+    "badgeLevel": "silver",
     "totalChallenges": 53,
-    "completedChallenges": 39
+    "completedChallenges": 40
   },
   "courses": {
     "01-react-fundamentals": {
@@ -576,10 +576,10 @@
       "courseId": "03-nextjs-app-router",
       "courseName": "Next.js App Router",
       "averageScore": 85,
-      "completionPercentage": 17.6,
+      "completionPercentage": 23.5,
       "badgeLevel": "none",
       "totalChallenges": 17,
-      "completedChallenges": 3,
+      "completedChallenges": 4,
       "challenges": {
         "01-app-router-pages-layout": {
           "challengeId": "01-app-router-pages-layout",
@@ -616,7 +616,22 @@
           "challengeName": "Data Fetching in Server Components",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-27T11:23:34.710Z",
+          "lastRun": "2026-08-27T11:25:52.965Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        },
+        "04-api-route-handlers": {
+          "challengeId": "04-api-route-handlers",
+          "challengeName": "API Route Handlers",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-27T11:27:54.155Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
