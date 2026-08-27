@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
+import AddPostForm from '../components/AddPostForm'
 
 export const dynamic = 'force-dynamic'
 
@@ -80,6 +81,8 @@ export default async function PostsPage(): Promise<React.JSX.Element> {
           Fetched on the server using <code>await fetch()</code> inside an async Server Component with streaming Suspense.
         </p>
       </header>
+
+      <AddPostForm />
 
       <Suspense
         fallback={

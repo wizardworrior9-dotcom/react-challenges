@@ -1,12 +1,12 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-08-27T11:49:51.205Z",
+  "lastUpdated": "2026-08-27T11:53:01.531Z",
   "totalChallenges": 17,
-  "completedChallenges": 8,
+  "completedChallenges": 9,
   "averageScore": 85,
-  "completionPercentage": 47.1,
-  "badgeLevel": "none",
+  "completionPercentage": 52.9,
+  "badgeLevel": "bronze",
   "challengeResults": [
     {
       "challengeId": "01-app-router-pages-layout",
@@ -55,6 +55,12 @@
       "challengeName": "SSR (Server-Side Rendering)",
       "score": 85,
       "passed": true
+    },
+    {
+      "challengeId": "09-server-actions-and-revalidation",
+      "challengeName": "Server Actions and Revalidation",
+      "score": 85,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -65,7 +71,8 @@
     "Loading and Streaming",
     "Dynamic Routes",
     "Static and Dynamic Rendering",
-    "SSR (Server-Side Rendering)"
+    "SSR (Server-Side Rendering)",
+    "Server Actions and Revalidation"
   ],
   "improvementAreas": []
 }

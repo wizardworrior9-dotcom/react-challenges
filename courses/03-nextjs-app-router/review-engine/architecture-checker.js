@@ -91,11 +91,14 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
     const normalizedName = fileName.replace(/\\/g, '/');
 
     traverseFn(ast, {
-      // Check for 'use client' directive
+      // Check for 'use client' / 'use server' directives
       Directive(path) {
         if (path.node.value.value === 'use client') {
           foundPatterns.add('useClient');
           foundPatterns.add('clientComponent');
+        }
+        if (path.node.value.value === 'use server') {
+          foundPatterns.add('useServer');
         }
       },
 
@@ -122,6 +125,17 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         // Check for cache: no-store via regex on raw content
         if (/cache:\s*['"]no-store['"]/.test(content)) {
           foundPatterns.add('cacheNoStore');
+        }
+        // Check for revalidatePath and revalidateTag calls
+        if (/revalidatePath\s*\(/.test(content)) {
+          foundPatterns.add('revalidatePath');
+        }
+        if (/revalidateTag\s*\(/.test(content)) {
+          foundPatterns.add('revalidateTag');
+        }
+        // Check for use server directive via regex (top-level string literal)
+        if (/['"]\s*use server\s*['"]/.test(content)) {
+          foundPatterns.add('useServer');
         }
       },
 
