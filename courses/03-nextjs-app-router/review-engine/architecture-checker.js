@@ -27,8 +27,8 @@ export async function checkArchitecture(challengeMetadata, projectDir) {
     details: []
   };
 
-  let totalChecks = 0;
-  let passedChecks = 0;
+  // Aggregate: a pattern "passes" if found in at least one file (project-level)
+  const foundAnywhere = new Set();
 
   for (const file of filesToCheck) {
     const filePath = join(projectDir, file);
@@ -46,12 +46,7 @@ export async function checkArchitecture(challengeMetadata, projectDir) {
     try {
       const fileContent = readFileSync(filePath, 'utf-8');
       const fileResults = checkFileForPatterns(fileContent, patternsRequired, file);
-      
-      totalChecks += patternsRequired.length;
-      passedChecks += fileResults.patternsFound.length;
-      
-      results.patternsFound.push(...fileResults.patternsFound);
-      results.patternsMissing.push(...fileResults.patternsMissing);
+      fileResults.patternsFound.forEach(p => foundAnywhere.add(p));
       results.details.push({
         file,
         patternsFound: fileResults.patternsFound,
@@ -67,11 +62,15 @@ export async function checkArchitecture(challengeMetadata, projectDir) {
     }
   }
 
-  // Calculate score
-  results.score = totalChecks > 0 
-    ? Math.round((passedChecks / totalChecks) * 100 * 10) / 10
-    : 0;
-  
+  // Score = (required patterns found in at least one file) / total required
+  patternsRequired.forEach(p => {
+    if (foundAnywhere.has(p)) results.patternsFound.push(p);
+    else results.patternsMissing.push(p);
+  });
+  const requiredFoundCount = results.patternsFound.length;
+  results.score = patternsRequired.length > 0
+    ? Math.round((requiredFoundCount / patternsRequired.length) * 100 * 10) / 10
+    : 100;
   results.passed = results.score >= 80;
 
   return results;
@@ -88,8 +87,10 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
     });
 
     const foundPatterns = new Set();
+    const traverseFn = (traverse && traverse.default) ? traverse.default : traverse;
+    const normalizedName = fileName.replace(/\\/g, '/');
 
-    traverse(ast, {
+    traverseFn(ast, {
       // Check for 'use client' directive
       Directive(path) {
         if (path.node.value.value === 'use client') {
@@ -98,13 +99,19 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         }
       },
 
-      // Check for Server Component (no 'use client')
+      // Check for Server Component (no 'use client') and app structure
       Program(path) {
         const hasUseClient = path.node.directives?.some(
           d => d.value.value === 'use client'
         );
-        if (!hasUseClient && fileName.includes('page.tsx')) {
+        if (!hasUseClient && normalizedName.includes('page.tsx')) {
           foundPatterns.add('serverComponent');
+        }
+        if (normalizedName.includes('app/')) {
+          foundPatterns.add('appDirectory');
+        }
+        if (normalizedName.includes('page.tsx')) {
+          foundPatterns.add('fileBasedRouting');
         }
       },
 
@@ -139,8 +146,8 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
             foundPatterns.add('metadata');
           }
         }
-        path.node.specifiers.forEach(spec => {
-          if (spec.exported.name === 'metadata') {
+        path.node.specifiers?.forEach(spec => {
+          if (spec.exported && spec.exported.name === 'metadata') {
             foundPatterns.add('metadata');
           }
         });
@@ -172,16 +179,6 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
       JSXElement(path) {
         if (path.node.openingElement.name.name === 'form') {
           foundPatterns.add('formHandling');
-        }
-      },
-
-      // Check for app directory structure
-      Program(path) {
-        if (fileName.includes('app/')) {
-          foundPatterns.add('appDirectory');
-        }
-        if (fileName.includes('page.tsx')) {
-          foundPatterns.add('fileBasedRouting');
         }
       }
     });

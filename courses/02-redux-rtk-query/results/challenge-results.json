@@ -3190,7 +3190,7 @@
   {
     "challengeId": "13-query-parameters",
     "challengeName": "Query with Parameters and Detail View",
-    "timestamp": "2026-08-25T07:47:48.882Z",
+    "timestamp": "2026-08-25T07:49:18.529Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -3246,8 +3246,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787644076621,
-          "endTime": 1787644076626,
+          "startTime": 1787644165759,
+          "endTime": 1787644165764,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-13.test.tsx"
@@ -3364,12 +3364,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 615,
+                          "duration": 621,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-25T07:48:14.857Z",
+                          "startTime": "2026-08-25T07:49:43.505Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -3398,12 +3398,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 475,
+                          "duration": 478,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-25T07:48:15.729Z",
+                          "startTime": "2026-08-25T07:49:44.373Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -3425,7 +3425,7 @@
     },
     "aiReviewResults": {
       "challengeId": "13-query-parameters",
-      "timestamp": "2026-08-25T07:48:16.844Z",
+      "timestamp": "2026-08-25T07:49:45.480Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -3437,7 +3437,7 @@
     },
     "aiResults": {
       "challengeId": "13-query-parameters",
-      "timestamp": "2026-08-25T07:48:16.844Z",
+      "timestamp": "2026-08-25T07:49:45.480Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

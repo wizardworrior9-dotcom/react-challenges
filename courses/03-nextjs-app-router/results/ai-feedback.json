@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "challengeId": "01-app-router-pages-layout",
+    "challengeName": "App Router, Pages, and Layout",
+    "aiReview": {
+      "challengeId": "01-app-router-pages-layout",
+      "timestamp": "2026-08-27T11:06:31.310Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  }
+]

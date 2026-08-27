@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-25T07:48:17.513Z",
+  "lastUpdated": "2026-08-27T11:06:31.970Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 58.5,
-    "completionPercentage": 67.9,
-    "badgeLevel": "none",
+    "overallScore": 87.4,
+    "completionPercentage": 69.8,
+    "badgeLevel": "bronze",
     "totalChallenges": 53,
-    "completedChallenges": 36
+    "completedChallenges": 37
   },
   "courses": {
     "01-react-fundamentals": {
@@ -560,7 +560,7 @@
           "challengeName": "Query with Parameters and Detail View",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-25T07:47:48.882Z",
+          "lastRun": "2026-08-25T07:49:18.529Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -575,12 +575,28 @@
     "03-nextjs-app-router": {
       "courseId": "03-nextjs-app-router",
       "courseName": "Next.js App Router",
-      "averageScore": 0,
-      "completionPercentage": 0,
+      "averageScore": 85,
+      "completionPercentage": 5.9,
       "badgeLevel": "none",
       "totalChallenges": 17,
-      "completedChallenges": 0,
-      "challenges": {}
+      "completedChallenges": 1,
+      "challenges": {
+        "01-app-router-pages-layout": {
+          "challengeId": "01-app-router-pages-layout",
+          "challengeName": "App Router, Pages, and Layout",
+          "passed": true,
+          "score": 85,
+          "lastRun": "2026-08-27T11:03:44.545Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 0
+          }
+        }
+      }
     }
   }
 }
