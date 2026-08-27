@@ -129,13 +129,46 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
       FunctionDeclaration(path) {
         if (path.node.async) {
           foundPatterns.add('asyncComponent');
+          const hasUseClient = content.includes("'use client'") || content.includes('"use client"');
+          if (!hasUseClient) {
+            foundPatterns.add('asyncServerComponent');
+          }
+        }
+      },
+
+      FunctionExpression(path) {
+        if (path.node.async) {
+          foundPatterns.add('asyncComponent');
+          const hasUseClient = content.includes("'use client'") || content.includes('"use client"');
+          if (!hasUseClient) {
+            foundPatterns.add('asyncServerComponent');
+          }
+        }
+      },
+
+      ExportDefaultDeclaration(path) {
+        const decl = path.node.declaration;
+        if (decl && (decl.async || (decl.type === 'FunctionDeclaration' && decl.async))) {
+          foundPatterns.add('asyncComponent');
+          const hasUseClient = content.includes("'use client'") || content.includes('"use client"');
+          if (!hasUseClient) {
+            foundPatterns.add('asyncServerComponent');
+          }
         }
       },
 
       ArrowFunctionExpression(path) {
         if (path.node.async) {
           foundPatterns.add('asyncComponent');
+          const hasUseClient = content.includes("'use client'") || content.includes('"use client"');
+          if (!hasUseClient) {
+            foundPatterns.add('asyncServerComponent');
+          }
         }
+      },
+
+      AwaitExpression() {
+        foundPatterns.add('await');
       },
 
       // Check for metadata export
@@ -145,10 +178,28 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
           if (decl.id && decl.id.name === 'metadata') {
             foundPatterns.add('metadata');
           }
+          if (decl.declarations) {
+            decl.declarations.forEach(d => {
+              if (d.id?.name === 'metadata') foundPatterns.add('metadata');
+              if (d.id?.name === 'dynamic') {
+                foundPatterns.add('dynamicExport');
+                if (d.init?.value === 'force-dynamic') foundPatterns.add('forceDynamic');
+                if (d.init?.value === 'force-static') foundPatterns.add('forceStaticOrDynamic');
+              }
+            });
+          }
+          if (decl.id && (decl.id.name === 'GET' || decl.id.name === 'POST')) {
+            foundPatterns.add('routeHandler');
+            foundPatterns.add(decl.id.name);
+          }
         }
         path.node.specifiers?.forEach(spec => {
           if (spec.exported && spec.exported.name === 'metadata') {
             foundPatterns.add('metadata');
+          }
+          if (spec.exported && (spec.exported.name === 'GET' || spec.exported.name === 'POST')) {
+            foundPatterns.add('routeHandler');
+            foundPatterns.add(spec.exported.name);
           }
         });
       },
@@ -156,19 +207,25 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
       // Check for API route (route.ts) and hooks
       CallExpression(path) {
         const calleeName = path.node.callee.name;
+        if (calleeName === 'fetch') foundPatterns.add('fetch');
         if (calleeName === 'useState') foundPatterns.add('useState');
         if (calleeName === 'useEffect') foundPatterns.add('useEffect');
         if (calleeName === 'useReducer') foundPatterns.add('useReducer');
         if (calleeName === 'useCallback') foundPatterns.add('useCallback');
         if (calleeName === 'useMemo') foundPatterns.add('useMemo');
-        if (path.node.callee.name === 'NextResponse') {
+        if (calleeName === 'notFound') foundPatterns.add('notFound');
+        if (calleeName === 'revalidatePath') foundPatterns.add('revalidatePath');
+        if (calleeName === 'revalidateTag') foundPatterns.add('revalidateTag');
+        if (calleeName === 'NextResponse') {
           foundPatterns.add('apiRoute');
+          foundPatterns.add('ResponseJson');
         }
         if (path.node.callee.object && 
             path.node.callee.object.name === 'Response' &&
             path.node.callee.property &&
             path.node.callee.property.name === 'json') {
           foundPatterns.add('apiRoute');
+          foundPatterns.add('ResponseJson');
         }
       },
 

@@ -338,7 +338,7 @@
   {
     "challengeId": "02-server-and-client-components",
     "challengeName": "Server and Client Components",
-    "timestamp": "2026-08-27T11:17:57.549Z",
+    "timestamp": "2026-08-27T11:19:21.903Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -368,7 +368,7 @@
               "fullName": " Challenge 02: Server and Client Components should have at least one Client Component with use client",
               "status": "passed",
               "title": "should have at least one Client Component with use client",
-              "duration": 3,
+              "duration": 2,
               "failureMessages": []
             },
             {
@@ -379,7 +379,7 @@
               "fullName": " Challenge 02: Server and Client Components should have Client Component that uses state or event handlers",
               "status": "passed",
               "title": "should have Client Component that uses state or event handlers",
-              "duration": 2,
+              "duration": 1,
               "failureMessages": []
             },
             {
@@ -394,8 +394,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787829481958,
-          "endTime": 1787829481964,
+          "startTime": 1787829566156,
+          "endTime": 1787829566161,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-02.test.tsx"
@@ -528,12 +528,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1003,
+                          "duration": 951,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:18:21.932Z",
+                          "startTime": "2026-08-27T11:19:44.608Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -562,12 +562,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 906,
+                          "duration": 917,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:18:23.185Z",
+                          "startTime": "2026-08-27T11:19:45.807Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -589,7 +589,7 @@
     },
     "aiReviewResults": {
       "challengeId": "02-server-and-client-components",
-      "timestamp": "2026-08-27T11:18:24.694Z",
+      "timestamp": "2026-08-27T11:19:47.293Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -601,7 +601,242 @@
     },
     "aiResults": {
       "challengeId": "02-server-and-client-components",
-      "timestamp": "2026-08-27T11:18:24.694Z",
+      "timestamp": "2026-08-27T11:19:47.293Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "03-data-fetching-server",
+    "challengeName": "Data Fetching in Server Components",
+    "timestamp": "2026-08-27T11:23:34.710Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 03: Data Fetching in Server Components"
+              ],
+              "fullName": " Challenge 03: Data Fetching in Server Components should have posts page (or equivalent data page)",
+              "status": "passed",
+              "title": "should have posts page (or equivalent data page)",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 03: Data Fetching in Server Components"
+              ],
+              "fullName": " Challenge 03: Data Fetching in Server Components should have async Server Component",
+              "status": "passed",
+              "title": "should have async Server Component",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 03: Data Fetching in Server Components"
+              ],
+              "fullName": " Challenge 03: Data Fetching in Server Components should fetch data in Server Component",
+              "status": "passed",
+              "title": "should fetch data in Server Component",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787829819234,
+          "endTime": 1787829819238,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-03.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "asyncServerComponent",
+        "fetch",
+        "await"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [
+            "asyncServerComponent",
+            "fetch",
+            "await"
+          ],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-03.spec.ts",
+          "file": "challenge-03.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 03: Data Fetching - E2E",
+              "file": "challenge-03.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load posts page with content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2022,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T11:23:59.006Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "abe74fb7538c55bf8146-4bec499cece7348545ba",
+                  "file": "challenge-03.spec.ts",
+                  "line": 8,
+                  "column": 7
+                },
+                {
+                  "title": "should have API route that returns JSON",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 668,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T11:24:01.264Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "abe74fb7538c55bf8146-b699cd20cbc61b3b8da4",
+                  "file": "challenge-03.spec.ts",
+                  "line": 15,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "03-data-fetching-server",
+      "timestamp": "2026-08-27T11:24:02.579Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "03-data-fetching-server",
+      "timestamp": "2026-08-27T11:24:02.579Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

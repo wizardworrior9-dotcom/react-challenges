@@ -12,9 +12,12 @@ export default function Home(): React.JSX.Element {
           Work on challenges by modifying code in <code>app/</code> directory.
           Run <code>npm run dev</code> to see your changes.
         </p>
-        <nav style={{ marginTop: '1rem' }}>
+        <nav style={{ marginTop: '1rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
           <Link href="/about" style={{ color: '#0070f3', textDecoration: 'underline' }}>
             About
+          </Link>
+          <Link href="/posts" style={{ color: '#0070f3', textDecoration: 'underline' }}>
+            Posts
           </Link>
         </nav>
       </header>
