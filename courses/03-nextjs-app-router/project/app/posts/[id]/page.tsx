@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 interface Post {
   id: number
@@ -17,30 +18,49 @@ export async function generateStaticParams(): Promise<Array<{ id: string }>> {
   return [{ id: '1' }, { id: '2' }, { id: '3' }]
 }
 
-async function getPost(id: string): Promise<Post> {
+async function getPost(id: string): Promise<Post | null> {
+  // Reject clearly non-numeric IDs
+  const numericId = parseInt(id, 10)
+  if (isNaN(numericId) || numericId <= 0) {
+    return null
+  }
+
   try {
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       next: { revalidate: 60 },
     })
 
-    if (!res.ok) {
-      throw new Error(`Failed to fetch post: ${res.statusText}`)
+    if (!res.ok || res.status === 404) {
+      return null
     }
 
-    return res.json()
-  } catch {
-    // Fallback data if network is unavailable
-    return {
-      id: Number(id) || 1,
-      title: `Dynamic Post #${id}`,
-      body: `This is the body content for post ID ${id}, rendered dynamically using Next.js App Router dynamic route segments.`,
-      userId: 1,
+    const data = await res.json()
+    // JSONPlaceholder returns {} for out-of-range IDs
+    if (!data || !data.id) {
+      return null
     }
+
+    return data as Post
+  } catch {
+    // On network errors fallback for known IDs only
+    if (numericId >= 1 && numericId <= 100) {
+      return {
+        id: numericId,
+        title: `Dynamic Post #${id}`,
+        body: `This is the body content for post ID ${id}, rendered dynamically using Next.js App Router dynamic route segments.`,
+        userId: 1,
+      }
+    }
+    return null
   }
 }
 
 export default async function PostDetailPage({ params }: PageProps): Promise<React.JSX.Element> {
   const post = await getPost(params.id)
+
+  if (!post) {
+    notFound()
+  }
 
   return (
     <main style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem' }}>

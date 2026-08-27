@@ -119,6 +119,12 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (normalizedName.includes('loading.tsx') || normalizedName.includes('loading.js')) {
           foundPatterns.add('loadingTsx');
         }
+        if (normalizedName.includes('error.tsx') || normalizedName.includes('error.js')) {
+          foundPatterns.add('errorTsx');
+        }
+        if (normalizedName.includes('not-found.tsx') || normalizedName.includes('not-found.js')) {
+          foundPatterns.add('notFoundTsx');
+        }
         if (normalizedName.includes('[') && normalizedName.includes(']')) {
           foundPatterns.add('dynamicSegment');
         }
@@ -144,6 +150,10 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         // Check for revalidate (export const revalidate or next:{revalidate})
         if (/revalidatePath\s*\(|revalidateTag\s*\(|next:\s*\{[^}]*revalidate|export\s+const\s+revalidate\s*=/.test(content)) {
           foundPatterns.add('revalidate');
+        }
+        // Check for notFound() call from next/navigation
+        if (/notFound\s*\(\)/.test(content)) {
+          foundPatterns.add('notFound');
         }
       },
 
