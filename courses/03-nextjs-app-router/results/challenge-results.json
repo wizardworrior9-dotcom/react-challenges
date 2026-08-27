@@ -2,7 +2,7 @@
   {
     "challengeId": "01-app-router-pages-layout",
     "challengeName": "App Router, Pages, and Layout",
-    "timestamp": "2026-08-27T11:07:18.370Z",
+    "timestamp": "2026-08-27T11:09:03.382Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -80,8 +80,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787828842786,
-          "endTime": 1787828842794,
+          "startTime": 1787828948157,
+          "endTime": 1787828948165,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-01.test.tsx"
@@ -217,12 +217,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1252,
+                          "duration": 1008,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:07:46.532Z",
+                          "startTime": "2026-08-27T11:09:26.840Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -251,12 +251,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 2780,
+                          "duration": 1732,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:07:48.034Z",
+                          "startTime": "2026-08-27T11:09:28.094Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -285,12 +285,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 978,
+                          "duration": 1003,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:07:50.844Z",
+                          "startTime": "2026-08-27T11:09:29.857Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -312,7 +312,7 @@
     },
     "aiReviewResults": {
       "challengeId": "01-app-router-pages-layout",
-      "timestamp": "2026-08-27T11:07:52.390Z",
+      "timestamp": "2026-08-27T11:09:31.410Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -324,7 +324,7 @@
     },
     "aiResults": {
       "challengeId": "01-app-router-pages-layout",
-      "timestamp": "2026-08-27T11:07:52.390Z",
+      "timestamp": "2026-08-27T11:09:31.410Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
