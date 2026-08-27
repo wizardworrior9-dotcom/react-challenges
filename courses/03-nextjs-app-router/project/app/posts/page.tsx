@@ -13,7 +13,7 @@ interface Post {
 async function getPosts(): Promise<Post[]> {
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10', {
-      next: { revalidate: 60 },
+      cache: 'no-store',
     })
 
     if (!res.ok) {

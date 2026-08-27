@@ -119,6 +119,10 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (normalizedName.includes('[') && normalizedName.includes(']')) {
           foundPatterns.add('dynamicSegment');
         }
+        // Check for cache: no-store via regex on raw content
+        if (/cache:\s*['"]no-store['"]/.test(content)) {
+          foundPatterns.add('cacheNoStore');
+        }
       },
 
       // Check for Link and Suspense component imports
