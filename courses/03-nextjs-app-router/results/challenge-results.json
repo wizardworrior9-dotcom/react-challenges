@@ -1040,7 +1040,7 @@
   {
     "challengeId": "05-loading-and-streaming",
     "challengeName": "Loading and Streaming",
-    "timestamp": "2026-08-27T11:32:34.506Z",
+    "timestamp": "2026-08-27T11:35:56.690Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -1070,7 +1070,7 @@
               "fullName": " Challenge 05: Loading and Streaming should have loading.tsx in a route segment",
               "status": "passed",
               "title": "should have loading.tsx in a route segment",
-              "duration": 3,
+              "duration": 2,
               "failureMessages": []
             },
             {
@@ -1085,8 +1085,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787830359482,
-          "endTime": 1787830359486,
+          "startTime": 1787830561400,
+          "endTime": 1787830561403,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-05.test.tsx"
@@ -1196,12 +1196,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1744,
+                          "duration": 1642,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T11:33:01.885Z",
+                          "startTime": "2026-08-27T11:36:22.977Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1223,7 +1223,7 @@
     },
     "aiReviewResults": {
       "challengeId": "05-loading-and-streaming",
-      "timestamp": "2026-08-27T11:33:04.550Z",
+      "timestamp": "2026-08-27T11:36:25.487Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -1235,7 +1235,7 @@
     },
     "aiResults": {
       "challengeId": "05-loading-and-streaming",
-      "timestamp": "2026-08-27T11:33:04.550Z",
+      "timestamp": "2026-08-27T11:36:25.487Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
