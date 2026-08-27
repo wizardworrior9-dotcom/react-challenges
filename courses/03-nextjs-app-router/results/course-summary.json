@@ -1,11 +1,11 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-08-27T12:25:18.160Z",
+  "lastUpdated": "2026-08-27T12:29:32.610Z",
   "totalChallenges": 17,
-  "completedChallenges": 13,
+  "completedChallenges": 14,
   "averageScore": 85,
-  "completionPercentage": 76.5,
+  "completionPercentage": 82.4,
   "badgeLevel": "silver",
   "challengeResults": [
     {
@@ -85,6 +85,12 @@
       "challengeName": "Images and Fonts",
       "score": 85,
       "passed": true
+    },
+    {
+      "challengeId": "14-search-and-pagination",
+      "challengeName": "Search and Pagination",
+      "score": 85,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -100,7 +106,8 @@
     "Caching and Revalidating",
     "Error Handling",
     "Metadata and SEO",
-    "Images and Fonts"
+    "Images and Fonts",
+    "Search and Pagination"
   ],
   "improvementAreas": []
 }

@@ -2770,7 +2770,7 @@
   {
     "challengeId": "13-images-and-fonts",
     "challengeName": "Images and Fonts",
-    "timestamp": "2026-08-27T12:24:39.835Z",
+    "timestamp": "2026-08-27T12:25:46.733Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -2815,8 +2815,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787833485058,
-          "endTime": 1787833485063,
+          "startTime": 1787833551424,
+          "endTime": 1787833551429,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-13.test.tsx"
@@ -2926,12 +2926,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1017,
+                          "duration": 1031,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T12:25:15.783Z",
+                          "startTime": "2026-08-27T12:26:14.732Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2953,7 +2953,7 @@
     },
     "aiReviewResults": {
       "challengeId": "13-images-and-fonts",
-      "timestamp": "2026-08-27T12:25:17.664Z",
+      "timestamp": "2026-08-27T12:26:16.584Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -2965,7 +2965,184 @@
     },
     "aiResults": {
       "challengeId": "13-images-and-fonts",
-      "timestamp": "2026-08-27T12:25:17.664Z",
+      "timestamp": "2026-08-27T12:26:16.584Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "14-search-and-pagination",
+    "challengeName": "Search and Pagination",
+    "timestamp": "2026-08-27T12:28:55.476Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 14: Search and Pagination"
+              ],
+              "fullName": " Challenge 14: Search and Pagination should have page that receives searchParams",
+              "status": "passed",
+              "title": "should have page that receives searchParams",
+              "duration": 4,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787833740855,
+          "endTime": 1787833740859,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-14.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "searchParams",
+        "pagination"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [
+            "searchParams",
+            "pagination"
+          ],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-14.spec.ts",
+          "file": "challenge-14.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 14: Search and Pagination - E2E",
+              "file": "challenge-14.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load posts page with search params",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 5335,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T12:29:25.928Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "be2334d46d68155f57f3-6377bbff5b159b7bceea",
+                  "file": "challenge-14.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "14-search-and-pagination",
+      "timestamp": "2026-08-27T12:29:32.122Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "14-search-and-pagination",
+      "timestamp": "2026-08-27T12:29:32.122Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

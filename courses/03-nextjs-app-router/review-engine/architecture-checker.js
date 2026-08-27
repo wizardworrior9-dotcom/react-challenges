@@ -166,6 +166,13 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (/from\s+['"]next\/font(\/google|\/local)?['"]/.test(content)) {
           foundPatterns.add('nextFont');
         }
+        // Check for searchParams and pagination
+        if (/searchParams/.test(content)) {
+          foundPatterns.add('searchParams');
+        }
+        if (/page|pagination|\?page=/.test(content)) {
+          foundPatterns.add('pagination');
+        }
       },
 
       // Check for Link, Suspense, Image, Font component imports
@@ -195,11 +202,17 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (path.node.name === 'params') {
           foundPatterns.add('params');
         }
+        if (path.node.name === 'searchParams') {
+          foundPatterns.add('searchParams');
+        }
       },
 
       MemberExpression(path) {
         if (path.node.object?.name === 'params') {
           foundPatterns.add('params');
+        }
+        if (path.node.object?.name === 'searchParams') {
+          foundPatterns.add('searchParams');
         }
       },
 
