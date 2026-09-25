@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import PostInteraction from './PostInteraction'
 
 interface Post {
   id: number
@@ -123,7 +124,10 @@ export default async function PostDetailPage({ params }: PageProps): Promise<Rea
         <p style={{ color: '#444', lineHeight: '1.7', fontSize: '1.1rem' }}>
           {post.body}
         </p>
+
+        <PostInteraction postId={post.id} />
       </article>
     </main>
   )
 }
+

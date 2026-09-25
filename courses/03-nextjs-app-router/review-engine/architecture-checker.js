@@ -158,6 +158,7 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         // Check for generateMetadata export
         if (/export\s+(async\s+)?function\s+generateMetadata|export\s+const\s+generateMetadata/.test(content)) {
           foundPatterns.add('generateMetadata');
+          foundPatterns.add('metadata');
         }
         // Check for next/image and next/font
         if (/from\s+['"]next\/image['"]/.test(content)) {

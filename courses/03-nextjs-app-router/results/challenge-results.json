@@ -3669,5 +3669,286 @@
       "overall": "",
       "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
+  },
+  {
+    "challengeId": "17-fullstack-capstone",
+    "challengeName": "Fullstack Capstone",
+    "timestamp": "2026-09-25T14:40:55.688Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have dynamic route page",
+              "status": "passed",
+              "title": "should have dynamic route page",
+              "duration": 3,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have error.tsx or not-found.tsx",
+              "status": "passed",
+              "title": "should have error.tsx or not-found.tsx",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have metadata or generateMetadata on dynamic page",
+              "status": "passed",
+              "title": "should have metadata or generateMetadata on dynamic page",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1790347259553,
+          "endTime": 1790347259558,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-17.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\not-found.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\[id]\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\wizar\\OneDrive\\Desktop\\react\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\error.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "dynamicSegment",
+        "useClient",
+        "notFound",
+        "metadata"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "app/posts/[id]/page.tsx",
+          "patternsFound": [
+            "dynamicSegment",
+            "notFound",
+            "metadata"
+          ],
+          "patternsMissing": [
+            "useClient"
+          ]
+        },
+        {
+          "file": "app/posts/error.tsx",
+          "patternsFound": [
+            "useClient"
+          ],
+          "patternsMissing": [
+            "dynamicSegment",
+            "notFound",
+            "metadata"
+          ]
+        },
+        {
+          "file": "app/not-found.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "dynamicSegment",
+            "useClient",
+            "notFound",
+            "metadata"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-17.spec.ts",
+          "file": "challenge-17.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 17: Fullstack Capstone - E2E",
+              "file": "challenge-17.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load dynamic post detail page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 5339,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-09-25T14:41:20.358Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "10801a4643fac957b65b-280b051c09c5da4cb93b",
+                  "file": "challenge-17.spec.ts",
+                  "line": 8,
+                  "column": 7
+                },
+                {
+                  "title": "should have interactive content or form",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1007,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-09-25T14:41:25.953Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "10801a4643fac957b65b-3686cfc4fb575f2d1437",
+                  "file": "challenge-17.spec.ts",
+                  "line": 14,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "17-fullstack-capstone",
+      "timestamp": "2026-09-25T14:41:27.461Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "17-fullstack-capstone",
+      "timestamp": "2026-09-25T14:41:27.461Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
   }
 ]
