@@ -3156,7 +3156,7 @@
   {
     "challengeId": "15-redux-toolkit-with-nextjs",
     "challengeName": "Redux Toolkit with Next.js",
-    "timestamp": "2026-08-27T12:46:48.800Z",
+    "timestamp": "2026-09-25T13:53:00.230Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -3197,7 +3197,7 @@
               "fullName": " Challenge 15: Redux Toolkit with Next.js should have Client Provider wrapping with Provider and store",
               "status": "passed",
               "title": "should have Client Provider wrapping with Provider and store",
-              "duration": 1,
+              "duration": 3,
               "failureMessages": []
             },
             {
@@ -3208,12 +3208,12 @@
               "fullName": " Challenge 15: Redux Toolkit with Next.js should use useSelector or useDispatch in a Client Component",
               "status": "passed",
               "title": "should use useSelector or useDispatch in a Client Component",
-              "duration": 1,
+              "duration": 2,
               "failureMessages": []
             }
           ],
-          "startTime": 1787834813832,
-          "endTime": 1787834813840,
+          "startTime": 1790344418060,
+          "endTime": 1790344418070,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-15.test.tsx"
@@ -3351,12 +3351,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1503,
+                          "duration": 2205,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-27T12:47:22.706Z",
+                          "startTime": "2026-09-25T13:55:53.333Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -3378,7 +3378,7 @@
     },
     "aiReviewResults": {
       "challengeId": "15-redux-toolkit-with-nextjs",
-      "timestamp": "2026-08-27T12:47:25.080Z",
+      "timestamp": "2026-09-25T13:55:58.091Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -3390,7 +3390,7 @@
     },
     "aiResults": {
       "challengeId": "15-redux-toolkit-with-nextjs",
-      "timestamp": "2026-08-27T12:47:25.080Z",
+      "timestamp": "2026-09-25T13:55:58.091Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

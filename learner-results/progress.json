@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-27T12:47:25.671Z",
+  "lastUpdated": "2026-09-25T13:55:58.928Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
@@ -796,7 +796,7 @@
           "challengeName": "Redux Toolkit with Next.js",
           "passed": true,
           "score": 85,
-          "lastRun": "2026-08-27T12:46:48.800Z",
+          "lastRun": "2026-09-25T13:53:00.230Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
