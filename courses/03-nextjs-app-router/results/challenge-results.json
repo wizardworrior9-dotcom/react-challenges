@@ -3404,7 +3404,7 @@
   {
     "challengeId": "16-rtk-query-with-nextjs",
     "challengeName": "RTK Query with Next.js",
-    "timestamp": "2026-09-25T14:28:20.587Z",
+    "timestamp": "2026-09-25T14:34:20.547Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -3434,7 +3434,7 @@
               "fullName": " Challenge 16: RTK Query with Next.js should have createApi and fetchBaseQuery",
               "status": "passed",
               "title": "should have createApi and fetchBaseQuery",
-              "duration": 3,
+              "duration": 2,
               "failureMessages": []
             },
             {
@@ -3449,8 +3449,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1790346506596,
-          "endTime": 1790346506600,
+          "startTime": 1790346864479,
+          "endTime": 1790346864483,
           "status": "passed",
           "message": "",
           "name": "C:/Users/wizar/OneDrive/Desktop/react/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-16.test.tsx"
@@ -3586,12 +3586,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1987,
+                          "duration": 1080,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-09-25T14:28:48.371Z",
+                          "startTime": "2026-09-25T14:34:44.230Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -3620,12 +3620,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 5052,
+                          "duration": 5037,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-09-25T14:28:52.413Z",
+                          "startTime": "2026-09-25T14:34:45.531Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -3647,7 +3647,7 @@
     },
     "aiReviewResults": {
       "challengeId": "16-rtk-query-with-nextjs",
-      "timestamp": "2026-09-25T14:28:58.010Z",
+      "timestamp": "2026-09-25T14:34:51.018Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -3659,7 +3659,7 @@
     },
     "aiResults": {
       "challengeId": "16-rtk-query-with-nextjs",
-      "timestamp": "2026-09-25T14:28:58.010Z",
+      "timestamp": "2026-09-25T14:34:51.018Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
