@@ -186,6 +186,21 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (/useDispatch/.test(content)) {
           foundPatterns.add('useDispatch');
         }
+        // Check for RTK Query patterns
+        if (/createApi/.test(content)) {
+          foundPatterns.add('createApi');
+        }
+        if (/fetchBaseQuery/.test(content)) {
+          foundPatterns.add('fetchBaseQuery');
+        }
+        if (/use[A-Z]\w*Query|useQuery/.test(content)) {
+          foundPatterns.add('useQuery');
+          foundPatterns.add('useGetPostsQuery');
+        }
+        if (/use[A-Z]\w*Mutation|useMutation/.test(content)) {
+          foundPatterns.add('useMutation');
+          foundPatterns.add('useAddPostMutation');
+        }
       },
 
       // Check for Link, Suspense, Image, Font, Redux component imports

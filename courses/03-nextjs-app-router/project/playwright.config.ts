@@ -12,7 +12,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'json',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://127.0.0.1:3000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -25,9 +25,12 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    command: 'npx next dev -H 127.0.0.1 -p 3000',
+    url: 'http://127.0.0.1:3000',
+    reuseExistingServer: true,
     timeout: 120 * 1000,
+    env: {
+      NEXT_IGNORE_INCORRECT_LOCKFILE: '1',
+    },
   },
 });

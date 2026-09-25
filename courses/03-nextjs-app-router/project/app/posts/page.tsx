@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import AddPostForm from '../components/AddPostForm'
+import PostsListClient from './PostsList'
 
 export const dynamic = 'force-dynamic'
 
@@ -280,6 +281,9 @@ export default async function PostsPage({ searchParams }: SearchParamsProps): Pr
       >
         <PostsList query={query} currentPage={pageNum} />
       </Suspense>
+
+      <PostsListClient />
     </main>
   )
 }
+
